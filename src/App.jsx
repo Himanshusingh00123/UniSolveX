@@ -1,14 +1,22 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import 'remixicon/fonts/remixicon.css'
+
+import Home from "./Components/LandingPage/Home";
+import Dashboard from "./Components/Admin/Dashboard";
+import Layout from "./Components/Admin/Layout";
+import Courses from "./Components/Admin/Courses";
+
 const App = () => {
   return (
-    <div>
-      <h1 className="text-4xl font-bold text-center">Hello Himanshu</h1>
-      <p className="text-2xl font-medium text-center text-purple-600">
-        I am learning Git
-      </p>
-      <h3 className="text-2xl font-semibold text-center text-amber-500">
-        hello this is testing from me for git knowledge
-      </h3>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/admin" element={<Layout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="courses" element={<Courses />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 };
 
