@@ -50,12 +50,12 @@ const Layout = () => {
 
       <aside
         className={` bg-white h-full  overflow-hidden rounded-lg  justify-center border  border-gray-300 md:relative z-40 top-0 left-0 fixed
-      ${sidebar ? "md:w-64 w-48" : "md:w-18  w-0"} transition-all duration-500 md:duration-300   shadow 
+      ${sidebar ? "md:w-64 w-50" : "md:w-18  w-0"} transition-all duration-500 md:duration-300   shadow 
       `}
       >
         <div className="md:h-15 h-13 m-2  flex items-center  justify-center    border-b-2 border-gray-300">
           <img src="Logo.png" alt="Logo" className="h-full  object-cover " />
-          <h1 className="md:text-2xl text-xl font-bold text-blue-600 md:-ml-3  -ml-4 mr-4  md:mr-3 overflow-hidden ">
+          <h1 className="md:text-2xl text-xl font-bold text-blue-600 -ml-3   mr-5  md:mr-3 overflow-hidden ">
             UniSolve<span className="text-amber-500">X</span>
           </h1>
         </div>
@@ -154,10 +154,19 @@ const Layout = () => {
 
         <div className=" md:h-19 h-15 bg-white md:rounded-lg border shadow-md border-gray-300 sticky top-0 left-0 flex justify-between items-center p-4">
           <button
-            className=" p-2 rounded-lg hover:bg-gray-100 cursor-pointer"
-            onClick={() => setSidebar(!sidebar)}
+            onClick={() => {
+              setSidebar(!sidebar);
+              setActive(9);
+            }}
+            className="p-2 rounded-lg md:hover:bg-gray-100  cursor-pointer"
           >
-            <i className="ri-layout-left-line text-xl text-gray-500 hover:text-black "></i>
+            {window.innerWidth >= 768 ? (
+              <i className="ri-layout-left-line text-xl text-gray-500 hover:text-black "></i>
+            ) : (
+              <i
+                className={`ri-menu-2-line text-2xl  text-gray-600 ${active === 9 ? "bg-gray-200 p-2 rounded-lg " : "bg-none"} hover:text-black `}
+              ></i>
+            )}
           </button>
 
           <img
