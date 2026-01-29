@@ -50,7 +50,7 @@ const Layout = () => {
 
       <aside
         className={` bg-white h-full  overflow-hidden rounded-lg  justify-center border  border-gray-300 md:relative z-40 top-0 left-0 fixed
-      ${sidebar ? "md:w-64 w-48" : "md:w-18  w-0"} transition-all duration-300  shadow 
+      ${sidebar ? "md:w-64 w-48" : "md:w-18  w-0"} transition-all duration-500 md:duration-300   shadow 
       `}
       >
         <div className="md:h-15 h-13 m-2  flex items-center  justify-center    border-b-2 border-gray-300">
