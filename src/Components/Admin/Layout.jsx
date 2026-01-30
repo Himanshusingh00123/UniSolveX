@@ -1,12 +1,21 @@
 import { useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import Content from "./Content";
 import Sidetitle from "./Sidetitle";
 import Academic from "./Academic";
+
 const Layout = () => {
   const [sidebar, setSidebar] = useState(false);
   const [active, setActive] = useState(0);
   const [menu, setMenu] = useState(false);
+  const navigate = useNavigate();
+
+  const handle = () => {
+    navigate("/admin");
+    if (active > 0) {
+      setActive(0);
+    }
+  };
 
   useEffect(() => {
     if (window.innerWidth >= 768) {
@@ -17,18 +26,22 @@ const Layout = () => {
   const academic = [
     {
       icon: <i className="ri-school-line text-xl "></i>,
+      link: "/admin/courses",
       name: "Course",
     },
     {
       icon: <i className="ri-git-branch-line text-xl "></i>,
+      link: "/admin/branch",
       name: "Branch",
     },
     {
       icon: <i className="ri-calendar-line text-xl "></i>,
+      link: "/admin/semester",
       name: "Semester",
     },
     {
       icon: <i className="ri-calendar-2-line text-xl "></i>,
+      link: "/admin/exam-year",
       name: "Exam Years",
     },
   ];
@@ -36,10 +49,12 @@ const Layout = () => {
   const content = [
     {
       icon: <i className="ri-article-line text-xl "></i>,
+      link: "/admin/question-paper",
       name: "Question Paper",
     },
     {
       icon: <i className="ri-file-text-line text-xl "></i>,
+      link: "/admin/solution",
       name: "Solution",
     },
   ];
@@ -54,16 +69,22 @@ const Layout = () => {
       ${sidebar ? "md:w-64 w-50" : "md:w-18  w-0"} transition-all duration-400 md:duration-300   shadow 
       `}
       >
-        <div className="md:h-15 h-13 m-2  flex items-center  justify-center    border-b-2 border-gray-300">
+        <div
+          onClick={handle}
+          className="md:h-15 h-13 m-2 cursor-pointer flex items-center  justify-center    border-b-2 border-gray-300"
+        >
           <img src="Logo.png" alt="Logo" className="h-full  object-cover " />
-          <h1 className="md:text-2xl text-xl font-bold text-blue-600 -ml-3   mr-5  md:mr-3 overflow-hidden ">
+          <h1
+            className={`md:text-2xl text-xl font-bold text-blue-600 -ml-3 ${sidebar ? "md:visible" : "md:invisible"}  mr-5  md:mr-3 overflow-hidden `}
+          >
             UniSolve<span className="text-amber-500">X</span>
           </h1>
         </div>
 
         {/* ------------------------------navigation------------------------------ */}
 
-        <div
+        <Link
+          to="/admin"
           onClick={() => {
             setActive(0);
             if (window.innerWidth < 768) {
@@ -82,7 +103,7 @@ const Layout = () => {
           >
             Dashboard
           </h1>
-        </div>
+        </Link>
 
         <Sidetitle sidebar={sidebar} title="ACADEMIC" />
 
@@ -106,7 +127,8 @@ const Layout = () => {
 
         <Sidetitle sidebar={sidebar} title="PROFILE" />
 
-        <div
+        <Link
+          to="/admin/setting"
           onClick={() => {
             setActive(7);
             if (window.innerWidth < 768) {
@@ -119,13 +141,13 @@ const Layout = () => {
            md:h-11 h-9 flex items-center rounded-lg gap-2 px-3
             mx-3 mt-4`}
         >
-          <i class="ri-settings-2-line text-xl "></i>
+          <i className="ri-settings-2-line text-xl "></i>
           <h1
             className={`md:text-base text-sm font-semibold ${sidebar ? "md:visible" : "md:invisible"} overflow-hidden`}
           >
             Setting
           </h1>
-        </div>
+        </Link>
         <hr className="mx-2 mt-2 text-gray-400 font-bold" />
 
         <div

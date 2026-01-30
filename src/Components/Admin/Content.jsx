@@ -1,8 +1,11 @@
+import { Link } from "react-router-dom";
+
 const Content = ({ content, active, setActive, sidebar, setSidebar }) => {
   return (
     <div>
       {content.map((items, index) => (
-        <div
+        <Link
+          to={items.link}
           key={index}
           onClick={() => {
             setActive(index + 5);
@@ -22,7 +25,7 @@ const Content = ({ content, active, setActive, sidebar, setSidebar }) => {
           >
             {items.name}
           </h1>
-        </div>
+        </Link>
       ))}
     </div>
   );

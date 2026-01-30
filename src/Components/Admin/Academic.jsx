@@ -1,8 +1,11 @@
+import { Link } from "react-router-dom";
+
 const Academic = ({ academic, active, setActive, sidebar, setSidebar }) => {
   return (
     <div>
       {academic.map((items, index) => (
-        <div
+        <Link
+          to={items.link}
           key={index}
           onClick={() => {
             setActive(index + 1);
@@ -22,7 +25,7 @@ const Academic = ({ academic, active, setActive, sidebar, setSidebar }) => {
           >
             {items.name}
           </h1>
-        </div>
+        </Link>
       ))}
     </div>
   );
