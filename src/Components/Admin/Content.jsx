@@ -17,7 +17,9 @@ const Content = ({ content, active, setActive, sidebar, setSidebar }) => {
             mx-3 my-2`}
         >
           {items.icon}
-          <h1 className="md:text-base text-sm font-semibold overflow-hidden">
+          <h1
+            className={`md:text-base text-sm font-semibold ${sidebar ? "md:visible" : "md:invisible"} overflow-hidden`}
+          >
             {items.name}
           </h1>
         </div>

@@ -6,6 +6,7 @@ import Academic from "./Academic";
 const Layout = () => {
   const [sidebar, setSidebar] = useState(false);
   const [active, setActive] = useState(0);
+  const [menu, setMenu] = useState(false);
 
   useEffect(() => {
     if (window.innerWidth >= 768) {
@@ -45,12 +46,12 @@ const Layout = () => {
 
   return (
     <div className=" h-screen bg-gray-100 flex md:p-2  ">
-      
       {/* ---------------------------------sidebar------------------------ */}
 
       <aside
-        className={` bg-white h-full  overflow-hidden rounded-lg  justify-center border  border-gray-300 md:relative z-40 top-0 left-0 fixed
-      ${sidebar ? "md:w-64 w-50" : "md:w-18  w-0"} transition-all duration-500 md:duration-300   shadow 
+        onClick={() => setMenu(false)}
+        className={` bg-white h-full  overflow-hidden md:rounded-lg  justify-center border  border-gray-300 md:relative z-40 top-0 left-0 fixed
+      ${sidebar ? "md:w-64 w-50" : "md:w-18  w-0"} transition-all duration-400 md:duration-300   shadow 
       `}
       >
         <div className="md:h-15 h-13 m-2  flex items-center  justify-center    border-b-2 border-gray-300">
@@ -76,7 +77,9 @@ const Layout = () => {
             mx-3 md:mt-4 mt-2 `}
         >
           <i className="ri-dashboard-line md:text-2xl text-xl "></i>
-          <h1 className="md:text-base text-sm font-semibold overflow-hidden">
+          <h1
+            className={`md:text-base text-sm font-semibold ${sidebar ? "md:visible" : "md:invisible"} overflow-hidden`}
+          >
             Dashboard
           </h1>
         </div>
@@ -117,7 +120,9 @@ const Layout = () => {
             mx-3 mt-4`}
         >
           <i class="ri-settings-2-line text-xl "></i>
-          <h1 className="md:text-base text-sm font-semibold overflow-hidden">
+          <h1
+            className={`md:text-base text-sm font-semibold ${sidebar ? "md:visible" : "md:invisible"} overflow-hidden`}
+          >
             Setting
           </h1>
         </div>
@@ -135,11 +140,14 @@ const Layout = () => {
          rounded-lg gap-2 px-3  py-2 m-3`}
         >
           <i className="ri-logout-box-r-line text-xl"></i>
-          <h1 className="md:text-base text-sm font-semibold overflow-hidden">
+          <h1
+            className={`md:text-base text-sm font-semibold ${sidebar ? "md:visible" : "md:invisible"} overflow-hidden`}
+          >
             Logout
           </h1>
         </div>
       </aside>
+
       {sidebar && (
         <div
           className="fixed inset-0 bg-black/40 md:hidden z-30"
@@ -156,7 +164,7 @@ const Layout = () => {
           <button
             onClick={() => {
               setSidebar(!sidebar);
-              setActive(9);
+              setMenu(!menu);
             }}
             className="p-2 rounded-lg md:hover:bg-gray-100  cursor-pointer"
           >
@@ -164,7 +172,7 @@ const Layout = () => {
               <i className="ri-layout-left-line text-xl text-gray-500 hover:text-black "></i>
             ) : (
               <i
-                className={`ri-menu-2-line text-2xl  text-gray-600 ${active === 9 ? "bg-gray-200 p-2 rounded-lg " : "bg-none"} hover:text-black `}
+                className={`ri-menu-2-line text-2xl  text-gray-600 ${menu ? "bg-gray-200 p-2 rounded-lg " : "bg-none"} hover:text-black `}
               ></i>
             )}
           </button>
