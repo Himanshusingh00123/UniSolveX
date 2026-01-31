@@ -3,12 +3,12 @@ const Sidetitle = ({ sidebar, title }) => {
     <div>
       {window.innerWidth >= 768 ? (
         sidebar && (
-          <h1 className="md:text-sm text-xs text-gray-500 font-semibold   mx-4 my-3 px-3">
+          <h1 className="md:text-sm text-xs text-slate-200 font-semibold   mx-4 my-3 px-3">
             {title}
           </h1>
         )
       ) : (
-        <h1 className="md:text-sm text-xs text-gray-500 font-semibold   mx-4 my-3 px-3">
+        <h1 className="md:text-sm text-xs text-slate-200 font-semibold   mx-4 my-3 px-3">
           {title}
         </h1>
       )}

@@ -3,6 +3,7 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 import Content from "./Content";
 import Sidetitle from "./Sidetitle";
 import Academic from "./Academic";
+import logo from "../../assets/images/Logo.png";
 
 const Layout = () => {
   const [sidebar, setSidebar] = useState(false);
@@ -65,17 +66,17 @@ const Layout = () => {
 
       <aside
         onClick={() => setMenu(false)}
-        className={` bg-white h-full  overflow-hidden md:rounded-lg  justify-center border  border-gray-300 md:relative z-40 top-0 left-0 fixed
-      ${sidebar ? "md:w-64 w-50" : "md:w-18  w-0"} transition-all duration-400 md:duration-300   shadow 
+        className={` h-full bg-linear-to-b from-[#0f172a] via-[#1e293b] to-[#020617] overflow-hidden md:rounded-lg  justify-center border
+          border-gray-300 md:relative z-40 top-0 left-0 fixed ${sidebar ? "md:w-64 w-50" : "md:w-18  w-0"} transition-all duration-400 md:duration-300   shadow-xl 
       `}
       >
         <div
           onClick={handle}
           className="md:h-15 h-13 m-2 cursor-pointer flex items-center  justify-center    border-b-2 border-gray-300"
         >
-          <img src="Logo.png" alt="Logo" className="h-full  object-cover " />
+          <img src={logo} alt="Logo" className="h-full  object-cover " />
           <h1
-            className={`md:text-2xl text-xl font-bold text-blue-600 -ml-3 ${sidebar ? "md:visible" : "md:invisible"}  mr-5  md:mr-3 overflow-hidden `}
+            className={`md:text-2xl text-xl font-bold text-gray-200 -ml-3 ${sidebar ? "md:visible" : "md:invisible"}  mr-5  md:mr-3 overflow-hidden `}
           >
             UniSolve<span className="text-amber-500">X</span>
           </h1>
@@ -92,14 +93,12 @@ const Layout = () => {
             }
           }}
           className={` 
-         ${active === 0 ? "bg-slate-900 text-gray-200 shadow-lg" : "hover:bg-gray-100 text-gray-500  "}
-         cursor-pointer
-           md:h-11 h-9 flex items-center rounded-lg gap-2 px-3
-            mx-3 md:mt-4 mt-2 `}
+         ${active === 0 ? "bg-white/20 text-white shadow-lg " : "hover:bg-white/10 hover:text-white  "}
+            cursor-pointer md:h-11 h-9 flex items-center rounded-lg gap-2 px-3 text-slate-200 mx-3 md:mt-4 mt-2 `}
         >
           <i className="ri-dashboard-line md:text-2xl text-xl "></i>
           <h1
-            className={`md:text-base text-sm font-semibold ${sidebar ? "md:visible" : "md:invisible"} overflow-hidden`}
+            className={`md:text-base text-sm  font-semibold ${sidebar ? "md:visible" : "md:invisible"} overflow-hidden`}
           >
             Dashboard
           </h1>
@@ -136,9 +135,9 @@ const Layout = () => {
             }
           }}
           className={` 
-         ${active === 7 ? "bg-slate-900 text-gray-200 shadow-lg" : "hover:bg-gray-100 text-gray-500  "}
+         ${active === 7 ? "bg-white/20 text-white shadow-lg" : "hover:bg-white/10 hover:text-white  "}
          cursor-pointer
-           md:h-11 h-9 flex items-center rounded-lg gap-2 px-3
+           md:h-11 h-9 flex items-center rounded-lg gap-2 px-3 text-slate-200
             mx-3 mt-4`}
         >
           <i className="ri-settings-2-line text-xl "></i>
@@ -155,11 +154,11 @@ const Layout = () => {
           className={`
           ${
             active === 8
-              ? " bg-red-500 text-zinc-100"
-              : " hover:bg-gray-100 text-red-500"
+              ? " bg-red-500/30 "
+              : " hover:bg-red-500/25 hover:text-red-400"
           }
-          md:h-11 h-9 cursor-pointer flex items-center 
-         rounded-lg gap-2 px-3  py-2 m-3`}
+          md:h-11 h-9 cursor-pointer  flex items-center 
+         rounded-lg gap-2 px-3  py-2 m-3 text-red-400`}
         >
           <i className="ri-logout-box-r-line text-xl"></i>
           <h1
