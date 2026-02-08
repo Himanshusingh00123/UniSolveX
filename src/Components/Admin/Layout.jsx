@@ -187,10 +187,10 @@ const Layout = () => {
               setSidebar(!sidebar);
               setMenu(!menu);
             }}
-            className="p-2 rounded-lg md:hover:bg-gray-100  cursor-pointer"
+            className="p-2 rounded-lg md:hover:bg-gray-200  cursor-pointer "
           >
             {window.innerWidth >= 768 ? (
-              <i className="ri-layout-left-line text-xl text-gray-500 hover:text-black "></i>
+              <i className="ri-layout-left-line text-xl text-gray-600  "></i>
             ) : (
               <i
                 className={`ri-menu-2-line text-2xl  text-gray-600 ${menu ? "bg-gray-200 p-2 rounded-lg " : "bg-none"} hover:text-black `}
