@@ -72,11 +72,11 @@ const Layout = () => {
       >
         <div
           onClick={handle}
-          className="md:h-15 h-13 m-2  cursor-pointer flex items-center  justify-center    border-b-2 border-gray-300"
+          className="md:h-15 h-13 m-2  cursor-pointer flex items-center     border-b-2 border-gray-300"
         >
           <img src={logo} alt="Logo" className="h-full  object-cover " />
           <h1
-            className={`md:text-2xl text-xl font-bold text-gray-200 -ml-3 ${sidebar ? "md:visible" : "md:invisible"}  mr-5  md:mr-3 overflow-hidden `}
+            className={`md:text-2xl text-xl font-bold text-gray-200 -ml-3 md:-ml-2 ${sidebar ? "md:visible" : "md:invisible"}  mr-5  md:mr-3 overflow-hidden `}
           >
             UniSolve<span className="text-amber-500">X</span>
           </h1>
