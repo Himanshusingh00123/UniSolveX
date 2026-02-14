@@ -67,16 +67,16 @@ const Layout = () => {
       <aside
         onClick={() => setMenu(false)}
         className={` h-full bg-linear-to-b from-[#0f172a] via-[#1e293b] to-[#020617] overflow-hidden md:rounded-lg  justify-center border
-          border-gray-300 md:relative z-40 top-0 left-0 fixed ${sidebar ? "md:w-64 w-50" : "md:w-18  w-0"} transition-all duration-400 md:duration-300 overflow-y-auto  shadow-xl 
+          border-gray-300 md:relative z-40 top-0 left-0 fixed ${sidebar ? "md:w-60 w-50" : "md:w-18  w-0"} transition-all duration-400 md:duration-300 overflow-y-auto  shadow-xl 
       `}
       >
         <div
           onClick={handle}
-          className="md:h-15 h-13 m-2  cursor-pointer flex items-center     border-b-2 border-gray-300"
+          className="md:h-15 h-13 m-2  cursor-pointer flex items-center    border-b-2 border-gray-300"
         >
           <img src={logo} alt="Logo" className="h-full  object-cover " />
           <h1
-            className={`md:text-2xl text-xl font-bold text-gray-200 -ml-3 md:-ml-2 ${sidebar ? "md:visible" : "md:invisible"}  mr-5  md:mr-3 overflow-hidden `}
+            className={`md:text-2xl text-xl font-bold text-gray-200 -ml-3 md:-ml-2 ${sidebar ? "md:visible" : "md:invisible"}  overflow-hidden `}
           >
             UniSolve<span className="text-amber-500">X</span>
           </h1>
