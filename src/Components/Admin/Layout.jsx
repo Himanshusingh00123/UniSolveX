@@ -187,22 +187,43 @@ const Layout = () => {
               setSidebar(!sidebar);
               setMenu(!menu);
             }}
-            className="p-2 rounded-lg md:hover:bg-gray-200  cursor-pointer "
+            className="px-3 py-2 rounded-full md:hover:bg-gray-200  cursor-pointer "
           >
             {window.innerWidth >= 768 ? (
               <i className="ri-layout-left-line text-xl text-gray-600  "></i>
             ) : (
               <i
-                className={`ri-menu-2-line text-2xl  text-gray-600 ${menu ? "bg-gray-200 p-2 rounded-lg " : "bg-none"} hover:text-black `}
+                className={`ri-menu-2-line text-2xl  text-gray-600 
+                ${menu ? "bg-gray-200 p-2 rounded-lg " : "bg-none"} 
+                hover:text-black `}
               ></i>
             )}
           </button>
 
-          <img
-            src="https://png.pngtree.com/png-vector/20220719/ourmid/pngtree-color-icon---businessman-icon-color-sign-vectorteamwork-account-admin-photo-image_37961448.jpg"
-            alt="logo"
-            className="md:h-11 h-9 rounded-full border-gray-300 border-2 p-1 hover:scale-105 cursor-pointer hover:border-amber-500"
-          />
+          <div className="flex md:gap-4 gap-2 md:h-11 h-9 ">
+            <button
+              className="cursor-pointer font-serif 
+            text-xl rounded-full text-gray-600
+            hover:bg-gray-200 hover:text-blue-600 
+             md:px-3 px-2 hover:scale-105"
+            >
+              <i className="ri-notification-4-line"></i>
+            </button>
+
+            <img
+              src="https://png.pngtree.com/png-vector/20220719/ourmid/pngtree-color-icon---businessman-icon-color-sign-vectorteamwork-account-admin-photo-image_37961448.jpg"
+              alt="logo"
+              className="rounded-full border-gray-400 border-2 p-1 hover:scale-105 cursor-pointer hover:border-indigo-400"
+            />
+            <div className=" justify-center flex-col items-center ml-1 md:ml-0 ">
+              <h2 className="md:text-lg text-md font-semibold text-gray-700">
+                Hi, Admin
+              </h2>
+              <h4 className="text-xs font-semibold  text-gray-500 ">
+                Administrator
+              </h4>
+            </div>
+          </div>
         </div>
 
         {/* --------------pages section------------------------------------- */}
