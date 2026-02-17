@@ -1,7 +1,7 @@
 import Layout from "./Layout";
-import Coursesbg from "../../assets/images/Courses.png";
+import Coursesbg from "../../assets/images/courses.png";
 import Branchbg from "../../assets/images/Branches.png";
-import Paperbg from "../../assets/images/Papers.png";
+import Paperbg from "../../assets/images/papers.png";
 import Solutionbg from "../../assets/images/Solutions.png";
 
 const Dashboard = () => {
