@@ -1,3 +1,4 @@
+import Layout from "./Layout";
 import Coursesbg from "../../assets/images/Courses.png";
 import Branchbg from "../../assets/images/Branches.png";
 import Paperbg from "../../assets/images/Papers.png";
@@ -5,7 +6,7 @@ import Solutionbg from "../../assets/images/Solutions.png";
 
 const Dashboard = () => {
   return (
-    <div className="">
+    <div>
       <h1 className=" text-xl font-bold  justify-start m-2 text-gray-600">
         Admin Dashboard
       </h1>
