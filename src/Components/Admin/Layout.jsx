@@ -181,7 +181,7 @@ const Layout = () => {
       <div className="min-h-full overflow-auto  md:pl-2 flex-1 ">
         {/* --------------------------------navbar -----------------------------------*/}
 
-        <div className=" md:h-19 h-15 bg-gray-100 md:rounded-lg border shadow-md border-gray-300 sticky top-0 left-0 flex justify-between items-center p-4">
+        <div className=" md:h-19 h-15  bg-gray-100 md:rounded-lg border shadow-md border-gray-300 sticky top-0 left-0 flex justify-between items-center p-4">
           <button
             onClick={() => {
               setSidebar(!sidebar);
@@ -190,7 +190,11 @@ const Layout = () => {
             className="px-3 py-2 rounded-full md:hover:bg-gray-200  cursor-pointer "
           >
             {window.innerWidth >= 768 ? (
-              <i className="ri-layout-left-line text-xl text-gray-600  "></i>
+              sidebar ? (
+                <i class="ri-sidebar-fold-line text-xl text-gray-600"></i>
+              ) : (
+                <i class="ri-sidebar-unfold-line text-xl text-gray-600"></i>
+              )
             ) : (
               <i
                 className={`ri-menu-2-line text-2xl  text-gray-600 
