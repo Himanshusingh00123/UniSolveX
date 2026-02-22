@@ -193,7 +193,7 @@ const Layout = () => {
       <div className="min-h-full overflow-auto  md:pl-2 flex-1 ">
         {/* --------------------------------navbar -----------------------------------*/}
 
-        <div className=" md:h-19 h-15  bg-gray-100 md:rounded-lg border shadow-md border-gray-300 sticky top-0 left-0 flex justify-between items-center p-4">
+        <div className=" md:h-19 h-15  bg-gray-100 md:rounded-lg border shadow-md border-gray-300 sticky top-0 left-0 flex justify-between items-center py-4 pl-3  pr-4">
           <button
             onClick={() => {
               setSidebar(!sidebar);
@@ -209,7 +209,7 @@ const Layout = () => {
               )
             ) : (
               <HiMenuAlt1
-                className={`text-4xl  text-gray-600 p-1
+                className={`text-4xl  text-gray-600 p-1 
                 ${menu ? "bg-gray-200 rounded-lg " : "bg-none"} 
                 hover:text-black `}
               />
