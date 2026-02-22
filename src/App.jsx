@@ -1,6 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "remixicon/fonts/remixicon.css";
-
 import Home from "./Components/LandingPage/Home";
 import Dashboard from "./Components/Admin/Dashboard";
 import Layout from "./Components/Admin/Layout";
