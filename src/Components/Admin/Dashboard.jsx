@@ -1,15 +1,12 @@
 const Dashboard = () => {
   return (
     <div className="md:p-2">
-      <h1 className=" text-xl font-bold  justify-start m-2 text-gray-600">
-        Admin Dashboard
-      </h1>
       <div
         className="md:bg-white  md:h-48 sm:h-80 h-screen  md:border
                   md:shadow-sm border-gray-300 rounded-xl grid
                   xl:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 p-3 gap-3 "
       >
-        <div className="auto-rows-fr bg-linear-to-br from-slate-900 via-slate-800 to-slate-900   cursor-pointer hover:scale-103 duration-400 transition  rounded-xl shadow-lg px-5 py-4 ">
+        <div className="auto-rows-fr bg-linear-to-br from-slate-900 via-slate-800 to-slate-900   cursor-pointer md:hover:scale-103 duration-400 transition  rounded-xl shadow-lg px-5 py-4 ">
           <h1 className="text-3xl text-gray-300 font-semibold mb-2">
             <i class="ri-school-line mr-2 text-gray-200"></i>Total Courses
           </h1>
@@ -23,7 +20,7 @@ const Dashboard = () => {
             </p>
           </div>
         </div>
-        <div className=" bg-linear-to-br from-indigo-900 via-indigo-800 to-slate-900  cursor-pointer hover:scale-103 duration-400 transition rounded-xl shadow-lg  px-5 py-4">
+        <div className=" bg-linear-to-br from-indigo-900 via-indigo-800 to-slate-900  cursor-pointer md:hover:scale-103 duration-400 transition rounded-xl shadow-lg  px-5 py-4">
           <h1 className="text-3xl text-gray-300 font-semibold mb-2">
             <i class="ri-git-fork-fill mr-2 text-gray-200"></i>
             Total Branches
@@ -38,7 +35,7 @@ const Dashboard = () => {
             </p>
           </div>
         </div>
-        <div className="bg-linear-to-br from-blue-900 via-slate-800 to-slate-900  cursor-pointer hover:scale-103 duration-400 transition rounded-xl shadow-lg  px-5 py-4">
+        <div className="bg-linear-to-br from-blue-900 via-slate-800 to-slate-900  cursor-pointer md:hover:scale-103 duration-400 transition rounded-xl shadow-lg  px-5 py-4">
           <h1 className="text-3xl font-semibold text-gray-300 mb-2">
             <i class="ri-article-line mr-2 text-gray-200"></i>
             Total Papers
@@ -51,7 +48,7 @@ const Dashboard = () => {
             <h3 className=" text-gray-200 font-semibold ">This Month</h3>
           </div>
         </div>
-        <div className="bg-linear-to-br from-violet-900 via-slate-800 to-slate-900 cursor-pointer hover:scale-103 duration-400 transition  rounded-xl shadow-lg  px-5 py-4">
+        <div className="bg-linear-to-br from-violet-900 via-slate-800 to-slate-900 cursor-pointer md:hover:scale-103 duration-400 transition  rounded-xl shadow-lg  px-5 py-4">
           <h1 className="text-3xl font-semibold text-gray-300 mb-2">
             <i class="ri-checkbox-line mr-2 text-gray-200"></i>
             Total Solutions
