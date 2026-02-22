@@ -9,6 +9,7 @@ import ExamYear from "./Components/Admin/ExamYear";
 import QuestionPaper from "./Components/Admin/QuestionPaper";
 import Solution from "./Components/Admin/Solution";
 import Setting from "./Components/Admin/Setting";
+import "remixicon/fonts/remixicon.css";
 
 const App = () => {
   return (

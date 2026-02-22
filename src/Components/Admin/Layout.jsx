@@ -4,6 +4,18 @@ import Content from "./Content";
 import Sidetitle from "./Sidetitle";
 import Academic from "./Academic";
 import logo from "../../assets/images/Logo.png";
+import { LuLayoutDashboard } from "react-icons/lu";
+import {
+  TbLayoutSidebarLeftCollapse,
+  TbLayoutSidebarLeftExpand,
+} from "react-icons/tb";
+import { IoSchool, IoSettingsSharp } from "react-icons/io5";
+import { FaCodeBranch, FaNewspaper } from "react-icons/fa6";
+import { MdMenuBook, MdLogout } from "react-icons/md";
+import { FaCalendarAlt } from "react-icons/fa";
+import { BsFileEarmarkCheckFill } from "react-icons/bs";
+import { IoMdNotificationsOutline } from "react-icons/io";
+import { HiMenuAlt1 } from "react-icons/hi";
 
 const Layout = () => {
   const [sidebar, setSidebar] = useState(false);
@@ -26,22 +38,22 @@ const Layout = () => {
 
   const academic = [
     {
-      icon: <i className="ri-school-line text-xl "></i>,
+      icon: <IoSchool className="text-xl shrink-0" />,
       link: "/admin/courses",
       name: "Course",
     },
     {
-      icon: <i className="ri-git-branch-line text-xl "></i>,
+      icon: <FaCodeBranch className="text-xl shrink-0" />,
       link: "/admin/branch",
       name: "Branch",
     },
     {
-      icon: <i className="ri-calendar-line text-xl "></i>,
+      icon: <MdMenuBook className="text-xl shrink-0" />,
       link: "/admin/semester",
       name: "Semester",
     },
     {
-      icon: <i className="ri-calendar-2-line text-xl "></i>,
+      icon: <FaCalendarAlt className="text-xl shrink-0" />,
       link: "/admin/exam-year",
       name: "Exam Years",
     },
@@ -49,12 +61,12 @@ const Layout = () => {
 
   const content = [
     {
-      icon: <i className="ri-article-line text-xl "></i>,
+      icon: <FaNewspaper className="text-xl shrink-0" />,
       link: "/admin/question-paper",
       name: "Question Paper",
     },
     {
-      icon: <i className="ri-file-text-line text-xl "></i>,
+      icon: <BsFileEarmarkCheckFill className="text-xl shrink-0" />,
       link: "/admin/solution",
       name: "Solution",
     },
@@ -66,13 +78,13 @@ const Layout = () => {
 
       <aside
         onClick={() => setMenu(false)}
-        className={` h-full bg-linear-to-b from-[#0f172a] via-[#1e293b] to-[#020617] overflow-hidden md:rounded-lg  justify-center border
+        className={` h-full bg-linear-to-b from-[#0f172a] via-[#1e293b] to-[#020617] overflow-hidden md:rounded-lg  border
           border-gray-300 md:relative z-40 top-0 left-0 fixed ${sidebar ? "md:w-60 w-50" : "md:w-18  w-0"} transition-all duration-400 md:duration-300 overflow-y-auto  shadow-xl 
       `}
       >
         <div
           onClick={handle}
-          className="md:h-15 h-13 m-2  cursor-pointer flex items-center    border-b-2 border-gray-300"
+          className="md:h-15 h-13 m-2  cursor-pointer flex items-center  border-b-2 border-gray-300"
         >
           <img src={logo} alt="Logo" className="h-full  object-cover " />
           <h1
@@ -96,7 +108,7 @@ const Layout = () => {
          ${active === 0 ? "bg-white/20 text-white shadow-lg " : "hover:bg-white/10 hover:text-white  "}
             cursor-pointer md:h-11 h-9 flex items-center rounded-lg gap-2 px-3 text-slate-200 mx-3 md:mt-4 mt-2 `}
         >
-          <i className="ri-dashboard-line md:text-2xl text-xl "></i>
+          <LuLayoutDashboard className="md:text-2xl text-xl shrink-0" />
           <h1
             className={`md:text-base text-sm  font-semibold ${sidebar ? "md:visible" : "md:invisible"} overflow-hidden`}
           >
@@ -140,7 +152,7 @@ const Layout = () => {
            md:h-11 h-9 flex items-center rounded-lg gap-2 px-3 text-slate-200
             mx-3 mt-4`}
         >
-          <i className="ri-settings-2-line text-xl "></i>
+          <IoSettingsSharp className="text-xl shrink-0" />
           <h1
             className={`md:text-base text-sm font-semibold ${sidebar ? "md:visible" : "md:invisible"} overflow-hidden`}
           >
@@ -160,7 +172,7 @@ const Layout = () => {
           md:h-11 h-9 cursor-pointer  flex items-center 
          rounded-lg gap-2 px-3  py-2 m-3 text-red-400`}
         >
-          <i className="ri-logout-box-r-line text-xl"></i>
+          <MdLogout className="text-xl shrink-0" />
           <h1
             className={`md:text-base text-sm font-semibold ${sidebar ? "md:visible" : "md:invisible"} overflow-hidden`}
           >
@@ -187,20 +199,20 @@ const Layout = () => {
               setSidebar(!sidebar);
               setMenu(!menu);
             }}
-            className="px-3 py-2 rounded-full md:hover:bg-gray-200  cursor-pointer "
+            className="p-3 rounded-full md:hover:bg-gray-200  cursor-pointer "
           >
             {window.innerWidth >= 768 ? (
               sidebar ? (
-                <i class="ri-sidebar-fold-line text-xl text-gray-600"></i>
+                <TbLayoutSidebarLeftCollapse className="text-2xl text-gray-600 font-bold" />
               ) : (
-                <i class="ri-sidebar-unfold-line text-xl text-gray-600"></i>
+                <TbLayoutSidebarLeftExpand className="text-2xl text-gray-600" />
               )
             ) : (
-              <i
-                className={`ri-menu-2-line text-2xl  text-gray-600 
-                ${menu ? "bg-gray-200 p-2 rounded-lg " : "bg-none"} 
+              <HiMenuAlt1
+                className={`text-4xl  text-gray-600 p-1
+                ${menu ? "bg-gray-200 rounded-lg " : "bg-none"} 
                 hover:text-black `}
-              ></i>
+              />
             )}
           </button>
 
@@ -211,7 +223,7 @@ const Layout = () => {
             hover:bg-gray-200 hover:text-blue-600 
              md:px-3 px-2 hover:scale-105"
             >
-              <i className="ri-notification-4-line"></i>
+              <IoMdNotificationsOutline className="text-2xl " />
             </button>
 
             <img
