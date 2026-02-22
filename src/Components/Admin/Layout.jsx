@@ -193,7 +193,7 @@ const Layout = () => {
       <div className="min-h-full overflow-auto  md:pl-2 flex-1 ">
         {/* --------------------------------navbar -----------------------------------*/}
 
-        <div className=" md:h-19 h-15  bg-gray-100 md:rounded-lg border shadow-md border-gray-300 sticky top-0 left-0 flex justify-between items-center py-4 pl-3  pr-4">
+        <div className=" md:h-19 h-15  bg-gray-100 md:rounded-lg border shadow-md border-gray-300 sticky top-0 left-0 flex justify-between items-center py-4 sm:pl-3 pl-2  pr-4">
           <button
             onClick={() => {
               setSidebar(!sidebar);
