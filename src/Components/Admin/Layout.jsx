@@ -84,7 +84,7 @@ const Layout = () => {
       >
         <div
           onClick={handle}
-          className="md:h-15 h-13 m-2  cursor-pointer flex items-center  border-b-2 border-gray-300"
+          className="md:h-15 h-13 m-2  cursor-pointer flex items-center  border-b-2 border-gray-300 animate__animated animate__pulse"
         >
           <img src={logo} alt="Logo" className="h-full  object-cover " />
           <h1
@@ -199,13 +199,13 @@ const Layout = () => {
               setSidebar(!sidebar);
               setMenu(!menu);
             }}
-            className="p-3 rounded-full md:hover:bg-gray-200  cursor-pointer "
+            className="p-3 rounded-full  md:hover:bg-gray-200 cursor-pointer "
           >
             {window.innerWidth >= 768 ? (
               sidebar ? (
-                <TbLayoutSidebarLeftCollapse className="text-2xl text-gray-600 font-bold" />
+                <TbLayoutSidebarLeftCollapse className="text-2xl text-gray-600 " />
               ) : (
-                <TbLayoutSidebarLeftExpand className="text-2xl text-gray-600" />
+                <TbLayoutSidebarLeftExpand className="text-2xl text-gray-600 " />
               )
             ) : (
               <HiMenuAlt1

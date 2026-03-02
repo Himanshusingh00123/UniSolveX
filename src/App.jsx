@@ -10,6 +10,7 @@ import QuestionPaper from "./Components/Admin/QuestionPaper";
 import Solution from "./Components/Admin/Solution";
 import Setting from "./Components/Admin/Setting";
 import "remixicon/fonts/remixicon.css";
+import 'animate.css';
 
 const App = () => {
   return (
