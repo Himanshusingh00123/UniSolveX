@@ -223,9 +223,9 @@ const Layout = () => {
               hover:bg-gray-200 hover:text-blue-600 
               md:px-3 px-2 hover:scale-105 transition-all duration-300"
             >
-              <span className="absolute sm:top-2 sm:right-3 top-1 right-0.5 inline-flex h-2 w-2">
+              <span className="absolute sm:top-2.5 sm:right-3 right-2.5 top-1.5  inline-flex sm:w-1.5 sm:h-1.5 w-1 h-1">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                <span className="relative inline-flex rounded-full sm:w-1.5 sm:h-1.5 w-1 h-1 bg-red-500"></span>
               </span>
 
               <IoMdNotificationsOutline className="text-2xl" />

@@ -209,8 +209,6 @@ const Dashboard = () => {
       </div>
 
       <div className=" sm:h-110 h-screen rounded w-full grid md:grid-cols-2 sm:pt-3 gap-3">
-
-        
         {/* -------------------------------------------------------------Question chart-------------------------------------------------- */}
 
         <div className="sm:bg-gray-50 sm:border sm:overflow-hidden flex-1 sm:border-gray-300 h-full  rounded-xl sm:shadow-sm">
