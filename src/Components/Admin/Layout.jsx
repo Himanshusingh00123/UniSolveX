@@ -183,7 +183,7 @@ const Layout = () => {
 
       {sidebar && (
         <div
-          className="fixed inset-0 bg-black/40 md:hidden z-30"
+          className="fixed inset-0 bg-black/40 md:hidden  z-30"
           onClick={() => setSidebar(false)}
         />
       )}
@@ -193,7 +193,7 @@ const Layout = () => {
       <div className="min-h-full overflow-auto  md:pl-2 flex-1 ">
         {/* --------------------------------navbar -----------------------------------*/}
 
-        <div className=" md:h-19 h-15  bg-gray-100 md:rounded-lg border shadow-md border-gray-300 sticky top-0 left-0 z-50 flex justify-between items-center py-4 sm:pl-3 pl-2  pr-4">
+        <div className=" md:h-19 h-15  bg-gray-100 md:rounded-lg border shadow-md border-gray-300 sticky top-0 left-0 z-20 flex justify-between items-center py-4 sm:pl-3 pl-2  pr-4">
           <button
             onClick={() => {
               setSidebar(!sidebar);
@@ -209,7 +209,7 @@ const Layout = () => {
               )
             ) : (
               <HiMenuAlt1
-                className={`text-4xl  text-gray-600 p-1 
+                className={`text-4xl  text-gray-600 p-1
                 ${menu ? "bg-gray-200 rounded-lg " : "bg-none"} 
                 hover:text-black `}
               />
@@ -218,14 +218,18 @@ const Layout = () => {
 
           <div className="flex md:gap-4 gap-2 md:h-11 h-9 ">
             <button
-              className="cursor-pointer font-serif 
-            text-xl rounded-full text-gray-600
-            hover:bg-gray-200 hover:text-blue-600 
-             md:px-3 px-2 hover:scale-105"
+              className="relative cursor-pointer font-serif 
+              text-xl rounded-full text-gray-600
+              hover:bg-gray-200 hover:text-blue-600 
+              md:px-3 px-2 hover:scale-105 transition-all duration-300"
             >
-              <IoMdNotificationsOutline className="text-2xl " />
-            </button>
+              <span className="absolute sm:top-2 sm:right-3 top-1 right-0.5 inline-flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+              </span>
 
+              <IoMdNotificationsOutline className="text-2xl" />
+            </button>
             <img
               src="https://png.pngtree.com/png-vector/20220719/ourmid/pngtree-color-icon---businessman-icon-color-sign-vectorteamwork-account-admin-photo-image_37961448.jpg"
               alt="logo"

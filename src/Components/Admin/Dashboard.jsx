@@ -4,7 +4,6 @@ import { IoNewspaperSharp } from "react-icons/io5";
 import { BsClipboard2CheckFill } from "react-icons/bs";
 import { FaChartLine } from "react-icons/fa";
 import Chart from "react-apexcharts";
-import { useState } from "react";
 
 const Dashboard = () => {
   const lineChart = {
@@ -27,6 +26,7 @@ const Dashboard = () => {
         height: 350,
         type: "area",
       },
+      colors: ["#6366F1", "#10B981", "#F59E0B"],
       dataLabels: {
         enabled: false,
       },
@@ -58,17 +58,17 @@ const Dashboard = () => {
       {
         name: "B.Tech",
         type: "column",
-        data: [28, 21, 25, 10, 38, 18, 32, 46],
+        data: [23, 11, 42, 27, 33, 22, 67, 51, 44, 22, 30],
       },
       {
         name: "BCA",
-        type: "column",
-        data: [11, 30, 21, 40, 41, 29, 65, 55],
+        type: "area",
+        data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43],
       },
       {
         name: "MBA",
         type: "line",
-        data: [20, 29, 37, 36, 44, 45, 50, 58],
+        data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39],
       },
     ],
     options: {
@@ -77,114 +77,64 @@ const Dashboard = () => {
         type: "line",
         stacked: false,
       },
-      dataLabels: {
-        enabled: false,
-      },
+      colors: ["#6366F1", "#10B981", "#F59E0B"],
       stroke: {
-        width: [1, 1, 4],
+        width: [0, 2, 5],
+        curve: "smooth",
       },
-      title: {
-        text: " Solutions ",
-        align: "left",
-        offsetX: 110,
+      plotOptions: {
+        bar: {
+          columnWidth: "50%",
+        },
+      },
+
+      fill: {
+        opacity: [0.85, 0.25, 1],
+        gradient: {
+          inverseColors: false,
+          shade: "light",
+          type: "vertical",
+          opacityFrom: 0.85,
+          opacityTo: 0.55,
+          stops: [0, 100, 100, 100],
+        },
+      },
+      labels: [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ],
+      markers: {
+        size: 0,
       },
       xaxis: {
-        categories: [
-          "Jan",
-          "Feb",
-          "Mar",
-          "Apr",
-          "May",
-          "Jun",
-          "Jul",
-          "Aug",
-          "Sep",
-          "oct",
-          "Nov",
-          "Dec",
-        ],
+        type: "Months",
       },
-      yaxis: [
-        {
-          seriesName: "B.Tech",
-          axisTicks: {
-            show: true,
-          },
-          axisBorder: {
-            show: true,
-            color: "#008FFB",
-          },
-          labels: {
-            style: {
-              colors: "#008FFB",
-            },
-          },
-          title: {
-            text: "B.Tech ( Solutions )",
-            style: {
-              color: "#008FFB",
-            },
-          },
-          tooltip: {
-            enabled: true,
-          },
+      yaxis: {
+        title: {
+          text: "Solutions",
         },
-        {
-          seriesName: "BCA",
-          opposite: true,
-          axisTicks: {
-            show: true,
-          },
-          axisBorder: {
-            show: true,
-            color: "#00E396",
-          },
-          labels: {
-            style: {
-              colors: "#00E396",
-            },
-          },
-          title: {
-            text: "BCA ( Solutions )",
-            style: {
-              color: "#00E396",
-            },
-          },
-        },
-        {
-          seriesName: "MBA",
-          opposite: true,
-          axisTicks: {
-            show: true,
-          },
-          axisBorder: {
-            show: true,
-            color: "#FEB019",
-          },
-          labels: {
-            style: {
-              colors: "#FEB019",
-            },
-          },
-          title: {
-            text: "MBA ( Solutions )",
-            style: {
-              color: "#FEB019",
-            },
-          },
-        },
-      ],
+      },
       tooltip: {
-        fixed: {
-          enabled: true,
-          position: "topLeft", // topRight, topLeft, bottomRight, bottomLeft
-          offsetY: 30,
-          offsetX: 60,
+        shared: true,
+        intersect: false,
+        y: {
+          formatter: function (y) {
+            if (typeof y !== "undefined") {
+              return y.toFixed(0) + " Solutions";
+            }
+            return y;
+          },
         },
-      },
-      legend: {
-        horizontalAlign: "left",
-        offsetX: 40,
       },
     },
   };
@@ -192,7 +142,7 @@ const Dashboard = () => {
   return (
     <div className="md:p-2 ">
       <div
-        className="md:bg-white  md:h-48 sm:h-80 h-screen  md:border 
+        className="md:bg-white  md:h-48 sm:h-80 max-sm:min-h-screen  md:border 
                   md:shadow-sm border-gray-300 rounded-xl grid
                   xl:grid-cols-4  sm:grid-cols-2 grid-cols-1 p-3 gap-3"
       >
@@ -258,12 +208,14 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className=" sm:h-110 h-screen rounded w-full grid md:grid-cols-2 pt-3 gap-3">
+      <div className=" sm:h-110 h-screen rounded w-full grid md:grid-cols-2 sm:pt-3 gap-3">
+
+        
         {/* -------------------------------------------------------------Question chart-------------------------------------------------- */}
 
-        <div className="sm:bg-gray-50 sm:border sm:overflow-hidden  sm:border-gray-300 h-full  rounded-xl sm:shadow-sm">
+        <div className="sm:bg-gray-50 sm:border sm:overflow-hidden flex-1 sm:border-gray-300 h-full  rounded-xl sm:shadow-sm">
           <div className=" sm:h-4/12 sm:w-full w-screen px-4 py-2">
-            <h1 className="text-xl font-bold text-gray-700 mb-2">
+            <h1 className="text-xl font-bold text-gray-700 mb-2 text-center sm:text-start">
               Papers Overview
             </h1>
             <div className="h-9/12  grid sm:grid-cols-3 sm:gap-3 gap-2">
@@ -315,7 +267,7 @@ const Dashboard = () => {
 
         <div className="sm:bg-gray-50 sm:border sm:overflow-hidden  sm:border-gray-300 h-full  rounded-xl sm:shadow-sm">
           <div className=" sm:h-4/12 sm:w-full w-screen px-4 py-2">
-            <h1 className="text-xl font-bold text-gray-700 mb-2">
+            <h1 className="text-xl font-bold text-gray-700 mb-2 text-center sm:text-start">
               Solutions statistics
             </h1>
             <div className="h-9/12  grid sm:grid-cols-3 sm:gap-3 gap-2">
