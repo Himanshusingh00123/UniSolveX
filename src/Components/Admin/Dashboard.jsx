@@ -2,8 +2,9 @@ import { IoIosSchool } from "react-icons/io";
 import { FaCodeBranch } from "react-icons/fa6";
 import { IoNewspaperSharp } from "react-icons/io5";
 import { BsClipboard2CheckFill } from "react-icons/bs";
-import { FaChartLine } from "react-icons/fa";
+import { FaChartLine, FaEdit } from "react-icons/fa";
 import Chart from "react-apexcharts";
+import { RiDeleteBin5Fill } from "react-icons/ri";
 
 const Dashboard = () => {
   const lineChart = {
@@ -45,7 +46,7 @@ const Dashboard = () => {
           "Jul",
           "Aug",
           "Sep",
-          "oct",
+          "Oct",
           "Nov",
           "Dec",
         ],
@@ -266,7 +267,7 @@ const Dashboard = () => {
         <div className="sm:bg-gray-50 sm:border sm:overflow-hidden  sm:border-gray-300 h-full  rounded-xl sm:shadow-sm">
           <div className=" sm:h-4/12 sm:w-full w-screen px-4 py-2">
             <h1 className="text-xl font-bold text-gray-700 mb-2 text-center sm:text-start">
-              Solutions statistics
+              Solutions Statistics
             </h1>
             <div className="h-9/12  grid sm:grid-cols-3 sm:gap-3 gap-2">
               <div className="bg-white  border shadow-sm border-gray-300 rounded-2xl py-3 px-4 flex-cols justify-center items-center">
@@ -316,10 +317,76 @@ const Dashboard = () => {
 
       {/* --------------------------------------------------------Course Table------------------------------------------------------- */}
 
-      <div className="bg-gray-300  h-full ">
-        <table>
-          <div className="text-5xl  font-bold">Himanshu Singh</div>
-        </table>
+      <div className="bg-white  h-full sm:rounded-xl py-3 px-4 mt-3 sm:border  border-gray-300">
+        <h1 className="sm:text-xl text-lg text-center sm:text-start font-bold text-gray-700 mb-2">
+          Recent Question Paper Uploads
+        </h1>
+        <div className="border border-gray-300 rounded-xl shadow-sm px-3 overflow-x-auto">
+          <table className="w-full text-center border-separate border-spacing-y-2">
+            <thead className="text-gray-500 whitespace-nowrap">
+              <th className="sm:p-1 px-3 w-2/12 ">Course</th>
+              <th className="border-l px-3 border-gray-300">Semester</th>
+              <th className="border-l px-3 border-gray-300 w-3/12 ">Subject</th>
+              <th className="border-l px-3 border-gray-300 ">Uploaded On</th>
+              <th className="border-l border-gray-300 w-4/12 ">Action</th>
+            </thead>
+
+            <tbody className="text-gray-600 text-center text-sm sm:text-base font-semibold whitespace-nowrap">
+              <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
+                <td className="p-1 rounded-l-lg">B.Tech</td>
+                <td className="">5</td>
+                <td className="font-bold">python</td>
+                <td className="">04-03-2026</td>
+                <td className="flex justify-center items-center p-1 text-white gap-2 rounded-r-xl">
+                  <div className="bg-[#0d6efd] py-1 px-3 shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer">
+                    <FaEdit />
+                    Edit
+                  </div>
+                  <div className="bg-[#DC3545] py-1 px-3 shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer">
+                    <RiDeleteBin5Fill />
+                    Delete
+                  </div>
+                </td>
+              </tr>
+              <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white ">
+                <td className="p-1 rounded-l-lg">BCA</td>
+                <td className="">3</td>
+                <td className="font-bold">C++</td>
+                <td className="">02-01-2026</td>
+                <td className="flex justify-center items-center p-1 text-white gap-2">
+                  <div className="bg-[#0d6efd] py-1 px-3 shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer">
+                    <FaEdit />
+                    Edit
+                  </div>
+                  <div className="bg-[#DC3545] py-1 px-3 shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer">
+                    <RiDeleteBin5Fill />
+                    Delete
+                  </div>
+                </td>
+              </tr>
+
+              <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white ">
+                <td className="p-1 rounded-l-lg">MBA</td>
+                <td className="">1</td>
+                <td className="font-bold">OOPs with Java</td>
+                <td className="">15-02-2026</td>
+                <td className="flex justify-center items-center p-1 text-white gap-2">
+                  <div className="bg-[#0d6efd] py-1 px-3 shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer">
+                    <FaEdit />
+                    Edit
+                  </div>
+                  <div className="bg-[#DC3545] py-1 px-3 shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer">
+                    <RiDeleteBin5Fill />
+                    Delete
+                  </div>
+                </td>
+              </tr>
+              <p className="text-xs  text-gray-500 sm:hidden mb-1">
+                ← Scroll horizontally to see more →
+              </p>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

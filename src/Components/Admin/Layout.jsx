@@ -250,7 +250,7 @@ const Layout = () => {
 
         <Outlet />
 
-        <footer className="bg-white flex flex-col items-center  justify-center sm:shadow-md  sm:border-2 border-gray-300 h-19 sm:rounded-lg sm:mx-2">
+        <footer className="bg-white flex flex-col items-center  justify-center sm:shadow-md  sm:border-2 border-t border-gray-300 h-19 sm:rounded-lg sm:mx-2">
           <h1 className="flex justify-center items-center gap-1.5 sm:text-lg text-md font-semibold text-gray-500">
             <FaRegCopyright /> 2026
             <span className="flex justify-center items-center font-bold text-blue-500">
