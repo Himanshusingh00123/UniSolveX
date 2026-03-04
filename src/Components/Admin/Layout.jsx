@@ -12,7 +12,7 @@ import {
 import { IoSchool, IoSettingsSharp } from "react-icons/io5";
 import { FaCodeBranch, FaNewspaper } from "react-icons/fa6";
 import { MdMenuBook, MdLogout } from "react-icons/md";
-import { FaCalendarAlt } from "react-icons/fa";
+import { FaCalendarAlt, FaRegCopyright } from "react-icons/fa";
 import { BsFileEarmarkCheckFill } from "react-icons/bs";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { HiMenuAlt1 } from "react-icons/hi";
@@ -193,7 +193,7 @@ const Layout = () => {
       <div className="min-h-full overflow-auto  md:pl-2 flex-1 ">
         {/* --------------------------------navbar -----------------------------------*/}
 
-        <div className=" md:h-19 h-15  bg-gray-100 md:rounded-lg border shadow-md border-gray-300 sticky top-0 left-0 z-20 flex justify-between items-center py-4 sm:pl-3 pl-2  pr-4">
+        <nav className=" md:h-19 h-15  bg-gray-100 md:rounded-lg border shadow-md border-gray-300 sticky top-0 left-0 z-20 flex justify-between items-center py-4 sm:pl-3 pl-2  pr-4">
           <button
             onClick={() => {
               setSidebar(!sidebar);
@@ -244,10 +244,25 @@ const Layout = () => {
               </h4>
             </div>
           </div>
-        </div>
+        </nav>
+
         {/* --------------pages section------------------------------------- */}
 
         <Outlet />
+
+        <footer className="bg-white flex flex-col items-center  justify-center sm:shadow-md  sm:border-2 border-gray-300 h-19 sm:rounded-lg sm:mx-2">
+          <h1 className="flex justify-center items-center gap-1.5 text-lg font-semibold text-gray-500">
+            <FaRegCopyright /> 2026
+            <span className="flex justify-center items-center font-bold text-blue-500">
+              UniSolve<span className="text-orange-400 ">X</span>
+            </span>
+            . All Rights Reserved.
+          </h1>
+
+          <p className="text-sm font-semibold text-gray-500">
+            Designed & Developed by Himanshu.
+          </p>
+        </footer>
       </div>
     </div>
   );
