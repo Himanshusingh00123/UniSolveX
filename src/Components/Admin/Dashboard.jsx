@@ -338,11 +338,17 @@ const Dashboard = () => {
                 <td className="font-bold">python</td>
                 <td className="">04-03-2026</td>
                 <td className="flex justify-center items-center p-1 text-white gap-2 rounded-r-xl">
-                  <div className="bg-[#0d6efd] py-1 px-3 shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer">
+                  <div
+                    className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3 hover:from-blue-600 hover:to-blue-800
+                  shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer"
+                  >
                     <FaEdit />
                     Edit
                   </div>
-                  <div className="bg-[#DC3545] py-1 px-3 shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer">
+                  <div
+                    className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3 hover:from-red-600 hover:to-red-800
+                  shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer"
+                  >
                     <RiDeleteBin5Fill />
                     Delete
                   </div>
@@ -354,11 +360,17 @@ const Dashboard = () => {
                 <td className="font-bold">C++</td>
                 <td className="">02-01-2026</td>
                 <td className="flex justify-center items-center p-1 text-white gap-2">
-                  <div className="bg-[#0d6efd] py-1 px-3 shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer">
+                  <div
+                    className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3 hover:from-blue-600 hover:to-blue-800
+                  shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer"
+                  >
                     <FaEdit />
                     Edit
                   </div>
-                  <div className="bg-[#DC3545] py-1 px-3 shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer">
+                  <div
+                    className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3 hover:from-red-600 hover:to-red-800
+                  shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer"
+                  >
                     <RiDeleteBin5Fill />
                     Delete
                   </div>
@@ -371,11 +383,17 @@ const Dashboard = () => {
                 <td className="font-bold">OOPs with Java</td>
                 <td className="">15-02-2026</td>
                 <td className="flex justify-center items-center p-1 text-white gap-2">
-                  <div className="bg-[#0d6efd] py-1 px-3 shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer">
+                  <div
+                    className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3 hover:from-blue-600 hover:to-blue-800
+                  shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer"
+                  >
                     <FaEdit />
                     Edit
                   </div>
-                  <div className="bg-[#DC3545] py-1 px-3 shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer">
+                  <div
+                    className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3 hover:from-red-600 hover:to-red-800
+                  shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer"
+                  >
                     <RiDeleteBin5Fill />
                     Delete
                   </div>
