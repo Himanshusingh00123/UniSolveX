@@ -1,6 +1,11 @@
 import { IoMdAdd } from "react-icons/io";
+import { FaEdit } from "react-icons/fa";
+import { RiDeleteBin5Fill } from "react-icons/ri";
+import { useState } from "react";
 
 const Courses = () => {
+  const [bg, setBg] = useState(true);
+
   return (
     <div className="md:p-2">
       <div className="sm:flex max-sm:flex-col  sm:justify-between items-center sm:py-3 sm:px-4 py-2 px-3">
@@ -8,18 +13,21 @@ const Courses = () => {
           Manage Courses
         </h1>
         <button
-          className="bg-linear-to-b from-blue-500 to-blue-700 flex justify-center max-sm:w-full  gap-1.5 items-center px-4 py-2 
-        hover:from-blue-600 hover:to-blue-800 hover:text-white 
-          sm:text-base text-lg text-gray-100 font-semibold shadow-md cursor-pointer rounded-lg"
+          onClick={() => setBg(!bg)}
+          className={` flex justify-center max-sm:w-full  gap-1.5 items-center px-4 py-2 
+        ${bg ? "bg-linear-to-b from-blue-500 to-blue-700 text-gray-100" : "text-white  bg-linear-to-b from-blue-400 to-blue-600"}
+         hover:text-white hover:from-blue-600 hover:to-blue-800
+          sm:text-base text-lg  font-semibold shadow-md cursor-pointer rounded-lg`}
         >
           <IoMdAdd className="text-lg  font-bold" /> Add Course
         </button>
       </div>
 
       {/* -------------------------------------------------filter section------------------------------------------------ */}
-      <div className="bg-white cursor-pointer sm:rounded-lg sm:border-2 shadow-md border-gray-300 h-full">
-        <div className="grid  sm:grid-cols-2 px-4 py-3 sm:gap-4 gap-2">
-          <div className="">
+
+      <div className="bg-white py-3 px-4 sm:rounded-lg sm:border-2 shadow-md border-gray-300 h-full">
+        <div className="grid  sm:grid-cols-2  sm:gap-4 gap-2 mb-4">
+          <div>
             <label className="text-lg text-gray-500 font-medium">
               Category
             </label>
@@ -74,7 +82,189 @@ const Courses = () => {
             </select>
           </div>
         </div>
-        <div></div>
+
+        {/* -----------------------------------------------Course Table----------------------------------------------------------------- */}
+
+        <div className="border-2 border-gray-300 rounded-xl shadow-sm px-3 overflow-x-auto">
+          <table className="w-full text-center border-separate border-spacing-y-2">
+            <thead className="text-gray-500 whitespace-nowrap">
+              <th className="sm:p-1 px-3 w-3/12 ">Course Name</th>
+              <th className="border-l px-3 border-gray-300">Total Branches</th>
+              <th className="border-l px-3 border-gray-300 ">
+                Total Semesters
+              </th>
+              <th className="border-l px-3 border-gray-300 w-2/12">Status</th>
+              <th className="border-l border-gray-300 w-4/12 ">Action</th>
+            </thead>
+
+            <tbody className="text-gray-600 text-center text-sm sm:text-base font-semibold whitespace-nowrap">
+              <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
+                <td className="p-1 rounded-l-lg">B.Tech</td>
+                <td>5</td>
+                <td className="font-bold">8</td>
+                <td>
+                  <span className="bg-green-200 px-2.5 py-0.5 rounded-lg  text-green-700">
+                    Active
+                  </span>
+                </td>
+                <td className="flex justify-center items-center p-1 text-white gap-2 rounded-r-xl">
+                  <div
+                    className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
+                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer"
+                  >
+                    <FaEdit />
+                    Edit
+                  </div>
+                  <div
+                    className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
+                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer"
+                  >
+                    <RiDeleteBin5Fill />
+                    Delete
+                  </div>
+                </td>
+              </tr>
+              <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white ">
+                <td className="p-1 rounded-l-lg">BCA</td>
+                <td className="">1</td>
+                <td className="font-bold">6</td>
+                <td>
+                  <span className="bg-green-200 px-2.5 py-0.5 rounded-lg  text-green-700">
+                    Active
+                  </span>
+                </td>
+                <td className="flex justify-center items-center p-1 text-white gap-2">
+                  <div
+                    className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
+                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer"
+                  >
+                    <FaEdit />
+                    Edit
+                  </div>
+                  <div
+                    className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
+                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer"
+                  >
+                    <RiDeleteBin5Fill />
+                    Delete
+                  </div>
+                </td>
+              </tr>
+
+              <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white ">
+                <td className="p-1 rounded-l-lg">MBA</td>
+                <td className="">1</td>
+                <td className="font-bold">4</td>
+                <td>
+                  <span className="bg-green-200 px-2.5 py-0.5 rounded-lg  text-green-700">
+                    Active
+                  </span>
+                </td>
+                <td className="flex justify-center items-center p-1 text-white gap-2">
+                  <div
+                    className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
+                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer"
+                  >
+                    <FaEdit />
+                    Edit
+                  </div>
+                  <div
+                    className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
+                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer"
+                  >
+                    <RiDeleteBin5Fill />
+                    Delete
+                  </div>
+                </td>
+              </tr>
+
+              <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white ">
+                <td className="p-1 rounded-l-lg">B.Sc</td>
+                <td className="">4</td>
+                <td className="font-bold">6</td>
+                <td>
+                  <span className="bg-red-200 px-2.5 py-0.5 rounded-lg  text-red-600">
+                    InActive
+                  </span>
+                </td>
+                <td className="flex justify-center items-center p-1 text-white gap-2">
+                  <div
+                    className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
+                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer"
+                  >
+                    <FaEdit />
+                    Edit
+                  </div>
+                  <div
+                    className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
+                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer"
+                  >
+                    <RiDeleteBin5Fill />
+                    Delete
+                  </div>
+                </td>
+              </tr>
+
+              <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white ">
+                <td className="p-1 rounded-l-lg">B.Pharma</td>
+                <td className="">1</td>
+                <td className="font-bold">8</td>
+                <td>
+                  <span className="bg-green-200 px-2.5 py-0.5 rounded-lg  text-green-700">
+                    Active
+                  </span>
+                </td>
+                <td className="flex justify-center items-center p-1 text-white gap-2">
+                  <div
+                    className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
+                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer"
+                  >
+                    <FaEdit />
+                    Edit
+                  </div>
+                  <div
+                    className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
+                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer"
+                  >
+                    <RiDeleteBin5Fill />
+                    Delete
+                  </div>
+                </td>
+              </tr>
+
+              <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white ">
+                <td className="p-1 rounded-l-lg">B.Com</td>
+                <td className="">2</td>
+                <td className="font-bold">6</td>
+                <td>
+                  <span className="bg-red-200 px-2.5 py-0.5 rounded-lg  text-red-600">
+                    InActive
+                  </span>
+                </td>
+                <td className="flex justify-center items-center p-1 text-white gap-2">
+                  <div
+                    className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
+                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer"
+                  >
+                    <FaEdit />
+                    Edit
+                  </div>
+                  <div
+                    className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
+                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer"
+                  >
+                    <RiDeleteBin5Fill />
+                    Delete
+                  </div>
+                </td>
+              </tr>
+
+              <p className="text-xs  text-gray-500 sm:hidden mb-1">
+                ← Scroll horizontally to see more →
+              </p>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

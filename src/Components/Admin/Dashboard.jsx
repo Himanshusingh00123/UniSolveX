@@ -317,7 +317,7 @@ const Dashboard = () => {
 
       {/* --------------------------------------------------------Course Table------------------------------------------------------- */}
 
-      <div className="bg-white  h-full sm:rounded-xl py-3 px-4 mt-3 sm:border  border-gray-300">
+      <div className="bg-white h-full sm:rounded-xl py-3 px-4 mt-3 sm:border  border-gray-300">
         <h1 className="sm:text-xl text-lg text-center sm:text-start font-bold text-gray-700 mb-2">
           Recent Question Paper Uploads
         </h1>
@@ -339,14 +339,14 @@ const Dashboard = () => {
                 <td className="">04-03-2026</td>
                 <td className="flex justify-center items-center p-1 text-white gap-2 rounded-r-xl">
                   <div
-                    className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3 hover:from-blue-600 hover:to-blue-800
+                    className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
                   shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer"
                   >
                     <FaEdit />
                     Edit
                   </div>
                   <div
-                    className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3 hover:from-red-600 hover:to-red-800
+                    className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
                   shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer"
                   >
                     <RiDeleteBin5Fill />
@@ -361,14 +361,14 @@ const Dashboard = () => {
                 <td className="">02-01-2026</td>
                 <td className="flex justify-center items-center p-1 text-white gap-2">
                   <div
-                    className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3 hover:from-blue-600 hover:to-blue-800
+                    className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
                   shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer"
                   >
                     <FaEdit />
                     Edit
                   </div>
                   <div
-                    className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3 hover:from-red-600 hover:to-red-800
+                    className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
                   shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer"
                   >
                     <RiDeleteBin5Fill />
@@ -384,14 +384,14 @@ const Dashboard = () => {
                 <td className="">15-02-2026</td>
                 <td className="flex justify-center items-center p-1 text-white gap-2">
                   <div
-                    className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3 hover:from-blue-600 hover:to-blue-800
+                    className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
                   shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer"
                   >
                     <FaEdit />
                     Edit
                   </div>
                   <div
-                    className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3 hover:from-red-600 hover:to-red-800
+                    className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
                   shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer"
                   >
                     <RiDeleteBin5Fill />
