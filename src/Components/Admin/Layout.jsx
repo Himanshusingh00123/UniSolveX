@@ -250,9 +250,7 @@ const Layout = () => {
 
         <Outlet />
 
-
-{/* -----------------------------------------footer section---------------------------------------------- */}
-
+        {/* -----------------------------------------footer section---------------------------------------------- */}
 
         <footer className="bg-white flex flex-col items-center  justify-center sm:shadow-md  sm:border-2 border-t border-gray-300 h-19 sm:rounded-lg sm:mx-2">
           <h1 className="flex justify-center items-center gap-1.5 sm:text-lg text-md font-semibold text-gray-500">

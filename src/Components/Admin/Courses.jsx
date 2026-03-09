@@ -126,7 +126,7 @@ const Courses = () => {
               </tr>
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white ">
                 <td className="p-1 rounded-l-lg">BCA</td>
-                <td className="">1</td>
+                <td>1</td>
                 <td className="font-bold">6</td>
                 <td>
                   <span className="bg-green-200 px-2.5 py-0.5 rounded-lg  text-green-700">
@@ -153,7 +153,7 @@ const Courses = () => {
 
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white ">
                 <td className="p-1 rounded-l-lg">MBA</td>
-                <td className="">1</td>
+                <td>1</td>
                 <td className="font-bold">4</td>
                 <td>
                   <span className="bg-green-200 px-2.5 py-0.5 rounded-lg  text-green-700">
@@ -180,7 +180,7 @@ const Courses = () => {
 
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white ">
                 <td className="p-1 rounded-l-lg">B.Sc</td>
-                <td className="">4</td>
+                <td>4</td>
                 <td className="font-bold">6</td>
                 <td>
                   <span className="bg-red-200 px-2.5 py-0.5 rounded-lg  text-red-600">
@@ -207,7 +207,7 @@ const Courses = () => {
 
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white ">
                 <td className="p-1 rounded-l-lg">B.Pharma</td>
-                <td className="">1</td>
+                <td>1</td>
                 <td className="font-bold">8</td>
                 <td>
                   <span className="bg-green-200 px-2.5 py-0.5 rounded-lg  text-green-700">
@@ -234,7 +234,7 @@ const Courses = () => {
 
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white ">
                 <td className="p-1 rounded-l-lg">B.Com</td>
-                <td className="">2</td>
+                <td>2</td>
                 <td className="font-bold">6</td>
                 <td>
                   <span className="bg-red-200 px-2.5 py-0.5 rounded-lg  text-red-600">
