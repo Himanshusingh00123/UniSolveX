@@ -103,15 +103,25 @@ const Semester = () => {
 
         <div className="border-2 border-gray-300 rounded-xl shadow-sm px-3 overflow-x-auto">
           <table className="w-full text-center border-separate border-spacing-y-2">
-            <thead className="text-gray-500 whitespace-nowrap">
-              <th className="sm:p-1 px-3 w-2/12">Semester</th>
-              <th className="border-l px-3 border-gray-300 w-2/12">Course</th>
-              <th className="border-l px-3 border-gray-300 w-4/12">Branch</th>
-              <th className="border-l px-3 border-gray-300 ">Total Papers</th>
-              <th className="border-l px-3 border-gray-300 ">
+            <thead className="bg-teal-600 text-white whitespace-nowrap">
+              <th className="p-2 rounded-l-lg px-3 w-2/12 tracking-wide">
+                Semester
+              </th>
+              <th className="border-l px-3 border-gray-300 w-2/12 tracking-wide">
+                Course
+              </th>
+              <th className="border-l px-3 border-gray-300 w-4/12 tracking-wide">
+                Branch
+              </th>
+              <th className="border-l px-3 border-gray-300  tracking-wide">
+                Total Papers
+              </th>
+              <th className="border-l px-3 border-gray-300  tracking-wide">
                 Total Solutions
               </th>
-              <th className="border-l border-gray-300 w-4/12 ">Action</th>
+              <th className="border-l border-gray-300 w-4/12 rounded-r-lg tracking-wide">
+                Action
+              </th>
             </thead>
 
             <tbody className="text-gray-600 text-center text-sm sm:text-base font-semibold whitespace-nowrap">
@@ -124,14 +134,16 @@ const Semester = () => {
                 <td className="flex justify-center items-center p-1 text-white gap-2 rounded-r-xl">
                   <div
                     className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
-                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer"
+                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
+                            transition-all duration-300 hover:scale-105"
                   >
                     <FaEdit />
                     Edit
                   </div>
                   <div
                     className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
-                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer"
+                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer
+                            transition-all duration-300 hover:scale-105"
                   >
                     <RiDeleteBin5Fill />
                     Delete
@@ -148,14 +160,16 @@ const Semester = () => {
                 <td className="flex justify-center items-center p-1 text-white gap-2 rounded-r-xl">
                   <div
                     className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
-                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer"
+                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
+                            transition-all duration-300 hover:scale-105"
                   >
                     <FaEdit />
                     Edit
                   </div>
                   <div
                     className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
-                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer"
+                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer
+                            transition-all duration-300 hover:scale-105"
                   >
                     <RiDeleteBin5Fill />
                     Delete
@@ -172,14 +186,16 @@ const Semester = () => {
                 <td className="flex justify-center items-center p-1 text-white gap-2 rounded-r-xl">
                   <div
                     className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
-                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer"
+                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
+                            transition-all duration-300 hover:scale-105"
                   >
                     <FaEdit />
                     Edit
                   </div>
                   <div
                     className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
-                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer"
+                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer
+                            transition-all duration-300 hover:scale-105"
                   >
                     <RiDeleteBin5Fill />
                     Delete
@@ -196,14 +212,16 @@ const Semester = () => {
                 <td className="flex justify-center items-center p-1 text-white gap-2 rounded-r-xl">
                   <div
                     className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
-                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer"
+                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
+                            transition-all duration-300 hover:scale-105"
                   >
                     <FaEdit />
                     Edit
                   </div>
                   <div
                     className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
-                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer"
+                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer
+                            transition-all duration-300 hover:scale-105"
                   >
                     <RiDeleteBin5Fill />
                     Delete
@@ -220,14 +238,16 @@ const Semester = () => {
                 <td className="flex justify-center items-center p-1 text-white gap-2 rounded-r-xl">
                   <div
                     className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
-                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer"
+                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
+                            transition-all duration-300 hover:scale-105"
                   >
                     <FaEdit />
                     Edit
                   </div>
                   <div
                     className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
-                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer"
+                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer
+                            transition-all duration-300 hover:scale-105"
                   >
                     <RiDeleteBin5Fill />
                     Delete
@@ -244,14 +264,16 @@ const Semester = () => {
                 <td className="flex justify-center items-center p-1 text-white gap-2 rounded-r-xl">
                   <div
                     className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
-                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer"
+                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
+                            transition-all duration-300 hover:scale-105"
                   >
                     <FaEdit />
                     Edit
                   </div>
                   <div
                     className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
-                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer"
+                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer
+                            transition-all duration-300 hover:scale-105"
                   >
                     <RiDeleteBin5Fill />
                     Delete
@@ -268,14 +290,16 @@ const Semester = () => {
                 <td className="flex justify-center items-center p-1 text-white gap-2 rounded-r-xl">
                   <div
                     className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
-                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer"
+                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
+                            transition-all duration-300 hover:scale-105"
                   >
                     <FaEdit />
                     Edit
                   </div>
                   <div
                     className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
-                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer"
+                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer
+                            transition-all duration-300 hover:scale-105"
                   >
                     <RiDeleteBin5Fill />
                     Delete
@@ -292,14 +316,16 @@ const Semester = () => {
                 <td className="flex justify-center items-center p-1 text-white gap-2 rounded-r-xl">
                   <div
                     className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
-                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer"
+                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
+                            transition-all duration-300 hover:scale-105"
                   >
                     <FaEdit />
                     Edit
                   </div>
                   <div
                     className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
-                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer"
+                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer
+                            transition-all duration-300 hover:scale-105"
                   >
                     <RiDeleteBin5Fill />
                     Delete
@@ -316,14 +342,16 @@ const Semester = () => {
                 <td className="flex justify-center items-center p-1 text-white gap-2 rounded-r-xl">
                   <div
                     className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
-                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer"
+                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
+                            transition-all duration-300 hover:scale-105"
                   >
                     <FaEdit />
                     Edit
                   </div>
                   <div
                     className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
-                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer"
+                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer
+                            transition-all duration-300 hover:scale-105"
                   >
                     <RiDeleteBin5Fill />
                     Delete
@@ -340,14 +368,16 @@ const Semester = () => {
                 <td className="flex justify-center items-center p-1 text-white gap-2 rounded-r-xl">
                   <div
                     className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
-                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer"
+                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
+                            transition-all duration-300 hover:scale-105"
                   >
                     <FaEdit />
                     Edit
                   </div>
                   <div
                     className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
-                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer"
+                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer
+                            transition-all duration-300 hover:scale-105"
                   >
                     <RiDeleteBin5Fill />
                     Delete
