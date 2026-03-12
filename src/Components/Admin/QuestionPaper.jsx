@@ -10,7 +10,7 @@ const QuestionPaper = () => {
     <div className="md:p-2">
       <div className="sm:flex max-sm:flex-col  sm:justify-between items-center sm:py-3 sm:px-4 py-2 px-3">
         <h1 className="sm:text-3xl text-2xl font-semibold pb-2.5 text-gray-700">
-          Question Papers
+          Manage Question Papers
         </h1>
         <button
           onClick={() => setBg(!bg)}
