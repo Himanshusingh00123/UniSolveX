@@ -107,7 +107,7 @@ const Courses = () => {
 
             <tbody className="text-gray-600 text-center text-sm sm:text-base font-semibold whitespace-nowrap">
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className="p-1 rounded-l-lg">B.Tech</td>
+                <td className=" rounded-l-lg">B.Tech</td>
                 <td>5</td>
                 <td className="font-bold">8</td>
                 <td>
@@ -115,7 +115,7 @@ const Courses = () => {
                     Active
                   </span>
                 </td>
-                <td className="flex justify-center items-center p-1 text-white gap-2 rounded-r-xl">
+                <td className="flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">
                   <div
                     className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
                             shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
@@ -135,7 +135,7 @@ const Courses = () => {
                 </td>
               </tr>
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white ">
-                <td className="p-1 rounded-l-lg">BCA</td>
+                <td className=" rounded-l-lg">BCA</td>
                 <td>1</td>
                 <td className="font-bold">6</td>
                 <td>
@@ -143,7 +143,7 @@ const Courses = () => {
                     Active
                   </span>
                 </td>
-                <td className="flex justify-center items-center p-1 text-white gap-2">
+                <td className="flex justify-center items-center p-1.5 text-white gap-2">
                   <div
                     className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
                             shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
@@ -164,7 +164,7 @@ const Courses = () => {
               </tr>
 
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white ">
-                <td className="p-1 rounded-l-lg">MBA</td>
+                <td className=" rounded-l-lg">MBA</td>
                 <td>1</td>
                 <td className="font-bold">4</td>
                 <td>
@@ -172,7 +172,7 @@ const Courses = () => {
                     Active
                   </span>
                 </td>
-                <td className="flex justify-center items-center p-1 text-white gap-2">
+                <td className="flex justify-center items-center p-1.5 text-white gap-2">
                   <div
                     className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
                             shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
@@ -193,7 +193,7 @@ const Courses = () => {
               </tr>
 
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white ">
-                <td className="p-1 rounded-l-lg">B.Sc</td>
+                <td className=" rounded-l-lg">B.Sc</td>
                 <td>4</td>
                 <td className="font-bold">6</td>
                 <td>
@@ -201,7 +201,7 @@ const Courses = () => {
                     InActive
                   </span>
                 </td>
-                <td className="flex justify-center items-center p-1 text-white gap-2">
+                <td className="flex justify-center items-center p-1.5 text-white gap-2">
                   <div
                     className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
                             shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
@@ -222,7 +222,7 @@ const Courses = () => {
               </tr>
 
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white ">
-                <td className="p-1 rounded-l-lg">B.Pharma</td>
+                <td className=" rounded-l-lg">B.Pharma</td>
                 <td>1</td>
                 <td className="font-bold">8</td>
                 <td>
@@ -230,7 +230,7 @@ const Courses = () => {
                     Active
                   </span>
                 </td>
-                <td className="flex justify-center items-center p-1 text-white gap-2">
+                <td className="flex justify-center items-center p-1.5 text-white gap-2">
                   <div
                     className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
                             shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
@@ -251,7 +251,7 @@ const Courses = () => {
               </tr>
 
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white ">
-                <td className="p-1 rounded-l-lg">B.Com</td>
+                <td className=" rounded-l-lg">B.Com</td>
                 <td>2</td>
                 <td className="font-bold">6</td>
                 <td>
@@ -259,7 +259,7 @@ const Courses = () => {
                     InActive
                   </span>
                 </td>
-                <td className="flex justify-center items-center p-1 text-white gap-2">
+                <td className="flex justify-center items-center p-1.5 text-white gap-2">
                   <div
                     className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
                             shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer

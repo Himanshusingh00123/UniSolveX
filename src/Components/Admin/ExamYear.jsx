@@ -10,7 +10,7 @@ const ExamYear = () => {
     <div className="md:p-2">
       <div className="sm:flex max-sm:flex-col  sm:justify-between items-center sm:py-3 sm:px-4 py-2 px-3">
         <h1 className="sm:text-3xl text-2xl font-semibold pb-2.5 text-gray-700">
-          Manage Exam Years
+          Manage Exam Sessions
         </h1>
         <button
           onClick={() => setBg(!bg)}
@@ -19,7 +19,7 @@ const ExamYear = () => {
                hover:text-white hover:from-blue-600 hover:to-blue-800
                 sm:text-base text-lg  font-semibold shadow-md cursor-pointer rounded-lg`}
         >
-          <IoMdAdd className="text-lg  font-bold" /> Add Year
+          <IoMdAdd className="text-lg  font-bold" /> Add Session
         </button>
       </div>
 
@@ -83,21 +83,19 @@ const ExamYear = () => {
                     Active
                   </span>
                 </td>
-                <td className="py-3.5 flex justify-center items-center p-1 text-white gap-2 rounded-r-xl">
+                <td className="py-3.5 flex justify-center items-center  text-white gap-2 rounded-r-xl">
                   <div
-                    className="bg-linear-to-t from-emerald-600 to-emerald-400 
-                            hover:from-emerald-700 hover:to-emerald-500
-                            text-white py-1 px-3.5 shadow-md rounded-md transition-all duration-300 hover:scale-105
-                             flex justify-center items-center gap-2 cursor-pointer "
+                    className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
+                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
+                            transition-all duration-300 hover:scale-105"
                   >
                     <FaEdit />
                     Edit
                   </div>
                   <div
-                    className="bg-linear-to-t from-rose-600 to-rose-400 
-                             hover:from-rose-700 hover:to-rose-500
-                             text-white py-1 px-3.5 shadow-md rounded-md 
-                              flex justify-center items-center gap-2 cursor-pointer transition-all duration-300 hover:scale-105"
+                    className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
+                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer
+                            transition-all duration-300 hover:scale-105"
                   >
                     <RiDeleteBin5Fill />
                     Delete
@@ -118,21 +116,19 @@ const ExamYear = () => {
                     Active
                   </span>
                 </td>
-                <td className="py-3.5 flex justify-center items-center p-1 text-white gap-2 rounded-r-xl">
+                <td className="py-3.5 flex justify-center items-center  text-white gap-2 rounded-r-xl">
                   <div
-                    className="bg-linear-to-t from-emerald-600 to-emerald-400 
-                            hover:from-emerald-700 hover:to-emerald-500
-                            text-white py-1 px-3.5 shadow-md rounded-md 
-                             flex justify-center items-center gap-2 cursor-pointer transition-all duration-300 hover:scale-105"
+                    className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
+                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
+                            transition-all duration-300 hover:scale-105"
                   >
                     <FaEdit />
                     Edit
                   </div>
                   <div
-                    className="bg-linear-to-t from-rose-600 to-rose-400 
-                             hover:from-rose-700 hover:to-rose-500
-                             text-white py-1 px-3.5 shadow-md rounded-md 
-                              flex justify-center items-center gap-2 cursor-pointer transition-all duration-300 hover:scale-105"
+                    className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
+                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer
+                            transition-all duration-300 hover:scale-105"
                   >
                     <RiDeleteBin5Fill />
                     Delete
@@ -153,21 +149,19 @@ const ExamYear = () => {
                     Active
                   </span>
                 </td>
-                <td className="py-3.5 flex justify-center items-center p-1 text-white gap-2 rounded-r-xl">
+                <td className="py-3.5 flex justify-center items-center  text-white gap-2 rounded-r-xl">
                   <div
-                    className="bg-linear-to-t from-emerald-600 to-emerald-400 
-                            hover:from-emerald-700 hover:to-emerald-500
-                            text-white py-1 px-3.5 shadow-md rounded-md 
-                             flex justify-center items-center gap-2 cursor-pointer transition-all duration-300 hover:scale-105"
+                    className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
+                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
+                            transition-all duration-300 hover:scale-105"
                   >
                     <FaEdit />
                     Edit
                   </div>
                   <div
-                    className="bg-linear-to-t from-rose-600 to-rose-400 
-                             hover:from-rose-700 hover:to-rose-500
-                             text-white py-1 px-3.5 shadow-md rounded-md 
-                              flex justify-center items-center gap-2 cursor-pointer transition-all duration-300 hover:scale-105"
+                    className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
+                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer
+                            transition-all duration-300 hover:scale-105"
                   >
                     <RiDeleteBin5Fill />
                     Delete
@@ -188,21 +182,19 @@ const ExamYear = () => {
                     InActive
                   </span>
                 </td>
-                <td className="py-3.5 flex justify-center items-center p-1 text-white gap-2 rounded-r-xl">
+                <td className="py-3.5 flex justify-center items-center  text-white gap-2 rounded-r-xl">
                   <div
-                    className="bg-linear-to-t from-emerald-600 to-emerald-400 
-                            hover:from-emerald-700 hover:to-emerald-500
-                            text-white py-1 px-3.5 shadow-md rounded-md 
-                             flex justify-center items-center gap-2 cursor-pointer transition-all duration-300 hover:scale-105"
+                    className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
+                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
+                            transition-all duration-300 hover:scale-105"
                   >
                     <FaEdit />
                     Edit
                   </div>
                   <div
-                    className="bg-linear-to-t from-rose-600 to-rose-400 
-                             hover:from-rose-700 hover:to-rose-500
-                             text-white py-1 px-3.5 shadow-md rounded-md 
-                              flex justify-center items-center gap-2 cursor-pointer transition-all duration-300 hover:scale-105"
+                    className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
+                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer
+                            transition-all duration-300 hover:scale-105"
                   >
                     <RiDeleteBin5Fill />
                     Delete

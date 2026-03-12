@@ -126,12 +126,12 @@ const Semester = () => {
 
             <tbody className="text-gray-600 text-center text-sm sm:text-base font-semibold whitespace-nowrap">
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className="p-1 rounded-l-lg ">Sem 1</td>
+                <td className=" rounded-l-lg ">Sem 1</td>
                 <td>B.Tech</td>
                 <td>Computer Science Engineering</td>
                 <td className="font-bold">14</td>
                 <td className="font-bold">9</td>
-                <td className="flex justify-center items-center p-1 text-white gap-2 rounded-r-xl">
+                <td className="flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">
                   <div
                     className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
                             shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
@@ -152,12 +152,12 @@ const Semester = () => {
               </tr>
 
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className="p-1 rounded-l-lg ">Sem 2</td>
+                <td className=" rounded-l-lg ">Sem 2</td>
                 <td>B.Tech</td>
                 <td>Computer Science Engineering</td>
                 <td className="font-bold">10</td>
                 <td className="font-bold">7</td>
-                <td className="flex justify-center items-center p-1 text-white gap-2 rounded-r-xl">
+                <td className="flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">
                   <div
                     className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
                             shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
@@ -178,12 +178,12 @@ const Semester = () => {
               </tr>
 
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className="p-1 rounded-l-lg ">Sem 3</td>
+                <td className=" rounded-l-lg ">Sem 3</td>
                 <td>B.Tech</td>
                 <td>Computer Science Engineering</td>
                 <td className="font-bold">4</td>
                 <td className="font-bold">1</td>
-                <td className="flex justify-center items-center p-1 text-white gap-2 rounded-r-xl">
+                <td className="flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">
                   <div
                     className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
                             shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
@@ -204,12 +204,12 @@ const Semester = () => {
               </tr>
 
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className="p-1 rounded-l-lg ">Sem 4</td>
+                <td className=" rounded-l-lg ">Sem 4</td>
                 <td>B.Tech</td>
                 <td>Computer Science Engineering</td>
                 <td className="font-bold">18</td>
                 <td className="font-bold">15</td>
-                <td className="flex justify-center items-center p-1 text-white gap-2 rounded-r-xl">
+                <td className="flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">
                   <div
                     className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
                             shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
@@ -230,12 +230,12 @@ const Semester = () => {
               </tr>
 
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className="p-1 rounded-l-lg ">Sem 1</td>
+                <td className=" rounded-l-lg ">Sem 1</td>
                 <td>BCA</td>
                 <td>Bachelor Of Computer Application</td>
                 <td className="font-bold">25</td>
                 <td className="font-bold">12</td>
-                <td className="flex justify-center items-center p-1 text-white gap-2 rounded-r-xl">
+                <td className="flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">
                   <div
                     className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
                             shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
@@ -256,12 +256,12 @@ const Semester = () => {
               </tr>
 
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className="p-1 rounded-l-lg ">Sem 2</td>
+                <td className=" rounded-l-lg ">Sem 2</td>
                 <td>BCA</td>
                 <td>Bachelor Of Computer Application</td>
                 <td className="font-bold">11</td>
                 <td className="font-bold">10</td>
-                <td className="flex justify-center items-center p-1 text-white gap-2 rounded-r-xl">
+                <td className="flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">
                   <div
                     className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
                             shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
@@ -282,12 +282,12 @@ const Semester = () => {
               </tr>
 
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className="p-1 rounded-l-lg ">Sem 3</td>
+                <td className=" rounded-l-lg ">Sem 3</td>
                 <td>BCA</td>
                 <td>Bachelor Of Computer Application</td>
                 <td className="font-bold">8</td>
                 <td className="font-bold">7</td>
-                <td className="flex justify-center items-center p-1 text-white gap-2 rounded-r-xl">
+                <td className="flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">
                   <div
                     className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
                             shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
@@ -308,12 +308,12 @@ const Semester = () => {
               </tr>
 
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className="p-1 rounded-l-lg ">Sem 4</td>
+                <td className=" rounded-l-lg ">Sem 4</td>
                 <td>BCA</td>
                 <td>Bachelor Of Computer Application</td>
                 <td className="font-bold">3</td>
                 <td className="font-bold">3</td>
-                <td className="flex justify-center items-center p-1 text-white gap-2 rounded-r-xl">
+                <td className="flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">
                   <div
                     className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
                             shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
@@ -334,12 +334,12 @@ const Semester = () => {
               </tr>
 
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className="p-1 rounded-l-lg ">Sem 1</td>
+                <td className=" rounded-l-lg ">Sem 1</td>
                 <td>MBA</td>
                 <td>Master Of Business Administration</td>
                 <td className="font-bold">5</td>
                 <td className="font-bold">2</td>
-                <td className="flex justify-center items-center p-1 text-white gap-2 rounded-r-xl">
+                <td className="flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">
                   <div
                     className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
                             shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
@@ -360,12 +360,12 @@ const Semester = () => {
               </tr>
 
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className="p-1 rounded-l-lg ">Sem 2</td>
+                <td className=" rounded-l-lg ">Sem 2</td>
                 <td>MBA</td>
                 <td>Master Of Business Administration</td>
                 <td className="font-bold">8</td>
                 <td className="font-bold">6</td>
-                <td className="flex justify-center items-center p-1 text-white gap-2 rounded-r-xl">
+                <td className="flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">
                   <div
                     className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
                             shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
