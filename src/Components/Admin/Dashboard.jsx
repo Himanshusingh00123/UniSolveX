@@ -209,11 +209,11 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className=" sm:h-110 max:sm:min-h-screen rounded w-full grid md:grid-cols-2 sm:pt-3 gap-3">
+      <div className=" sm:h-110 max:sm:min-h-screen rounded grid md:grid-cols-2 sm:pt-3 gap-3">
         {/* -------------------------------------------------------------Question chart-------------------------------------------------- */}
 
-        <div className="sm:bg-gray-50 sm:border sm:overflow-hidden  sm:border-gray-300 h-full  rounded-xl sm:shadow-sm">
-          <div className=" sm:h-4/12 sm:w-full w-screen px-4 py-2">
+        <div className="sm:bg-gray-50 sm:border sm:overflow-hidden sm:border-gray-300 h-full  rounded-xl sm:shadow-sm">
+          <div className=" sm:h-4/12 w-full  px-4 py-2">
             <h1 className="text-xl font-bold text-gray-700 mb-2 text-center sm:text-start">
               Papers Overview
             </h1>
@@ -252,7 +252,7 @@ const Dashboard = () => {
             </div>
           </div>
 
-          <div className=" h-8/12 w-screen sm:w-full p-2 rounded-lg">
+          <div className=" h-8/12 w-full p-2 rounded-lg ">
             <Chart
               options={lineChart.options}
               series={lineChart.series}
@@ -265,7 +265,7 @@ const Dashboard = () => {
         {/*---------------------------------------------------------- Solution chart----------------------------------------------------------- */}
 
         <div className="sm:bg-gray-50 sm:border sm:overflow-hidden  sm:border-gray-300 h-full  rounded-xl sm:shadow-sm">
-          <div className=" sm:h-4/12 sm:w-full w-screen px-4 py-2">
+          <div className=" sm:h-4/12 w-full  px-4 py-2">
             <h1 className="text-xl font-bold text-gray-700 mb-2 text-center sm:text-start">
               Solutions Statistics
             </h1>
@@ -304,7 +304,7 @@ const Dashboard = () => {
             </div>
           </div>
 
-          <div className=" h-8/12 w-screen sm:w-full p-2 rounded-lg">
+          <div className=" h-8/12 w-full p-2 rounded-lg">
             <Chart
               options={barCharts.options}
               series={barCharts.series}

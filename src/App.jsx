@@ -12,6 +12,7 @@ import Setting from "./Components/Admin/Setting";
 import "remixicon/fonts/remixicon.css";
 import 'animate.css';
 
+
 const App = () => {
   return (
     <BrowserRouter>

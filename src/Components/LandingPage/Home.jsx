@@ -13,10 +13,10 @@
 // };
 // export default Home;
 
+import Spline from "@splinetool/react-spline";
 import React, { useState, useRef, useEffect } from "react";
 import { Menu, ChevronDown, BookOpen, FileText, Download } from "lucide-react";
 import { Link } from "react-router-dom";
-import Spline from "@splinetool/react-spline";
 
 const Home = () => {
   const [branchOpen, setBranchOpen] = useState(false);
