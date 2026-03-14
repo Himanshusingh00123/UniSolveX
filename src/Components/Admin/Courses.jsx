@@ -31,7 +31,7 @@ const Courses = () => {
             <label className="text-lg text-gray-500 font-medium">
               Category
             </label>
-            <select className="w-full focus:outline-blue-600 focus:outline-2 border-2 cursor-pointer border-gray-300 rounded-lg px-4 py-2 mt-1 text-base text-gray-500 font-semibold">
+            <select className="w-full bg-gray-100 focus:outline-blue-600 focus:outline-2 border-2 cursor-pointer border-gray-300 rounded-lg px-4 py-2 mt-1 text-base text-gray-500 font-semibold">
               <option
                 className="sm:text-base text-xs text-gray-600 font-medium "
                 value="all"
@@ -60,7 +60,7 @@ const Courses = () => {
           </div>
           <div>
             <label className="text-lg text-gray-500 font-medium">Status</label>
-            <select className="w-full border-2 focus:outline-blue-600 focus:outline-2 cursor-pointer border-gray-300 rounded-lg px-4 py-2 mt-1 text-base text-gray-500 font-semibold">
+            <select className="w-full bg-gray-100 border-2 focus:outline-blue-600 focus:outline-2 cursor-pointer border-gray-300 rounded-lg px-4 py-2 mt-1 text-base text-gray-500 font-semibold">
               <option
                 className="sm:text-base text-xs text-gray-600 font-medium"
                 value="all"

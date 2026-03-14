@@ -28,7 +28,7 @@ const ExamYear = () => {
       <div className="bg-white py-3 px-4 sm:rounded-lg sm:border-2 shadow-md border-gray-300 h-full">
         <div className="sm:w-4/12 mb-4">
           <label className="text-lg text-gray-500 font-medium">Course</label>
-          <select className="w-full focus:outline-blue-600 focus:outline-2 border-2 cursor-pointer border-gray-300 rounded-lg px-4 py-2 mt-1 text-base text-gray-500 font-semibold">
+          <select className="w-full bg-gray-100 focus:outline-blue-600 focus:outline-2 border-2 cursor-pointer border-gray-300 rounded-lg px-4 py-2 mt-1 text-base text-gray-500 font-semibold">
             <option
               className="sm:text-base text-xs text-gray-600 font-medium "
               value="all"

@@ -60,9 +60,7 @@ const Setting = () => {
         </form>
       </div>
 
-      <div className="bg-white border border-gray-300 rounded-xl sm:mt-4 mt-2 sm:w-7/12 h-120">
-        
-      </div>
+      <div className="bg-white border border-gray-300 rounded-xl sm:mt-4 mt-2 sm:w-7/12 h-120"></div>
     </div>
   );
 };

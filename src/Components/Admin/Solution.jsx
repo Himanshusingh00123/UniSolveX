@@ -29,7 +29,7 @@ const Solution = () => {
         <div className="grid  sm:grid-cols-4  sm:gap-4 gap-2 mb-4">
           <div>
             <label className="text-lg text-gray-500 font-medium">Course</label>
-            <select className="w-full focus:outline-blue-600 focus:outline-2 border-2 cursor-pointer border-gray-300 rounded-lg px-4 py-2 mt-1 text-base text-gray-500 font-semibold">
+            <select className="w-full bg-gray-100 focus:outline-blue-600 focus:outline-2 border-2 cursor-pointer border-gray-300 rounded-lg px-4 py-2 mt-1 text-base text-gray-500 font-semibold">
               <option
                 className="sm:text-base text-xs text-gray-600 font-medium "
                 value="all"
@@ -58,7 +58,7 @@ const Solution = () => {
           </div>
           <div>
             <label className="text-lg text-gray-500 font-medium">Branch</label>
-            <select className="w-full border-2 focus:outline-blue-600 focus:outline-2 cursor-pointer border-gray-300 rounded-lg px-4 py-2 mt-1 text-base text-gray-500 font-semibold">
+            <select className="w-full bg-gray-100 border-2 focus:outline-blue-600 focus:outline-2 cursor-pointer border-gray-300 rounded-lg px-4 py-2 mt-1 text-base text-gray-500 font-semibold">
               <option
                 className="sm:text-base text-xs text-gray-600 font-medium"
                 value="all"
@@ -101,7 +101,7 @@ const Solution = () => {
             <label className="text-lg text-gray-500 font-medium">
               Semester
             </label>
-            <select className="w-full focus:outline-blue-600 focus:outline-2 border-2 cursor-pointer border-gray-300 rounded-lg px-4 py-2 mt-1 text-base text-gray-500 font-semibold">
+            <select className="w-full bg-gray-100 focus:outline-blue-600 focus:outline-2 border-2 cursor-pointer border-gray-300 rounded-lg px-4 py-2 mt-1 text-base text-gray-500 font-semibold">
               <option
                 className="sm:text-base text-xs text-gray-600 font-medium "
                 value="all"
@@ -162,7 +162,7 @@ const Solution = () => {
             <label className="text-lg text-gray-500 font-medium">
               All Session
             </label>
-            <select className="w-full focus:outline-blue-600 focus:outline-2 border-2 cursor-pointer border-gray-300 rounded-lg px-4 py-2 mt-1 text-base text-gray-500 font-semibold">
+            <select className="w-full bg-gray-100 focus:outline-blue-600 focus:outline-2 border-2 cursor-pointer border-gray-300 rounded-lg px-4 py-2 mt-1 text-base text-gray-500 font-semibold">
               <option
                 className="sm:text-base text-xs text-gray-600 font-medium "
                 value="all"
