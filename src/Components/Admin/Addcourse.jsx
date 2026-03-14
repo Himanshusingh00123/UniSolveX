@@ -6,7 +6,7 @@ const Addcourse = () => {
 
   return (
     <div>
-      <form className="sm:p-8 p-6 rounded-xl flex-col flex gap-2 max-sm:-mx-7 bg-white ">
+      <form className="sm:p-8 p-6 rounded-xl flex-col flex sm:gap-2 gap-1 max-sm:-mx-7 bg-white ">
         <div>
           <h1 className="text-xl font-semibold text-gray-900 text-start">
             Add New Course
