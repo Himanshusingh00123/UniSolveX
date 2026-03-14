@@ -2,9 +2,23 @@ import { IoMdAdd } from "react-icons/io";
 import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { useState } from "react";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import Addcourse from "./Addcourse";
 
 const Courses = () => {
   const [bg, setBg] = useState(true);
+  const MySwal = withReactContent(Swal);
+
+  const addCourse = () => {
+    setBg(!bg);
+    MySwal.fire({
+      width: "600px",
+      background: "none",
+      html: <Addcourse />,
+      showConfirmButton: false,
+    });
+  };
 
   return (
     <div className="md:p-2">
@@ -13,7 +27,7 @@ const Courses = () => {
           Manage Courses
         </h1>
         <button
-          onClick={() => setBg(!bg)}
+          onClick={addCourse}
           className={` flex justify-center max-sm:w-full  gap-1.5 items-center px-4 py-2 
         ${bg ? "bg-linear-to-b from-blue-500 to-blue-700 text-gray-100" : "text-white  bg-linear-to-b from-blue-400 to-blue-600"}
          hover:text-white hover:from-blue-600 hover:to-blue-800
@@ -91,175 +105,27 @@ const Courses = () => {
               <th className="p-2 rounded-l-lg px-3 w-3/12 tracking-wide">
                 Course Name
               </th>
-              <th className="border-l px-3 border-gray-300 tracking-wide">
-                Total Branches
+              <th className="border-l px-3 border-gray-300 w-4/12 tracking-wide">
+                Full Course Title
               </th>
-              <th className="border-l px-3 border-gray-300 tracking-wide">
-                Total Semesters
-              </th>
-              <th className="border-l px-3 border-gray-300 w-2/12 tracking-wide">
+              <th className="border-l px-3 border-gray-300  tracking-wide">
                 Status
               </th>
-              <th className="border-l border-gray-300 w-4/12 rounded-r-lg tracking-wide">
+              <th className="border-l border-gray-300 w-3/12 rounded-r-lg tracking-wide">
                 Action
               </th>
             </thead>
 
             <tbody className="text-gray-600 text-center text-sm sm:text-base font-semibold whitespace-nowrap">
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className=" rounded-l-lg">B.Tech</td>
-                <td>5</td>
-                <td className="font-bold">8</td>
+                <td className=" rounded-l-lg font-bold">B.Tech</td>
+                <td>Bachelor of Technology</td>
                 <td>
                   <span className="bg-green-200 px-2.5 py-0.5 rounded-lg  text-green-700">
                     Active
                   </span>
                 </td>
                 <td className="flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">
-                  <div
-                    className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
-                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
-                            transition-all duration-300 hover:scale-105"
-                  >
-                    <FaEdit />
-                    Edit
-                  </div>
-                  <div
-                    className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
-                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer
-                            transition-all duration-300 hover:scale-105"
-                  >
-                    <RiDeleteBin5Fill />
-                    Delete
-                  </div>
-                </td>
-              </tr>
-              <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white ">
-                <td className=" rounded-l-lg">BCA</td>
-                <td>1</td>
-                <td className="font-bold">6</td>
-                <td>
-                  <span className="bg-green-200 px-2.5 py-0.5 rounded-lg  text-green-700">
-                    Active
-                  </span>
-                </td>
-                <td className="flex justify-center items-center p-1.5 text-white gap-2">
-                  <div
-                    className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
-                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
-                            transition-all duration-300 hover:scale-105"
-                  >
-                    <FaEdit />
-                    Edit
-                  </div>
-                  <div
-                    className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
-                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer
-                            transition-all duration-300 hover:scale-105"
-                  >
-                    <RiDeleteBin5Fill />
-                    Delete
-                  </div>
-                </td>
-              </tr>
-
-              <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white ">
-                <td className=" rounded-l-lg">MBA</td>
-                <td>1</td>
-                <td className="font-bold">4</td>
-                <td>
-                  <span className="bg-green-200 px-2.5 py-0.5 rounded-lg  text-green-700">
-                    Active
-                  </span>
-                </td>
-                <td className="flex justify-center items-center p-1.5 text-white gap-2">
-                  <div
-                    className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
-                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
-                            transition-all duration-300 hover:scale-105"
-                  >
-                    <FaEdit />
-                    Edit
-                  </div>
-                  <div
-                    className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
-                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer
-                            transition-all duration-300 hover:scale-105"
-                  >
-                    <RiDeleteBin5Fill />
-                    Delete
-                  </div>
-                </td>
-              </tr>
-
-              <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white ">
-                <td className=" rounded-l-lg">B.Sc</td>
-                <td>4</td>
-                <td className="font-bold">6</td>
-                <td>
-                  <span className="bg-red-200 px-2.5 py-0.5 rounded-lg  text-red-600">
-                    InActive
-                  </span>
-                </td>
-                <td className="flex justify-center items-center p-1.5 text-white gap-2">
-                  <div
-                    className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
-                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
-                            transition-all duration-300 hover:scale-105"
-                  >
-                    <FaEdit />
-                    Edit
-                  </div>
-                  <div
-                    className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
-                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer
-                            transition-all duration-300 hover:scale-105"
-                  >
-                    <RiDeleteBin5Fill />
-                    Delete
-                  </div>
-                </td>
-              </tr>
-
-              <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white ">
-                <td className=" rounded-l-lg">B.Pharma</td>
-                <td>1</td>
-                <td className="font-bold">8</td>
-                <td>
-                  <span className="bg-green-200 px-2.5 py-0.5 rounded-lg  text-green-700">
-                    Active
-                  </span>
-                </td>
-                <td className="flex justify-center items-center p-1.5 text-white gap-2">
-                  <div
-                    className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
-                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
-                            transition-all duration-300 hover:scale-105"
-                  >
-                    <FaEdit />
-                    Edit
-                  </div>
-                  <div
-                    className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
-                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer
-                            transition-all duration-300 hover:scale-105"
-                  >
-                    <RiDeleteBin5Fill />
-                    Delete
-                  </div>
-                </td>
-              </tr>
-
-              <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white ">
-                <td className=" rounded-l-lg">B.Com</td>
-                <td>2</td>
-                <td className="font-bold">6</td>
-                <td>
-                  <span className="bg-red-200 px-2.5 py-0.5 rounded-lg  text-red-600">
-                    InActive
-                  </span>
-                </td>
-                <td className="flex justify-center items-center p-1.5 text-white gap-2">
                   <div
                     className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
                             shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
