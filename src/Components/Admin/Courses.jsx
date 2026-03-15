@@ -11,12 +11,13 @@ const Courses = () => {
   const MySwal = withReactContent(Swal);
 
   const addCourse = () => {
-    setBg(!bg);
+    setBg(false);
     MySwal.fire({
       width: "600px",
       background: "none",
-      html: <Addcourse />,
+      html: <Addcourse setBg={setBg} />,
       showConfirmButton: false,
+      willClose: () => setBg(true),
     });
   };
 

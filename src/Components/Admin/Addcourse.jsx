@@ -1,8 +1,21 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
-const Addcourse = () => {
-  const [bg, setBg] = useState(true);
+const Addcourse = ({ setBg }) => {
+  const [btnbg, setBtnBg] = useState(true);
+
+  const buttonBg = (e) => {
+    e.preventDefault();
+    setBtnBg(!btnbg);
+    const MySwal = withReactContent(Swal);
+    MySwal.fire({
+      title: "Course Added",
+      icon: "success",
+      draggable: true,
+      willClose: () => setBg(true),
+    });
+  };
 
   return (
     <form className="sm:p-8 p-6 rounded-xl flex-col flex sm:gap-2 gap-1 max-sm:-mx-7 bg-white ">
@@ -69,10 +82,10 @@ const Addcourse = () => {
         </button>
 
         <button
-          onClick={() => setBg(!bg)}
+          onClick={buttonBg}
           type="submit"
           className={`shadow-md 
-            ${bg ? "bg-linear-to-b from-blue-500 to-blue-700" : "bg-linear-to-b from-blue-400 to-blue-600"}
+            ${btnbg ? "bg-linear-to-b from-blue-500 to-blue-700" : "bg-linear-to-b from-blue-400 to-blue-600"}
              hover:from-blue-600 hover:to-blue-800
             text-white font-semibold px-4 py-2 flex justify-center items-center gap-2 cursor-pointer rounded-lg`}
         >

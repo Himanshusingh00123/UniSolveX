@@ -11,12 +11,13 @@ const Branch = () => {
   const MySwal = withReactContent(Swal);
 
   const addBranch = () => {
-    setBg(!bg);
+    setBg(false);
     MySwal.fire({
       width: "600px",
       background: "none",
-      html: <Addbranch />,
+      html: <Addbranch setBg={setBg} />,
       showConfirmButton: false,
+      willClose: () => setBg(true),
     });
   };
 
