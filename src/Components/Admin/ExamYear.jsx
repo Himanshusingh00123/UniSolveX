@@ -2,9 +2,24 @@ import { IoMdAdd } from "react-icons/io";
 import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { useState } from "react";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import Addexamyear from "./Addexamyear";
 
 const ExamYear = () => {
   const [bg, setBg] = useState(true);
+  const MySwal = withReactContent(Swal);
+
+  const addExamYear = () => {
+    setBg(false);
+    MySwal.fire({
+      width: "600px",
+      background: "none",
+      html: <Addexamyear setBg={setBg} />,
+      showConfirmButton: false,
+      willClose: () => setBg(true),
+    });
+  };
 
   return (
     <div className="md:p-2">
@@ -13,7 +28,7 @@ const ExamYear = () => {
           Manage Exam Sessions
         </h1>
         <button
-          onClick={() => setBg(!bg)}
+          onClick={addExamYear}
           className={` flex justify-center max-sm:w-full  gap-1.5 items-center px-4 py-2 
               ${bg ? "bg-linear-to-b from-blue-500 to-blue-700 text-gray-100" : "text-white  bg-linear-to-b from-blue-400 to-blue-600"}
                hover:text-white hover:from-blue-600 hover:to-blue-800
@@ -59,7 +74,7 @@ const ExamYear = () => {
                 Session
               </th>
               <th className="border-l px-3 border-gray-300 tracking-wide">
-                Created
+                Created On
               </th>
               <th className="border-l px-3 border-gray-300 w-2/12 tracking-wide">
                 Status
