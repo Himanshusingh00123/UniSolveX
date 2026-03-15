@@ -95,7 +95,9 @@ const Branch = () => {
 
             <tbody className="text-gray-600 text-center text-sm sm:text-base font-semibold whitespace-nowrap">
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className=" rounded-l-lg">Computer Science Engineering</td>
+                <td className=" rounded-l-lg font-bold">
+                  Computer Science Engineering
+                </td>
                 <td>B.Tech</td>
                 <td className="font-bold">5</td>
                 <td className="font-bold">3</td>
@@ -120,7 +122,9 @@ const Branch = () => {
               </tr>
 
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className=" rounded-l-lg">Mechanical Engineering</td>
+                <td className=" rounded-l-lg font-bold">
+                  Mechanical Engineering
+                </td>
                 <td>B.Tech</td>
                 <td className="font-bold">8</td>
                 <td className="font-bold">7</td>
@@ -145,7 +149,9 @@ const Branch = () => {
               </tr>
 
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className=" rounded-l-lg">Electrical Engineering</td>
+                <td className=" rounded-l-lg font-bold">
+                  Electrical Engineering
+                </td>
                 <td>B.Tech</td>
                 <td className="font-bold">4</td>
                 <td className="font-bold">2</td>
@@ -170,7 +176,7 @@ const Branch = () => {
               </tr>
 
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className=" rounded-l-lg">
+                <td className=" rounded-l-lg font-bold">
                   Electronics And Communication Engineering
                 </td>
                 <td>B.Tech</td>
@@ -197,7 +203,9 @@ const Branch = () => {
               </tr>
 
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className=" rounded-l-lg">Computer Application</td>
+                <td className=" rounded-l-lg font-bold">
+                  Computer Application
+                </td>
                 <td>BCA</td>
                 <td className="font-bold">7</td>
                 <td className="font-bold">5</td>

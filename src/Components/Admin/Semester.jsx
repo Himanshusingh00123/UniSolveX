@@ -126,7 +126,7 @@ const Semester = () => {
 
             <tbody className="text-gray-600 text-center text-sm sm:text-base font-semibold whitespace-nowrap">
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className=" rounded-l-lg ">Sem 1</td>
+                <td className=" rounded-l-lg font-bold">Sem 1</td>
                 <td>B.Tech</td>
                 <td>Computer Science Engineering</td>
                 <td className="font-bold">14</td>
@@ -152,7 +152,7 @@ const Semester = () => {
               </tr>
 
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className=" rounded-l-lg ">Sem 2</td>
+                <td className=" rounded-l-lg font-bold">Sem 2</td>
                 <td>B.Tech</td>
                 <td>Computer Science Engineering</td>
                 <td className="font-bold">10</td>
@@ -178,7 +178,7 @@ const Semester = () => {
               </tr>
 
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className=" rounded-l-lg ">Sem 3</td>
+                <td className=" rounded-l-lg font-bold">Sem 3</td>
                 <td>B.Tech</td>
                 <td>Computer Science Engineering</td>
                 <td className="font-bold">4</td>
@@ -204,7 +204,7 @@ const Semester = () => {
               </tr>
 
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className=" rounded-l-lg ">Sem 4</td>
+                <td className=" rounded-l-lg font-bold">Sem 4</td>
                 <td>B.Tech</td>
                 <td>Computer Science Engineering</td>
                 <td className="font-bold">18</td>
@@ -230,7 +230,7 @@ const Semester = () => {
               </tr>
 
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className=" rounded-l-lg ">Sem 1</td>
+                <td className=" rounded-l-lg font-bold">Sem 1</td>
                 <td>BCA</td>
                 <td>Bachelor Of Computer Application</td>
                 <td className="font-bold">25</td>
@@ -256,7 +256,7 @@ const Semester = () => {
               </tr>
 
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className=" rounded-l-lg ">Sem 2</td>
+                <td className=" rounded-l-lg font-bold">Sem 2</td>
                 <td>BCA</td>
                 <td>Bachelor Of Computer Application</td>
                 <td className="font-bold">11</td>
@@ -282,7 +282,7 @@ const Semester = () => {
               </tr>
 
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className=" rounded-l-lg ">Sem 3</td>
+                <td className=" rounded-l-lg font-bold">Sem 3</td>
                 <td>BCA</td>
                 <td>Bachelor Of Computer Application</td>
                 <td className="font-bold">8</td>
@@ -308,7 +308,7 @@ const Semester = () => {
               </tr>
 
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className=" rounded-l-lg ">Sem 4</td>
+                <td className=" rounded-l-lg font-bold">Sem 4</td>
                 <td>BCA</td>
                 <td>Bachelor Of Computer Application</td>
                 <td className="font-bold">3</td>
@@ -334,7 +334,7 @@ const Semester = () => {
               </tr>
 
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className=" rounded-l-lg ">Sem 1</td>
+                <td className=" rounded-l-lg font-bold">Sem 1</td>
                 <td>MBA</td>
                 <td>Master Of Business Administration</td>
                 <td className="font-bold">5</td>
@@ -360,7 +360,7 @@ const Semester = () => {
               </tr>
 
               <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className=" rounded-l-lg ">Sem 2</td>
+                <td className=" rounded-l-lg font-bold">Sem 2</td>
                 <td>MBA</td>
                 <td>Master Of Business Administration</td>
                 <td className="font-bold">8</td>
