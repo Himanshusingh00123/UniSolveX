@@ -44,16 +44,6 @@ const Addexamyear = ({ setBg }) => {
         Add Session like 2026-27 .
       </h3>
 
-      <label className="text-start text-gray-800 font-medium text-base mt-4">
-        Creation Date *
-      </label>
-      <input
-        class="p-2.5 rounded-xl  focus:outline-2 focus:outline-blue-600
-       border-gray-300 border-2"
-        type="date"
-        required
-      />
-
       <label className="text-start text-gray-800 font-medium text-base mt-3">
         Status
       </label>
