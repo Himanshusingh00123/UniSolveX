@@ -2,9 +2,24 @@ import { IoMdAdd } from "react-icons/io";
 import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { useState } from "react";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import Addsolution from "./Addsolution";
 
 const Solution = () => {
   const [bg, setBg] = useState(true);
+  const MySwal = withReactContent(Swal);
+
+  const addSolution = () => {
+    setBg(false);
+    MySwal.fire({
+      width: "600px",
+      background: "none",
+      html: <Addsolution setBg={setBg} />,
+      showConfirmButton: false,
+      willClose: () => setBg(true),
+    });
+  };
 
   return (
     <div className="md:p-2">
@@ -13,7 +28,7 @@ const Solution = () => {
           Manage Papers Solutions
         </h1>
         <button
-          onClick={() => setBg(!bg)}
+          onClick={addSolution}
           className={` flex justify-center max-sm:w-full  gap-1.5 items-center px-4 py-2 
                           ${bg ? "bg-linear-to-b from-blue-500 to-blue-700 text-gray-100" : "text-white  bg-linear-to-b from-blue-400 to-blue-600"}
                            hover:text-white hover:from-blue-600 hover:to-blue-800
