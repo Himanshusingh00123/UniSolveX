@@ -16,12 +16,26 @@ import { FaCalendarAlt, FaRegCopyright } from "react-icons/fa";
 import { BsFileEarmarkCheckFill } from "react-icons/bs";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { HiMenuAlt1 } from "react-icons/hi";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import Logout from "./Logout";
 
 const Layout = () => {
   const [sidebar, setSidebar] = useState(false);
   const [active, setActive] = useState(0);
   const [menu, setMenu] = useState(false);
   const navigate = useNavigate();
+
+  const logout = () => {
+    setActive(8);
+    const MySwal = withReactContent(Swal);
+    MySwal.fire({
+      width: "520px",
+      background: "none",
+      html: <Logout />,
+      showConfirmButton: false,
+    });
+  };
 
   const handle = () => {
     navigate("/admin");
@@ -162,7 +176,7 @@ const Layout = () => {
         <hr className="mx-2 mt-2 text-gray-400 font-bold" />
 
         <div
-          onClick={() => setActive(8)}
+          onClick={logout}
           className={`
           ${
             active === 8
