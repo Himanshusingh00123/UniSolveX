@@ -156,7 +156,7 @@ const Courses = () => {
             </table>
           </div>
         ) : (
-          <div className="h-30 flex justify-center items-center text-lg font-medium text-gray-500 tracking-wide">
+          <div className="h-30 flex justify-center items-center text-lg  font-medium text-center text-gray-500 tracking-wide">
             No courses found. Add your first course to get started.
           </div>
         )}
