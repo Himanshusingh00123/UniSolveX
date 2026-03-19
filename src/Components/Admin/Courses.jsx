@@ -10,12 +10,18 @@ const Courses = () => {
   const [bg, setBg] = useState(true);
   const MySwal = withReactContent(Swal);
 
+  const [course, setCourse] = useState([]);
+
+  const receiveData = (coursedata) => {
+    setCourse([...course, coursedata]);
+  };
+
   const addCourse = () => {
     setBg(false);
     MySwal.fire({
       width: "600px",
       background: "none",
-      html: <Addcourse setBg={setBg} />,
+      html: <Addcourse setBg={setBg} onSend={receiveData} />,
       showConfirmButton: false,
       willClose: () => setBg(true),
     });
@@ -53,24 +59,15 @@ const Courses = () => {
               >
                 All Categories
               </option>
-              <option
-                className="sm:text-base text-xs text-gray-600 font-medium"
-                value="b.tech"
-              >
-                B.Tech
-              </option>
-              <option
-                className="sm:text-base text-xs text-gray-600 font-medium"
-                value="bca"
-              >
-                BCA
-              </option>
-              <option
-                className="sm:text-base text-xs text-gray-600 font-medium"
-                value="mba"
-              >
-                MBA
-              </option>
+              {course.map((item, index) => (
+                <option
+                  key={index}
+                  className="sm:text-base text-xs text-gray-600 font-medium"
+                  value={item.course}
+                >
+                  {item.course}
+                </option>
+              ))}
             </select>
           </div>
           <div>
@@ -118,33 +115,40 @@ const Courses = () => {
             </thead>
 
             <tbody className="text-gray-600 text-center text-sm sm:text-base font-semibold whitespace-nowrap">
-              <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className=" rounded-l-lg font-bold">B.Tech</td>
-                <td>Bachelor of Technology</td>
-                <td>
-                  <span className="bg-green-200 px-2.5 py-0.5 rounded-lg  text-green-700">
-                    Active
-                  </span>
-                </td>
-                <td className="flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">
-                  <div
-                    className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
+              {course.map((item, index) => (
+                <tr
+                  key={index}
+                  className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white"
+                >
+                  <td className=" rounded-l-lg font-bold">{item.course}</td>
+                  <td>{item.full_title}</td>
+                  <td>
+                    <span
+                      className={`${item.status === "Active" ? "bg-green-200 text-green-700" : "bg-red-200 text-red-700"} px-2.5 py-0.5 rounded-lg `}
+                    >
+                      {item.status}
+                    </span>
+                  </td>
+                  <td className="flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">
+                    <div
+                      className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
                             shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
                             transition-all duration-300 hover:scale-105"
-                  >
-                    <FaEdit />
-                    Edit
-                  </div>
-                  <div
-                    className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
+                    >
+                      <FaEdit />
+                      Edit
+                    </div>
+                    <div
+                      className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
                             shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer
                             transition-all duration-300 hover:scale-105"
-                  >
-                    <RiDeleteBin5Fill />
-                    Delete
-                  </div>
-                </td>
-              </tr>
+                    >
+                      <RiDeleteBin5Fill />
+                      Delete
+                    </div>
+                  </td>
+                </tr>
+              ))}
 
               <p className="text-xs  text-gray-500 sm:hidden mb-1">
                 ← Scroll horizontally to see more →

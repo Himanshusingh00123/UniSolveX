@@ -2,11 +2,27 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
-const Addcourse = ({ setBg }) => {
+const Addcourse = ({ setBg, onSend }) => {
   const [btnbg, setBtnBg] = useState(true);
 
-  const buttonBg = (e) => {
-    e.preventDefault();
+  const coursefield = {
+    course: "",
+    full_title: "",
+    status: "Active",
+  };
+
+  const [course, setcourse] = useState(coursefield);
+
+  const newcourse = (e) => {
+    const value = e.target.value;
+    const key = e.target.name;
+    setcourse({
+      ...course,
+      [key]: value,
+    });
+  };
+
+  const courseadded = (e) => {
     setBtnBg(!btnbg);
     const MySwal = withReactContent(Swal);
     MySwal.fire({
@@ -15,10 +31,14 @@ const Addcourse = ({ setBg }) => {
       draggable: true,
       willClose: () => setBg(true),
     });
+    onSend(course);
   };
 
   return (
-    <form className="sm:p-8 p-6 rounded-xl flex-col flex sm:gap-2 gap-1 max-sm:-mx-7 bg-white ">
+    <form
+      onSubmit={courseadded}
+      className="sm:p-8 p-6 rounded-xl flex-col flex sm:gap-2 gap-1 max-sm:-mx-7 bg-white "
+    >
       <div>
         <h1 className="text-xl font-semibold text-gray-900 text-start">
           Add New Course
@@ -32,7 +52,9 @@ const Addcourse = ({ setBg }) => {
         Course Name *
       </label>
       <input
-        class="p-2.5 rounded-xl placeholder-gray-500  focus:outline-2 focus:outline-blue-600
+        onChange={newcourse}
+        name="course"
+        className="p-2.5 rounded-xl placeholder-gray-500  focus:outline-2 focus:outline-blue-600
        border-gray-300 border-2"
         type="text"
         placeholder="e.g., B.Tech"
@@ -43,6 +65,8 @@ const Addcourse = ({ setBg }) => {
         Full Course Title *
       </label>
       <input
+        onChange={newcourse}
+        name="full_title"
         className="p-2.5 rounded-xl placeholder-gray-400  focus:outline-2 focus:outline-blue-600
        border-gray-300 border-2"
         type="text"
@@ -54,18 +78,20 @@ const Addcourse = ({ setBg }) => {
         Status
       </label>
       <select
+        onChange={newcourse}
+        name="status"
         className="p-2.5 rounded-xl placeholder-gray-400  focus:outline-2 focus:outline-blue-600
        border-gray-300 border-2 cursor-pointer"
       >
         <option
           className="sm:text-base text-xs text-gray-600 font-medium"
-          value="active"
+          value="Active"
         >
           Active
         </option>
         <option
           className="sm:text-base text-xs text-gray-600 font-medium"
-          value="inactive"
+          value="InActive"
         >
           InActive
         </option>
@@ -82,7 +108,6 @@ const Addcourse = ({ setBg }) => {
         </button>
 
         <button
-          onClick={buttonBg}
           type="submit"
           className={`shadow-md 
             ${btnbg ? "bg-linear-to-b from-blue-500 to-blue-700" : "bg-linear-to-b from-blue-400 to-blue-600"}
