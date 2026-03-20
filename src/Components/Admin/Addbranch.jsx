@@ -2,11 +2,26 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
-const Addbranch = ({ setBg }) => {
+const Addbranch = ({ setBg, onSend }) => {
   const [btnbg, setBtnBg] = useState(true);
 
-  const buttonBg = (e) => {
-    e.preventDefault();
+  const branchfield = {
+    course: "B.Tech",
+    branch_name: "",
+  };
+
+  const [newbranch, setNewBranch] = useState(branchfield);
+
+  const branchvalue = (e) => {
+    const value = e.target.value;
+    const key = e.target.name;
+    setNewBranch({
+      ...newbranch,
+      [key]: value,
+    });
+  };
+
+  const branchadded = () => {
     setBtnBg(!btnbg);
     const MySwal = withReactContent(Swal);
     MySwal.fire({
@@ -15,11 +30,12 @@ const Addbranch = ({ setBg }) => {
       draggable: true,
       willClose: () => setBg(true),
     });
+    onSend(newbranch);
   };
 
   return (
     <form
-      onSubmit={buttonBg}
+      onSubmit={branchadded}
       className="sm:p-8 p-6 rounded-xl flex-col flex sm:gap-2 gap-1 max-sm:-mx-7 bg-white "
     >
       <div>
@@ -35,6 +51,8 @@ const Addbranch = ({ setBg }) => {
         Course *
       </label>
       <select
+        onChange={branchvalue}
+        name="course"
         className="p-2.5 rounded-xl placeholder-gray-400  focus:outline-2 focus:outline-blue-600
            border-gray-300 border-2 cursor-pointer"
       >
@@ -50,6 +68,8 @@ const Addbranch = ({ setBg }) => {
         Branch Name *
       </label>
       <input
+        onChange={branchvalue}
+        name="branch_name"
         className="p-2.5 rounded-xl placeholder-gray-400  focus:outline-2 focus:outline-blue-600
            border-gray-300 border-2"
         type="text"
@@ -68,7 +88,6 @@ const Addbranch = ({ setBg }) => {
         </button>
 
         <button
-          onClick={buttonBg}
           type="submit"
           className={`shadow-md 
                 ${btnbg ? "bg-linear-to-b from-blue-500 to-blue-700" : "bg-linear-to-b from-blue-400 to-blue-600"}

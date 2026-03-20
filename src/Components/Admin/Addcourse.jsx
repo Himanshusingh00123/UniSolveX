@@ -22,7 +22,7 @@ const Addcourse = ({ setBg, onSend }) => {
     });
   };
 
-  const courseadded = (e) => {
+  const courseadded = () => {
     setBtnBg(!btnbg);
     const MySwal = withReactContent(Swal);
     MySwal.fire({
