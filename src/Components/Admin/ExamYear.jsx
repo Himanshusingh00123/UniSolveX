@@ -10,12 +10,23 @@ const ExamYear = () => {
   const [bg, setBg] = useState(true);
   const MySwal = withReactContent(Swal);
 
+  let date = new Date();
+
+  const [newsession, setNewSession] = useState([]);
+
+  // ---------------------------------------save session on locally in localStorage-----------------------------
+  localStorage.setItem("Session", JSON.stringify(newsession));
+
+  const receivedSession = (sessionData) => {
+    setNewSession([...newsession, sessionData]);
+  };
+
   const addExamYear = () => {
     setBg(false);
     MySwal.fire({
       width: "600px",
       background: "none",
-      html: <Addexamyear setBg={setBg} />,
+      html: <Addexamyear setBg={setBg} onSend={receivedSession} />,
       showConfirmButton: false,
       willClose: () => setBg(true),
     });
@@ -52,13 +63,13 @@ const ExamYear = () => {
             </option>
             <option
               className="sm:text-base text-xs text-gray-600 font-medium"
-              value="b.tech"
+              value="Active"
             >
               Active
             </option>
             <option
               className="sm:text-base text-xs text-gray-600 font-medium"
-              value="bca"
+              value="InActive"
             >
               InActive
             </option>
@@ -67,162 +78,78 @@ const ExamYear = () => {
 
         {/* --------------------------------------------------------------------Session-table------------------------------------------- */}
 
-        <div className="border-2 border-gray-300 rounded-xl shadow-sm px-3 overflow-x-auto">
-          <table className="w-full text-center border-separate border-spacing-y-2">
-            <thead className="text-white bg-purple-600 whitespace-nowrap">
-              <th className="p-2 rounded-l-lg px-3 w-3/12  tracking-wide">
-                Session
-              </th>
-              <th className="border-l px-3 border-gray-300 tracking-wide">
-                Created On
-              </th>
-              <th className="border-l px-3 border-gray-300 w-2/12 tracking-wide">
-                Status
-              </th>
-              <th className="border-l border-gray-300 w-4/12 rounded-r-lg tracking-wide">
-                Action
-              </th>
-            </thead>
+        {newsession.length > 0 ? (
+          <div className="border-2 border-gray-300 rounded-xl shadow-sm px-3 overflow-x-auto">
+            <table className="w-full text-center border-separate border-spacing-y-2">
+              <thead className="text-white bg-purple-600 whitespace-nowrap">
+                <th className="p-2 rounded-l-lg px-3 w-3/12  tracking-wide">
+                  Session
+                </th>
+                <th className="border-l px-3 border-gray-300 tracking-wide">
+                  Created On
+                </th>
+                <th className="border-l px-3 border-gray-300 w-2/12 tracking-wide">
+                  Status
+                </th>
+                <th className="border-l border-gray-300 w-4/12 rounded-r-lg tracking-wide">
+                  Action
+                </th>
+              </thead>
 
-            <tbody className="text-gray-600 text-center text-sm sm:text-base font-semibold whitespace-nowrap">
-              <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white ">
-                <td className=" rounded-l-lg">
-                  <span className="border-2 px-4 py-2 border-gray-400 rounded-full font-bold text-black">
-                    2024-25
-                  </span>
-                </td>
+              <tbody className="text-gray-600 text-center text-sm sm:text-base font-semibold whitespace-nowrap">
+                {newsession.map((item, index) => (
+                  <tr
+                    key={index}
+                    className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white "
+                  >
+                    <td className=" rounded-l-lg">
+                      <span className="border-2 px-4 py-2 border-gray-400 rounded-full font-bold text-black">
+                        {item.session} - {parseInt(item.session) + 1}
+                      </span>
+                    </td>
 
-                <td className="font-bold ">12-08-2025</td>
-                <td>
-                  <span className="bg-green-200 px-2.5 py-0.5 rounded-lg  text-green-700">
-                    Active
-                  </span>
-                </td>
-                <td className="py-3.5 flex justify-center items-center  text-white gap-2 rounded-r-xl">
-                  <div
-                    className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
+                    <td className="font-bold ">
+                      {date.toLocaleDateString("en-IN")}
+                    </td>
+                    <td>
+                      <span
+                        className={`${item.status === "Active" ? "bg-green-200 text-green-700" : "text-red-700 bg-red-200"} px-2.5 py-0.5 rounded-lg  `}
+                      >
+                        {item.status}
+                      </span>
+                    </td>
+                    <td className="py-3.5 flex justify-center items-center  text-white gap-2 rounded-r-xl">
+                      <div
+                        className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
                             shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
                             transition-all duration-300 hover:scale-105"
-                  >
-                    <FaEdit />
-                    Edit
-                  </div>
-                  <div
-                    className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
+                      >
+                        <FaEdit />
+                        Edit
+                      </div>
+                      <div
+                        className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
                             shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer
                             transition-all duration-300 hover:scale-105"
-                  >
-                    <RiDeleteBin5Fill />
-                    Delete
-                  </div>
-                </td>
-              </tr>
+                      >
+                        <RiDeleteBin5Fill />
+                        Delete
+                      </div>
+                    </td>
+                  </tr>
+                ))}
 
-              <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white ">
-                <td className=" rounded-l-lg">
-                  <span className="border-2 px-4 py-2 border-gray-400 rounded-full font-bold text-black">
-                    2023-24
-                  </span>
-                </td>
-
-                <td className="font-bold ">08-06-2025</td>
-                <td>
-                  <span className="bg-green-200 px-2.5 py-0.5 rounded-lg  text-green-700">
-                    Active
-                  </span>
-                </td>
-                <td className="py-3.5 flex justify-center items-center  text-white gap-2 rounded-r-xl">
-                  <div
-                    className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
-                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
-                            transition-all duration-300 hover:scale-105"
-                  >
-                    <FaEdit />
-                    Edit
-                  </div>
-                  <div
-                    className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
-                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer
-                            transition-all duration-300 hover:scale-105"
-                  >
-                    <RiDeleteBin5Fill />
-                    Delete
-                  </div>
-                </td>
-              </tr>
-
-              <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white ">
-                <td className=" rounded-l-lg">
-                  <span className="border-2 px-4 py-2 border-gray-400 rounded-full font-bold text-black">
-                    2022-23
-                  </span>
-                </td>
-
-                <td className="font-bold ">02-01-2025</td>
-                <td>
-                  <span className="bg-green-200 px-2.5 py-0.5 rounded-lg  text-green-700">
-                    Active
-                  </span>
-                </td>
-                <td className="py-3.5 flex justify-center items-center  text-white gap-2 rounded-r-xl">
-                  <div
-                    className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
-                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
-                            transition-all duration-300 hover:scale-105"
-                  >
-                    <FaEdit />
-                    Edit
-                  </div>
-                  <div
-                    className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
-                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer
-                            transition-all duration-300 hover:scale-105"
-                  >
-                    <RiDeleteBin5Fill />
-                    Delete
-                  </div>
-                </td>
-              </tr>
-
-              <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white ">
-                <td className=" rounded-l-lg">
-                  <span className="border-2 px-4 py-2 border-gray-400 rounded-full font-bold text-black">
-                    2021-22
-                  </span>
-                </td>
-
-                <td className="font-bold ">19-05-2024</td>
-                <td>
-                  <span className="bg-red-200 px-2.5 py-0.5 rounded-lg  text-red-700">
-                    InActive
-                  </span>
-                </td>
-                <td className="py-3.5 flex justify-center items-center  text-white gap-2 rounded-r-xl">
-                  <div
-                    className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
-                            shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
-                            transition-all duration-300 hover:scale-105"
-                  >
-                    <FaEdit />
-                    Edit
-                  </div>
-                  <div
-                    className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
-                            shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer
-                            transition-all duration-300 hover:scale-105"
-                  >
-                    <RiDeleteBin5Fill />
-                    Delete
-                  </div>
-                </td>
-              </tr>
-
-              <p className="text-xs  text-gray-500 sm:hidden mb-1">
-                ← Scroll horizontally to see more →
-              </p>
-            </tbody>
-          </table>
-        </div>
+                <p className="text-xs  text-gray-500 sm:hidden mb-1">
+                  ← Scroll horizontally to see more →
+                </p>
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <div className="h-30 flex justify-center items-center text-lg  font-medium text-center text-gray-500 tracking-wide">
+            No Session found. Add your first Session .
+          </div>
+        )}
       </div>
     </div>
   );

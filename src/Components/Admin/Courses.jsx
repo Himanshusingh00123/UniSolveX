@@ -83,13 +83,13 @@ const Courses = () => {
               </option>
               <option
                 className="sm:text-base text-xs text-gray-600 font-medium"
-                value="active"
+                value="Active"
               >
                 Active
               </option>
               <option
                 className="sm:text-base text-xs text-gray-600 font-medium"
-                value="inactive"
+                value="InActive"
               >
                 InActive
               </option>

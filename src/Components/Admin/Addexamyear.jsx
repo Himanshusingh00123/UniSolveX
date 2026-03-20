@@ -2,11 +2,26 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
-const Addexamyear = ({ setBg }) => {
+const Addexamyear = ({ setBg, onSend }) => {
   const [btnbg, setBtnBg] = useState(true);
 
-  const buttonBg = (e) => {
-    e.preventDefault();
+  const sessionfield = {
+    session: "",
+    status: "Active",
+  };
+
+  const [newsession, setNewSession] = useState(sessionfield);
+
+  const sessionValue = (e) => {
+    const value = e.target.value;
+    const key = e.target.name;
+    setNewSession({
+      ...newsession,
+      [key]: value,
+    });
+  };
+
+  const sessionAdded = (e) => {
     setBtnBg(!btnbg);
     const MySwal = withReactContent(Swal);
     MySwal.fire({
@@ -15,10 +30,12 @@ const Addexamyear = ({ setBg }) => {
       draggable: true,
       willClose: () => setBg(true),
     });
+    onSend(newsession);
   };
+
   return (
     <form
-      onSubmit={buttonBg}
+      onSubmit={sessionAdded}
       className="sm:p-8 p-6 rounded-xl flex-col flex sm:gap-2 gap-1 max-sm:-mx-7 bg-white "
     >
       <div>
@@ -34,32 +51,34 @@ const Addexamyear = ({ setBg }) => {
         Session *
       </label>
       <input
+        onChange={sessionValue}
+        name="session"
         className="p-2.5 rounded-xl placeholder-gray-400  focus:outline-2 focus:outline-blue-600
                  border-gray-300 border-2"
         type="number"
-        placeholder="e.g., 2026-27"
+        min="2010"
+        placeholder="e.g., 2026"
         required
       />
-      <h3 className="text-zinc-400 text-sm text-start font-medium">
-        Add Session like 2026-27 .
-      </h3>
 
       <label className="text-start text-gray-800 font-medium text-base mt-3">
         Status
       </label>
       <select
+        onChange={sessionValue}
+        name="status"
         className="p-2.5 rounded-xl placeholder-gray-400  focus:outline-2 focus:outline-blue-600
        border-gray-300 border-2 cursor-pointer"
       >
         <option
           className="sm:text-base text-xs text-gray-600 font-medium"
-          value="active"
+          value="Active"
         >
           Active
         </option>
         <option
           className="sm:text-base text-xs text-gray-600 font-medium"
-          value="inactive"
+          value="InActive"
         >
           InActive
         </option>
@@ -76,7 +95,6 @@ const Addexamyear = ({ setBg }) => {
         </button>
 
         <button
-          onClick={buttonBg}
           type="submit"
           className={`shadow-md 
                       ${btnbg ? "bg-linear-to-b from-blue-500 to-blue-700" : "bg-linear-to-b from-blue-400 to-blue-600"}
