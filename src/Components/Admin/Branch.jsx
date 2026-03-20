@@ -10,7 +10,12 @@ const Branch = () => {
   const [bg, setBg] = useState(true);
   const MySwal = withReactContent(Swal);
 
+  const getCourse = JSON.parse(localStorage.getItem("course"));
+
   const [newbranch, setNewBranch] = useState([]);
+
+  // ------------------------add branch in localstorage-------------------------------
+  localStorage.setItem("branch", JSON.stringify(newbranch));
 
   const receivedbranch = (branchdata) => {
     setNewBranch([...newbranch, branchdata]);
@@ -56,12 +61,15 @@ const Branch = () => {
             >
               All Courses
             </option>
-            <option
-              className="sm:text-base text-xs text-gray-600 font-medium"
-              value="b.tech"
-            >
-              B.Tech
-            </option>
+            {getCourse.map((item, index) => (
+              <option
+                key={index}
+                className="sm:text-base text-xs text-gray-600 font-medium"
+                value="b.tech"
+              >
+                {item.course}
+              </option>
+            ))}
           </select>
         </div>
 

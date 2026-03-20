@@ -6,11 +6,13 @@ const Addbranch = ({ setBg, onSend }) => {
   const [btnbg, setBtnBg] = useState(true);
 
   const branchfield = {
-    course: "B.Tech",
+    course: "",
     branch_name: "",
   };
 
   const [newbranch, setNewBranch] = useState(branchfield);
+
+  const getcourse = JSON.parse(localStorage.getItem("course"));
 
   const branchvalue = (e) => {
     const value = e.target.value;
@@ -58,10 +60,19 @@ const Addbranch = ({ setBg, onSend }) => {
       >
         <option
           className="sm:text-base text-xs text-gray-600 font-medium"
-          value="active"
+          value=""
         >
-          B.Tech
+          Choose Course
         </option>
+        {getcourse.map((item, index) => (
+          <option
+            key={index}
+            className="sm:text-base text-xs text-gray-600 font-medium"
+            value={item.course}
+          >
+            {item.course}
+          </option>
+        ))}
       </select>
 
       <label className="text-start text-gray-800 font-medium text-base mt-3">

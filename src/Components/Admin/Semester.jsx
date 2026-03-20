@@ -10,6 +10,9 @@ const Semester = () => {
   const [bg, setBg] = useState(true);
   const MySwal = withReactContent(Swal);
 
+  const getcourse = JSON.parse(localStorage.getItem("course"));
+  const getbranch = JSON.parse(localStorage.getItem("branch"));
+
   const addSemester = () => {
     setBg(false);
     MySwal.fire({
@@ -51,24 +54,15 @@ const Semester = () => {
               >
                 All Courses
               </option>
-              <option
-                className="sm:text-base text-xs text-gray-600 font-medium"
-                value="b.tech"
-              >
-                B.Tech
-              </option>
-              <option
-                className="sm:text-base text-xs text-gray-600 font-medium"
-                value="bca"
-              >
-                BCA
-              </option>
-              <option
-                className="sm:text-base text-xs text-gray-600 font-medium"
-                value="mba"
-              >
-                MBA
-              </option>
+              {getcourse.map((item, index) => (
+                <option
+                  key={index}
+                  className="sm:text-base text-xs text-gray-600 font-medium"
+                  value={item.course}
+                >
+                  {item.course}
+                </option>
+              ))}
             </select>
           </div>
           <div>
@@ -80,36 +74,15 @@ const Semester = () => {
               >
                 All Branches
               </option>
-              <option
-                className="sm:text-base text-xs text-gray-600 font-medium"
-                value="active"
-              >
-                Computer Science Engineering
-              </option>
-              <option
-                className="sm:text-base text-xs text-gray-600 font-medium"
-                value="inactive"
-              >
-                Mechanical Engineering
-              </option>
-              <option
-                className="sm:text-base text-xs text-gray-600 font-medium"
-                value="inactive"
-              >
-                Electrical Engineering
-              </option>
-              <option
-                className="sm:text-base text-xs text-gray-600 font-medium"
-                value="inactive"
-              >
-                Civil Engineering
-              </option>
-              <option
-                className="sm:text-base text-xs text-gray-600 font-medium"
-                value="inactive"
-              >
-                Electronics And Communication Engineering
-              </option>
+              {getbranch.map((item, index) => (
+                <option
+                  key={index}
+                  className="sm:text-base text-xs text-gray-600 font-medium"
+                  value={item.branch_name}
+                >
+                  {item.branch_name}
+                </option>
+              ))}
             </select>
           </div>
         </div>

@@ -16,6 +16,10 @@ const Courses = () => {
     setCourse([...course, coursedata]);
   };
 
+  // -----------------data store locally in localstorage---------------------------
+
+  localStorage.setItem("course", JSON.stringify(course));
+
   const addCourse = () => {
     setBg(false);
     MySwal.fire({
