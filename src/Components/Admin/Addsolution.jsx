@@ -3,13 +3,37 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { IoCloudUploadOutline } from "react-icons/io5";
 
-const Addsolution = ({ setBg }) => {
+const Addsolution = ({ setBg, onSend }) => {
   const [btnbg, setBtnBg] = useState(true);
   const [fileName, setFileName] = useState(true);
   const fileInputRef = useRef(null);
 
-  const buttonBg = (e) => {
-    e.preventDefault();
+  const getcourse = JSON.parse(localStorage.getItem("course")) || [];
+  const getbranch = JSON.parse(localStorage.getItem("branch")) || [];
+  const getsemester = JSON.parse(localStorage.getItem("semester")) || [];
+  const getsession = JSON.parse(localStorage.getItem("Session")) || [];
+
+  const solutionfield = {
+    course: "",
+    branch: "",
+    semester: "",
+    examYear: "",
+    quesPaper: "",
+    file: "",
+  };
+
+  const [newsolution, setNewSolution] = useState(solutionfield);
+
+  const solutionValue = (e) => {
+    const value = e.target.value;
+    const key = e.target.name;
+    setNewSolution({
+      ...newsolution,
+      [key]: value,
+    });
+  };
+
+  const solutionAdded = () => {
     setBtnBg(!btnbg);
     const MySwal = withReactContent(Swal);
     MySwal.fire({
@@ -18,6 +42,7 @@ const Addsolution = ({ setBg }) => {
       draggable: true,
       willClose: () => setBg(true),
     });
+    onSend(newsolution);
   };
 
   const file = () => {
@@ -27,7 +52,7 @@ const Addsolution = ({ setBg }) => {
 
   return (
     <form
-      onSubmit={buttonBg}
+      onSubmit={solutionAdded}
       className="sm:p-8 p-6 rounded-xl flex-col flex sm:gap-2 gap-1 max-sm:-mx-7 bg-white "
     >
       <div>
@@ -40,20 +65,31 @@ const Addsolution = ({ setBg }) => {
       </div>
 
       <div className="flex max-sm:flex-col w-full justify-center items-center mt-4 gap-3.5">
-        <div className="sm:w-3/12 w-full flex flex-col ">
+        <div className="sm:w-5/12 w-full flex flex-col ">
           <label className="text-start text-gray-800 font-medium text-base ">
             Course *
           </label>
           <select
+            onChange={solutionValue}
+            name="course"
             className="p-2.5 rounded-xl  placeholder-gray-400  focus:outline-2 focus:outline-blue-600
                      border-gray-300 border-2 cursor-pointer mt-2"
           >
             <option
               className="sm:text-base text-xs text-gray-600 font-medium"
-              value="active"
+              value=""
             >
-              B.Tech
+              Choose Course
             </option>
+            {getcourse.map((item, index) => (
+              <option
+                key={index}
+                className="sm:text-base text-xs text-gray-600 font-medium"
+                value={item.course}
+              >
+                {item.course}
+              </option>
+            ))}
           </select>
         </div>
 
@@ -62,15 +98,26 @@ const Addsolution = ({ setBg }) => {
             Branch *
           </label>
           <select
+            onChange={solutionValue}
+            name="branch"
             className="p-2.5 rounded-xl  placeholder-gray-400  focus:outline-2 focus:outline-blue-600
                      border-gray-300 border-2 cursor-pointer mt-2"
           >
             <option
               className="sm:text-base text-xs text-gray-600 font-medium"
-              value="active"
+              value=""
             >
-              Computer Science & Engineering
+              Choose Branch
             </option>
+            {getbranch.map((item, index) => (
+              <option
+                key={index}
+                className="sm:text-base text-xs text-gray-600 font-medium"
+                value={item.branch_name}
+              >
+                {item.branch_name}
+              </option>
+            ))}
           </select>
         </div>
       </div>
@@ -79,39 +126,55 @@ const Addsolution = ({ setBg }) => {
         Semester *
       </label>
       <select
+        onChange={solutionValue}
+        name="semester"
         className="p-2.5 rounded-xl placeholder-gray-400  focus:outline-2 focus:outline-blue-600
                      border-gray-300 border-2 cursor-pointer"
       >
         <option
           className="sm:text-base text-xs text-gray-600 font-medium"
-          value="active"
+          value=""
         >
-          Sem 1
+          Choose Semester
         </option>
 
-        <option
-          className="sm:text-base text-xs text-gray-600 font-medium"
-          value="active"
-        >
-          Sem 2
-        </option>
+        {getsemester.map((item, index) => (
+          <option
+            key={index}
+            className="sm:text-base text-xs text-gray-600 font-medium"
+            value={item.semester}
+          >
+            Sem {item.semester}
+          </option>
+        ))}
       </select>
 
       <div className="flex max-sm:flex-col w-full justify-center items-center mt-4 gap-3.5">
-        <div className="sm:w-3/12 flex flex-col w-full">
+        <div className="sm:w-5/12 flex flex-col w-full">
           <label className="text-start text-gray-800 font-medium text-base ">
             Exam Year *
           </label>
           <select
+            onChange={solutionValue}
+            name="examYear"
             className="p-2.5 rounded-xl  placeholder-gray-400  focus:outline-2 focus:outline-blue-600
                      border-gray-300 border-2 cursor-pointer mt-2"
           >
             <option
               className="sm:text-base text-xs text-gray-600 font-medium"
-              value="active"
+              value=""
             >
-              2026-27
+              Choose Year
             </option>
+            {getsession.map((item, index) => (
+              <option
+                key={index}
+                className="sm:text-base text-xs text-gray-600 font-medium"
+                value={item.session}
+              >
+                {item.session}
+              </option>
+            ))}
           </select>
         </div>
 
@@ -120,6 +183,8 @@ const Addsolution = ({ setBg }) => {
             Question Paper *
           </label>
           <input
+            onChange={solutionValue}
+            name="quesPaper"
             className="p-2.5 rounded-xl placeholder-gray-400  focus:outline-2 focus:outline-blue-600
               border-gray-300 border-2 mt-2"
             type="text"
@@ -139,6 +204,8 @@ const Addsolution = ({ setBg }) => {
         </label>
 
         <input
+          onChange={solutionValue}
+          name="file"
           type="file"
           accept=".pdf"
           ref={fileInputRef}
@@ -168,7 +235,6 @@ const Addsolution = ({ setBg }) => {
         </button>
 
         <button
-          onClick={buttonBg}
           type="submit"
           className={`shadow-md 
                           ${btnbg ? "bg-linear-to-b from-blue-500 to-blue-700" : "bg-linear-to-b from-blue-400 to-blue-600"}

@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { IoCloudUploadOutline } from "react-icons/io5";
 
-const Addquestion = ({ setBg , onSend }) => {
+const Addquestion = ({ setBg, onSend }) => {
   const [btnbg, setBtnBg] = useState(true);
   const [fileName, setFileName] = useState(true);
   const fileInputRef = useRef(null);
@@ -33,7 +33,7 @@ const Addquestion = ({ setBg , onSend }) => {
     });
   };
 
-  const questionAdded = (e) => {
+  const questionAdded = () => {
     setBtnBg(!btnbg);
     const MySwal = withReactContent(Swal);
     MySwal.fire({
@@ -42,7 +42,7 @@ const Addquestion = ({ setBg , onSend }) => {
       draggable: true,
       willClose: () => setBg(true),
     });
-    onSend(newquestion)
+    onSend(newquestion);
   };
 
   const file = () => {
