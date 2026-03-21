@@ -1,7 +1,7 @@
 import { IoMdAdd } from "react-icons/io";
 import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin5Fill } from "react-icons/ri";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import Addcourse from "./Addcourse";
@@ -10,15 +10,19 @@ const Courses = () => {
   const [bg, setBg] = useState(true);
   const MySwal = withReactContent(Swal);
 
-  const [course, setCourse] = useState([]);
+  const [course, setCourse] = useState(() => {
+    const stored = localStorage.getItem("course");
+    return stored ? JSON.parse(stored) : [];
+  });
 
   const receiveData = (coursedata) => {
     setCourse([...course, coursedata]);
   };
 
-  // -----------------data store locally in localstorage---------------------------
-
-  localStorage.setItem("course", JSON.stringify(course));
+  // -----------------data store locally in localstorage and this can change only if course any changes---------------------------
+  useEffect(() => {
+    localStorage.setItem("course", JSON.stringify(course));
+  }, [course]);
 
   const addCourse = () => {
     setBg(false);

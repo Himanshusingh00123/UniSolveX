@@ -1,7 +1,7 @@
 import { IoMdAdd } from "react-icons/io";
 import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin5Fill } from "react-icons/ri";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import Addsemester from "./Addsemester";
@@ -10,13 +10,23 @@ const Semester = () => {
   const [bg, setBg] = useState(true);
   const MySwal = withReactContent(Swal);
 
-  const getcourse = JSON.parse(localStorage.getItem("course"));
-  const getbranch = JSON.parse(localStorage.getItem("branch"));
+  const getcourse = JSON.parse(localStorage.getItem("course")) || [];
+  const getbranch = JSON.parse(localStorage.getItem("branch")) || [];
 
-  const [newsem, setNewSem] = useState([]);
+  const [newsem, setNewSem] = useState(() => {
+    try {
+      const getsem = localStorage.getItem("semester");
+      return getsem ? JSON.parse(getsem) : [];
+    } catch (error) {
+      localStorage.removeItem("semester"); // clear bad data
+      return [];
+    }
+  });
 
-  // -------------------------------save semester in localstorage-------------------------------------
-  localStorage.setItem("semester", JSON.stringify(newsem));
+  // -------------------------------save semester in localstorage and this can change only if newsem add or deleted-------------------------------------
+  useEffect(() => {
+    localStorage.setItem("semester", JSON.stringify(newsem));
+  }, [newsem]);
 
   const receivedSem = (semData) => {
     setNewSem([...newsem, semData]);

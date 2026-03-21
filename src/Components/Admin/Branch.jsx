@@ -1,7 +1,7 @@
 import { IoMdAdd } from "react-icons/io";
 import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin5Fill } from "react-icons/ri";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import Addbranch from "./Addbranch";
@@ -10,12 +10,17 @@ const Branch = () => {
   const [bg, setBg] = useState(true);
   const MySwal = withReactContent(Swal);
 
-  const getCourse = JSON.parse(localStorage.getItem("course"));
+  const getCourse = JSON.parse(localStorage.getItem("course")) || [];
 
-  const [newbranch, setNewBranch] = useState([]);
+  const [newbranch, setNewBranch] = useState(() => {
+    const getbranch = localStorage.getItem("branch");
+    return getbranch ? JSON.parse(getbranch) : [];
+  });
 
-  // ------------------------add branch in localstorage-------------------------------
-  localStorage.setItem("branch", JSON.stringify(newbranch));
+  // ------------------------add branch in localstorage and this change only if and new branch added or deleted-------------------------------
+  useEffect(() => {
+    localStorage.setItem("branch", JSON.stringify(newbranch));
+  }, [newbranch]);
 
   const receivedbranch = (branchdata) => {
     setNewBranch([...newbranch, branchdata]);
