@@ -2,16 +2,16 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
-const Addcourse = ({ setBg, onSend }) => {
+const Addcourse = ({ setBg, onSend, courseInputData, index }) => {
   const [btnbg, setBtnBg] = useState(true);
 
-  const coursefield = {
-    course: "",
-    full_title: "",
-    status: "Active",
-  };
-
-  const [course, setcourse] = useState(coursefield);
+  const [course, setcourse] = useState(
+    courseInputData || {
+      course: "",
+      full_title: "",
+      status: "Active",
+    },
+  );
 
   const newcourse = (e) => {
     const value = e.target.value;
@@ -22,16 +22,16 @@ const Addcourse = ({ setBg, onSend }) => {
     });
   };
 
-  const courseadded = () => {
+  const courseadded = (e) => {
     setBtnBg(!btnbg);
     const MySwal = withReactContent(Swal);
     MySwal.fire({
-      title: "Course Added",
+      title: `${courseInputData ? "Course Updated" : "Course Added"}`,
       icon: "success",
       draggable: true,
       willClose: () => setBg(true),
     });
-    onSend(course);
+    onSend(course, index);
   };
 
   return (
@@ -53,6 +53,7 @@ const Addcourse = ({ setBg, onSend }) => {
       </label>
       <input
         onChange={newcourse}
+        value={course.course}
         name="course"
         className="p-2.5 rounded-xl placeholder-gray-500  focus:outline-2 focus:outline-blue-600
        border-gray-300 border-2"
@@ -66,6 +67,7 @@ const Addcourse = ({ setBg, onSend }) => {
       </label>
       <input
         onChange={newcourse}
+        value={course.full_title}
         name="full_title"
         className="p-2.5 rounded-xl placeholder-gray-400  focus:outline-2 focus:outline-blue-600
        border-gray-300 border-2"
@@ -79,6 +81,7 @@ const Addcourse = ({ setBg, onSend }) => {
       </label>
       <select
         onChange={newcourse}
+        value={course.status}
         name="status"
         className="p-2.5 rounded-xl placeholder-gray-400  focus:outline-2 focus:outline-blue-600
        border-gray-300 border-2 cursor-pointer"
@@ -107,15 +110,27 @@ const Addcourse = ({ setBg, onSend }) => {
           Cancel
         </button>
 
-        <button
-          type="submit"
-          className={`shadow-md 
+        {courseInputData ? (
+          <button
+            type="submit"
+            className={`shadow-md 
+            ${btnbg ? "bg-linear-to-b from-orange-500 to-orange-600" : "bg-linear-to-b from-orange-400 to-orange-500"}
+             hover:from-orange-600 hover:to-orange-700
+            text-white font-semibold text-base px-4 py-2 flex justify-center items-center gap-2 cursor-pointer rounded-lg`}
+          >
+            Update Course
+          </button>
+        ) : (
+          <button
+            type="submit"
+            className={`shadow-md 
             ${btnbg ? "bg-linear-to-b from-blue-500 to-blue-700" : "bg-linear-to-b from-blue-400 to-blue-600"}
              hover:from-blue-600 hover:to-blue-800
             text-white font-semibold text-base px-4 py-2 flex justify-center items-center gap-2 cursor-pointer rounded-lg`}
-        >
-          Add Course
-        </button>
+          >
+            Add Course
+          </button>
+        )}
       </div>
     </form>
   );

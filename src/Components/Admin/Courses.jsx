@@ -35,6 +35,31 @@ const Courses = () => {
     });
   };
 
+  const receivedUpdateData = (data, index) => {
+    const updatedCourses = [...course];
+
+    updatedCourses[index] = data;
+
+    setCourse(updatedCourses);
+  };
+
+  const updateCourse = (index) => {
+    MySwal.fire({
+      width: "600px",
+      background: "none",
+      html: (
+        <Addcourse
+          setBg={setBg}
+          onSend={receivedUpdateData}
+          courseInputData={course[index]}
+          index={index}
+        />
+      ),
+      showConfirmButton: false,
+      willClose: () => setBg(true),
+    });
+  };
+
   // -------------------------------------------------------------delete course-----------------------------------------------------
   const deleteCourse = (index) => {
     const updateCourse = [...course];
@@ -145,6 +170,7 @@ const Courses = () => {
                     </td>
                     <td className="flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">
                       <div
+                        onClick={() => updateCourse(index)}
                         className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
                             shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
                             transition-all duration-300 hover:scale-105"
