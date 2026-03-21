@@ -12,7 +12,7 @@ const Addbranch = ({ setBg, onSend }) => {
 
   const [newbranch, setNewBranch] = useState(branchfield);
 
-  const getcourse = JSON.parse(localStorage.getItem("course"));
+  const getcourse = JSON.parse(localStorage.getItem("course")) || [];
 
   const branchvalue = (e) => {
     const value = e.target.value;

@@ -110,7 +110,7 @@ const Branch = () => {
                     <td className=" rounded-l-lg font-bold">
                       {item.branch_name}
                     </td>
-                    <td>{item.course}</td>
+                    <td>{item.course ? `${item.course}` : "No Course"}</td>
                     <td className="font-bold">0</td>
                     <td className="font-bold">0</td>
                     <td className="flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">

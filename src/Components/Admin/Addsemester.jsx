@@ -5,8 +5,8 @@ import withReactContent from "sweetalert2-react-content";
 const Addsemester = ({ setBg, onSend }) => {
   const [btnbg, setBtnBg] = useState(true);
 
-  const getcourse = JSON.parse(localStorage.getItem("course"));
-  const getbranch = JSON.parse(localStorage.getItem("branch"));
+  const getcourse = JSON.parse(localStorage.getItem("course")) || [];
+  const getbranch = JSON.parse(localStorage.getItem("branch")) || [];
 
   const semesterfield = {
     course: "",
@@ -25,7 +25,6 @@ const Addsemester = ({ setBg, onSend }) => {
     });
   };
 
-  
   const SemesterAdded = () => {
     setBtnBg(!btnbg);
     const MySwal = withReactContent(Swal);

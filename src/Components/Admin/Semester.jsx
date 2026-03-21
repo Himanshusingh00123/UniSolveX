@@ -141,8 +141,8 @@ const Semester = () => {
                     <td className=" rounded-l-lg font-bold">
                       Sem {item.semester}
                     </td>
-                    <td>{item.course}</td>
-                    <td>{item.branch}</td>
+                    <td>{item.course ? `${item.course}` : "No Course"}</td>
+                    <td>{item.branch ? `${item.branch}` : "No Branch"}</td>
                     <td className="font-bold">0</td>
                     <td className="font-bold">0</td>
                     <td className="flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">

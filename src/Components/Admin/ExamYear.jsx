@@ -1,7 +1,7 @@
 import { IoMdAdd } from "react-icons/io";
 import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin5Fill } from "react-icons/ri";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import Addexamyear from "./Addexamyear";
@@ -12,10 +12,15 @@ const ExamYear = () => {
 
   let date = new Date();
 
-  const [newsession, setNewSession] = useState([]);
+  const [newsession, setNewSession] = useState(() => {
+    const getsession = localStorage.getItem("Session");
+    return getsession ? JSON.parse(getsession) : [];
+  });
 
   // ---------------------------------------save session on locally in localStorage-----------------------------
-  localStorage.setItem("Session", JSON.stringify(newsession));
+  useEffect(() => {
+    localStorage.setItem("Session", JSON.stringify(newsession));
+  }, [newsession]);
 
   const receivedSession = (sessionData) => {
     setNewSession([...newsession, sessionData]);

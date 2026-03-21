@@ -1,7 +1,7 @@
 import { IoMdAdd } from "react-icons/io";
 import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin5Fill } from "react-icons/ri";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import Addquestion from "./Addquestion";
@@ -10,12 +10,30 @@ const QuestionPaper = () => {
   const [bg, setBg] = useState(true);
   const MySwal = withReactContent(Swal);
 
+  const getcourse = JSON.parse(localStorage.getItem("course")) || [];
+  const getbranch = JSON.parse(localStorage.getItem("branch")) || [];
+  const getsem = JSON.parse(localStorage.getItem("semester")) || [];
+  const getsession = JSON.parse(localStorage.getItem("Session")) || [];
+
+  const [newquestion, setNewQuestion] = useState(() => {
+    const getquestion = JSON.parse(localStorage.getItem("question"));
+    return getquestion ? getquestion : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("question", JSON.stringify(newquestion));
+  }, [newquestion]);
+
+  const receivedQuestion = (questionData) => {
+    setNewQuestion([...newquestion, questionData]);
+  };
+
   const addQuestion = () => {
     setBg(false);
     MySwal.fire({
       width: "600px",
       background: "none",
-      html: <Addquestion setBg={setBg} />,
+      html: <Addquestion setBg={setBg} onSend={receivedQuestion} />,
       showConfirmButton: false,
       willClose: () => setBg(true),
     });
@@ -51,24 +69,15 @@ const QuestionPaper = () => {
               >
                 All Courses
               </option>
-              <option
-                className="sm:text-base text-xs text-gray-600 font-medium"
-                value="b.tech"
-              >
-                B.Tech
-              </option>
-              <option
-                className="sm:text-base text-xs text-gray-600 font-medium"
-                value="bca"
-              >
-                BCA
-              </option>
-              <option
-                className="sm:text-base text-xs text-gray-600 font-medium"
-                value="mba"
-              >
-                MBA
-              </option>
+              {getcourse.map((item, index) => (
+                <option
+                  key={index}
+                  className="sm:text-base text-xs text-gray-600 font-medium"
+                  value={item.course}
+                >
+                  {item.course}
+                </option>
+              ))}
             </select>
           </div>
           <div>
@@ -80,36 +89,15 @@ const QuestionPaper = () => {
               >
                 All Branches
               </option>
-              <option
-                className="sm:text-base text-xs text-gray-600 font-medium"
-                value="active"
-              >
-                Computer Science Engineering
-              </option>
-              <option
-                className="sm:text-base text-xs text-gray-600 font-medium"
-                value="inactive"
-              >
-                Mechanical Engineering
-              </option>
-              <option
-                className="sm:text-base text-xs text-gray-600 font-medium"
-                value="inactive"
-              >
-                Electrical Engineering
-              </option>
-              <option
-                className="sm:text-base text-xs text-gray-600 font-medium"
-                value="inactive"
-              >
-                Civil Engineering
-              </option>
-              <option
-                className="sm:text-base text-xs text-gray-600 font-medium"
-                value="inactive"
-              >
-                Electronics Engineering
-              </option>
+              {getbranch.map((item, index) => (
+                <option
+                  key={index}
+                  className="sm:text-base text-xs text-gray-600 font-medium"
+                  value={item.branch_name}
+                >
+                  {item.branch_name}
+                </option>
+              ))}
             </select>
           </div>
           <div>
@@ -123,54 +111,15 @@ const QuestionPaper = () => {
               >
                 All Semesters
               </option>
-              <option
-                className="sm:text-base text-xs text-gray-600 font-medium"
-                value="b.tech"
-              >
-                Sem 1
-              </option>
-              <option
-                className="sm:text-base text-xs text-gray-600 font-medium"
-                value="bca"
-              >
-                Sem 2
-              </option>
-              <option
-                className="sm:text-base text-xs text-gray-600 font-medium"
-                value="mba"
-              >
-                Sem 3
-              </option>
-              <option
-                className="sm:text-base text-xs text-gray-600 font-medium"
-                value="mba"
-              >
-                Sem 4
-              </option>
-              <option
-                className="sm:text-base text-xs text-gray-600 font-medium"
-                value="mba"
-              >
-                Sem 5
-              </option>
-              <option
-                className="sm:text-base text-xs text-gray-600 font-medium"
-                value="mba"
-              >
-                Sem 6
-              </option>
-              <option
-                className="sm:text-base text-xs text-gray-600 font-medium"
-                value="mba"
-              >
-                Sem 7
-              </option>
-              <option
-                className="sm:text-base text-xs text-gray-600 font-medium"
-                value="mba"
-              >
-                Sem 8
-              </option>
+              {getsem.map((item, index) => (
+                <option
+                  key={index}
+                  className="sm:text-base text-xs text-gray-600 font-medium"
+                  value={item.semester}
+                >
+                  Sem {item.semester}
+                </option>
+              ))}
             </select>
           </div>
           <div>
@@ -184,250 +133,102 @@ const QuestionPaper = () => {
               >
                 All Sessions
               </option>
-              <option
-                className="sm:text-base text-xs text-gray-600 font-medium"
-                value="b.tech"
-              >
-                2024-25
-              </option>
-              <option
-                className="sm:text-base text-xs text-gray-600 font-medium"
-                value="bca"
-              >
-                2022-23
-              </option>
-              <option
-                className="sm:text-base text-xs text-gray-600 font-medium"
-                value="mba"
-              >
-                2025-26
-              </option>
-              <option
-                className="sm:text-base text-xs text-gray-600 font-medium"
-                value="mba"
-              >
-                2020-21
-              </option>
+              {getsession.map((item, index) => (
+                <option
+                  key={index}
+                  className="sm:text-base text-xs text-gray-600 font-medium"
+                  value={item.session}
+                >
+                  {item.session} - {parseInt(item.session) + 1}
+                </option>
+              ))}
             </select>
           </div>
         </div>
 
         {/* -------------------------------------------------------------------papers table------------------------------------- */}
 
-        <div className="border-2 border-gray-300 rounded-xl shadow-sm px-3 overflow-x-auto">
-          <table className="w-full text-center border-separate border-spacing-y-2">
-            <thead className="text-white bg-violet-800 whitespace-nowrap">
-              <th className="p-2 rounded-l-lg px-3 w-3/12  tracking-wide">
-                Subject
-              </th>
-              <th className="border-l px-3 border-gray-300 tracking-wide">
-                Course
-              </th>
-              <th className="border-l px-3 border-gray-300 w-2/12 tracking-wide">
-                Branch
-              </th>
-              <th className="border-l px-3 border-gray-300 tracking-wide">
-                Semester
-              </th>
-              <th className="border-l px-3 border-gray-300 tracking-wide">
-                Year
-              </th>
-              <th className="border-l px-3 border-gray-300 tracking-wide">
-                Solution
-              </th>
-              <th className="border-l border-gray-300 w-4/12 rounded-r-lg tracking-wide">
-                Action
-              </th>
-            </thead>
+        {newquestion.length > 0 ? (
+          <div className="border-2 border-gray-300 rounded-xl shadow-sm px-3 overflow-x-auto">
+            <table className="w-full text-center border-separate border-spacing-y-2">
+              <thead className="text-white bg-violet-800 whitespace-nowrap">
+                <th className="p-2 rounded-l-lg px-3 w-3/12  tracking-wide">
+                  Subject
+                </th>
+                <th className="border-l px-3  border-gray-300 tracking-wide">
+                  Course
+                </th>
+                <th className="border-l px-3 border-gray-300  tracking-wide">
+                  Branch
+                </th>
+                <th className="border-l px-3 border-gray-300 tracking-wide">
+                  Semester
+                </th>
+                <th className="border-l px-3 border-gray-300 tracking-wide">
+                  Year
+                </th>
+                <th className="border-l px-3 border-gray-300 tracking-wide">
+                  Solution
+                </th>
+                <th className="border-l border-gray-300 w-4/12 rounded-r-lg tracking-wide">
+                  Action
+                </th>
+              </thead>
 
-            <tbody className="text-gray-600 text-center text-sm sm:text-base font-semibold whitespace-nowrap">
-              <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className="rounded-l-lg  w-3/12 font-bold">
-                  Data structure
-                </td>
-                <td>B.Tech</td>
-                <td className="w-4/12">Computer Science Engineering</td>
-                <td>Sem 3</td>
-                <td className="font-bold w-2/12">2022-23</td>
-                <td>Yes</td>
-                <td className=" flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">
-                  <div
-                    className="bg-linear-to-t from-emerald-600 to-emerald-400 
+              <tbody className="text-gray-600 text-center text-sm sm:text-base font-semibold whitespace-nowrap">
+                {newquestion.map((item, index) => (
+                  <tr
+                    key={index}
+                    className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white"
+                  >
+                    <td className="rounded-l-lg  w-3/12 font-bold">
+                      {item.subject}
+                    </td>
+                    <td>{item.course ? `${item.course}` : "No Course"}</td>
+                    <td className="w-4/12">
+                      {item.branch ? `${item.branch}` : "No Branch"}
+                    </td>
+                    <td>{item.semester ? `Sem ${item.semester}` : "No Sem"}</td>
+                    <td className="font-bold w-2/12">
+                      {item.examYear
+                        ? `${item.examYear} - ${parseInt(item.examYear) + 1}`
+                        : "No Session"}
+                    </td>
+                    <td>No</td>
+                    <td className=" flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">
+                      <div
+                        className="bg-linear-to-t from-emerald-600 to-emerald-400 
                             hover:from-emerald-700 hover:to-emerald-500
                             text-white py-1 px-3.5 shadow-md rounded-md 
                              flex justify-center items-center gap-2 cursor-pointer transition-all duration-300 hover:scale-105"
-                  >
-                    <FaEdit />
-                    Edit
-                  </div>
-                  <div
-                    className="bg-linear-to-t from-rose-600 to-rose-400 
+                      >
+                        <FaEdit />
+                        Edit
+                      </div>
+                      <div
+                        className="bg-linear-to-t from-rose-600 to-rose-400 
                              hover:from-rose-700 hover:to-rose-500
                              text-white py-1 px-3.5 shadow-md rounded-md 
                               flex justify-center items-center gap-2 cursor-pointer transition-all duration-300 hover:scale-105"
-                  >
-                    <RiDeleteBin5Fill />
-                    Delete
-                  </div>
-                </td>
-              </tr>
+                      >
+                        <RiDeleteBin5Fill />
+                        Delete
+                      </div>
+                    </td>
+                  </tr>
+                ))}
 
-              <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className="rounded-l-lg  w-3/12 font-bold">
-                  Computer Networks
-                </td>
-                <td>B.Tech</td>
-                <td className="w-4/12">Computer Science Engineering</td>
-                <td>Sem 6</td>
-                <td className="font-bold w-2/12">2023-24</td>
-                <td>No</td>
-                <td className=" flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">
-                  <div
-                    className="bg-linear-to-t from-emerald-600 to-emerald-400 
-                            hover:from-emerald-700 hover:to-emerald-500
-                            text-white py-1 px-3.5 shadow-md rounded-md 
-                             flex justify-center items-center gap-2 cursor-pointer transition-all duration-300 hover:scale-105"
-                  >
-                    <FaEdit />
-                    Edit
-                  </div>
-                  <div
-                    className="bg-linear-to-t from-rose-600 to-rose-400 
-                             hover:from-rose-700 hover:to-rose-500
-                             text-white py-1 px-3.5 shadow-md rounded-md 
-                              flex justify-center items-center gap-2 cursor-pointer transition-all duration-300 hover:scale-105"
-                  >
-                    <RiDeleteBin5Fill />
-                    Delete
-                  </div>
-                </td>
-              </tr>
-
-              <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className="rounded-l-lg  w-3/12 font-bold">Java</td>
-                <td>B.Tech</td>
-                <td className="w-4/12">Computer Science Engineering</td>
-                <td>Sem 4</td>
-                <td className="font-bold w-2/12">2022-23</td>
-                <td>Yes</td>
-                <td className=" flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">
-                  <div
-                    className="bg-linear-to-t from-emerald-600 to-emerald-400 
-                            hover:from-emerald-700 hover:to-emerald-500
-                            text-white py-1 px-3.5 shadow-md rounded-md 
-                             flex justify-center items-center gap-2 cursor-pointer transition-all duration-300 hover:scale-105"
-                  >
-                    <FaEdit />
-                    Edit
-                  </div>
-                  <div
-                    className="bg-linear-to-t from-rose-600 to-rose-400 
-                             hover:from-rose-700 hover:to-rose-500
-                             text-white py-1 px-3.5 shadow-md rounded-md 
-                              flex justify-center items-center gap-2 cursor-pointer transition-all duration-300 hover:scale-105"
-                  >
-                    <RiDeleteBin5Fill />
-                    Delete
-                  </div>
-                </td>
-              </tr>
-
-              <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className="rounded-l-lg  w-3/12 font-bold">
-                  Machine Design
-                </td>
-                <td>B.Tech</td>
-                <td className="w-4/12">Mechanical Engineering</td>
-                <td>Sem 5</td>
-                <td className="font-bold w-2/12">2022-23</td>
-                <td>Yes</td>
-                <td className=" flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">
-                  <div
-                    className="bg-linear-to-t from-emerald-600 to-emerald-400 
-                            hover:from-emerald-700 hover:to-emerald-500
-                            text-white py-1 px-3.5 shadow-md rounded-md 
-                             flex justify-center items-center gap-2 cursor-pointer transition-all duration-300 hover:scale-105"
-                  >
-                    <FaEdit />
-                    Edit
-                  </div>
-                  <div
-                    className="bg-linear-to-t from-rose-600 to-rose-400 
-                             hover:from-rose-700 hover:to-rose-500
-                             text-white py-1 px-3.5 shadow-md rounded-md 
-                              flex justify-center items-center gap-2 cursor-pointer transition-all duration-300 hover:scale-105"
-                  >
-                    <RiDeleteBin5Fill />
-                    Delete
-                  </div>
-                </td>
-              </tr>
-
-              <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className="rounded-l-lg  w-3/12 font-bold">
-                  Signals and Systems
-                </td>
-                <td>B.Tech</td>
-                <td className="w-4/12">Electrical Engineering</td>
-                <td>Sem 4</td>
-                <td className="font-bold w-2/12">2024-25</td>
-                <td>No</td>
-                <td className=" flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">
-                  <div
-                    className="bg-linear-to-t from-emerald-600 to-emerald-400 
-                            hover:from-emerald-700 hover:to-emerald-500
-                            text-white py-1 px-3.5 shadow-md rounded-md 
-                             flex justify-center items-center gap-2 cursor-pointer transition-all duration-300 hover:scale-105"
-                  >
-                    <FaEdit />
-                    Edit
-                  </div>
-                  <div
-                    className="bg-linear-to-t from-rose-600 to-rose-400 
-                             hover:from-rose-700 hover:to-rose-500
-                             text-white py-1 px-3.5 shadow-md rounded-md 
-                              flex justify-center items-center gap-2 cursor-pointer transition-all duration-300 hover:scale-105"
-                  >
-                    <RiDeleteBin5Fill />
-                    Delete
-                  </div>
-                </td>
-              </tr>
-
-              <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className="rounded-l-lg  w-3/12 font-bold">DBMS</td>
-                <td>B.Tech</td>
-                <td className="w-4/12">Computer Science Engineering</td>
-                <td>Sem 5</td>
-                <td className="font-bold w-2/12">2021-22</td>
-                <td>Yes</td>
-                <td className=" flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">
-                  <div
-                    className="bg-linear-to-t from-emerald-600 to-emerald-400 
-                            hover:from-emerald-700 hover:to-emerald-500
-                            text-white py-1 px-3.5 shadow-md rounded-md 
-                             flex justify-center items-center gap-2 cursor-pointer transition-all duration-300 hover:scale-105"
-                  >
-                    <FaEdit />
-                    Edit
-                  </div>
-                  <div
-                    className="bg-linear-to-t from-rose-600 to-rose-400 
-                             hover:from-rose-700 hover:to-rose-500
-                             text-white py-1 px-3.5 shadow-md rounded-md 
-                              flex justify-center items-center gap-2 cursor-pointer transition-all duration-300 hover:scale-105"
-                  >
-                    <RiDeleteBin5Fill />
-                    Delete
-                  </div>
-                </td>
-              </tr>
-              <p className="text-xs  text-gray-500 sm:hidden mb-1">
-                ← Scroll horizontally to see more →
-              </p>
-            </tbody>
-          </table>
-        </div>
+                <p className="text-xs  text-gray-500 sm:hidden mb-1">
+                  ← Scroll horizontally to see more →
+                </p>
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <div className="h-30 flex justify-center items-center text-lg  font-medium text-center text-gray-500 tracking-wide">
+            No Question Paper found. Add your first Question Paper .
+          </div>
+        )}
       </div>
     </div>
   );
