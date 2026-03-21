@@ -44,6 +44,14 @@ const Solution = () => {
     });
   };
 
+  // -------------------------------------------------delete solution of question paper----------------------
+
+  const deleteSolution = (index) => {
+    const updateSolution = [...newsolution];
+    updateSolution.splice(index, 1);
+    setNewSolution(updateSolution);
+  };
+
   return (
     <div className="md:p-2">
       <div className="sm:flex max-sm:flex-col  sm:justify-between items-center sm:py-3 sm:px-4 py-2 px-3">
@@ -211,6 +219,7 @@ const Solution = () => {
                         Edit
                       </div>
                       <div
+                        onClick={() => deleteSolution(index)}
                         className="bg-linear-to-t from-rose-600 to-rose-400 
                                    hover:from-rose-700 hover:to-rose-500
                                    text-white py-1 px-3.5 shadow-md rounded-md 

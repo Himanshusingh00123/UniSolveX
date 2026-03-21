@@ -35,6 +35,13 @@ const Courses = () => {
     });
   };
 
+  // -------------------------------------------------------------delete course-----------------------------------------------------
+  const deleteCourse = (index) => {
+    const updateCourse = [...course];
+    updateCourse.splice(index, 1);
+    setCourse(updateCourse);
+  };
+
   return (
     <div className="md:p-2">
       <div className="sm:flex max-sm:flex-col  sm:justify-between items-center sm:py-3 sm:px-4 py-2 px-3">
@@ -146,6 +153,7 @@ const Courses = () => {
                         Edit
                       </div>
                       <div
+                        onClick={() => deleteCourse(index)}
                         className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
                             shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer
                             transition-all duration-300 hover:scale-105"

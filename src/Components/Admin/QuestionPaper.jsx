@@ -39,6 +39,13 @@ const QuestionPaper = () => {
     });
   };
 
+  // --------------------------------------------------delete Question Paper----------------------------------------------
+  const deleteQuestionPaper = (index) => {
+    const updateQuestionPaper = [...newquestion];
+    updateQuestionPaper.splice(index, 1);
+    setNewQuestion(updateQuestionPaper);
+  };
+
   return (
     <div className="md:p-2">
       <div className="sm:flex max-sm:flex-col  sm:justify-between items-center sm:py-3 sm:px-4 py-2 px-3">
@@ -206,6 +213,7 @@ const QuestionPaper = () => {
                         Edit
                       </div>
                       <div
+                        onClick={() => deleteQuestionPaper(index)}
                         className="bg-linear-to-t from-rose-600 to-rose-400 
                              hover:from-rose-700 hover:to-rose-500
                              text-white py-1 px-3.5 shadow-md rounded-md 
