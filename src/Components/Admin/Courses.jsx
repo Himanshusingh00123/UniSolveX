@@ -35,6 +35,8 @@ const Courses = () => {
     });
   };
 
+  // -----------------------------------------------------------------update course------------------------------------
+
   const receivedUpdateData = (data, index) => {
     const updatedCourses = [...course];
 

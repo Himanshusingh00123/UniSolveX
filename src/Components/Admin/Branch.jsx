@@ -37,6 +37,31 @@ const Branch = () => {
     });
   };
 
+  // ---------------------------------------------------------------update branch-----------------------------------------------------
+
+  const receivedUpdatebranch = (branchUpdatedData, index) => {
+    const updatedBranch = [...newbranch];
+    updatedBranch[index] = branchUpdatedData;
+    setNewBranch(updatedBranch);
+  };
+
+  const updatebranch = (index) => {
+    MySwal.fire({
+      width: "600px",
+      background: "none",
+      html: (
+        <Addbranch
+          setBg={setBg}
+          onSend={receivedUpdatebranch}
+          branchInputData={newbranch[index]}
+          index={index}
+        />
+      ),
+      showConfirmButton: false,
+      willClose: () => setBg(true),
+    });
+  };
+
   // --------------------------------------------------------------delete Branch---------------------------------------
   const deleteBranch = (index) => {
     const updateBranch = [...newbranch];
@@ -122,6 +147,7 @@ const Branch = () => {
                     <td className="font-bold">0</td>
                     <td className="flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">
                       <div
+                        onClick={() => updatebranch(index)}
                         className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
                             shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
                             transition-all duration-300 hover:scale-105"

@@ -2,15 +2,15 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
-const Addbranch = ({ setBg, onSend }) => {
+const Addbranch = ({ setBg, onSend, branchInputData, index }) => {
   const [btnbg, setBtnBg] = useState(true);
 
-  const branchfield = {
-    course: "",
-    branch_name: "",
-  };
-
-  const [newbranch, setNewBranch] = useState(branchfield);
+  const [newbranch, setNewBranch] = useState(
+    branchInputData || {
+      course: "",
+      branch_name: "",
+    },
+  );
 
   const getcourse = JSON.parse(localStorage.getItem("course")) || [];
 
@@ -32,7 +32,7 @@ const Addbranch = ({ setBg, onSend }) => {
       draggable: true,
       willClose: () => setBg(true),
     });
-    onSend(newbranch);
+    onSend(newbranch, index);
   };
 
   return (
@@ -53,6 +53,7 @@ const Addbranch = ({ setBg, onSend }) => {
         Course *
       </label>
       <select
+        value={newbranch.course}
         onChange={branchvalue}
         name="course"
         className="p-2.5 rounded-xl placeholder-gray-400  focus:outline-2 focus:outline-blue-600
@@ -79,6 +80,7 @@ const Addbranch = ({ setBg, onSend }) => {
         Branch Name *
       </label>
       <input
+        value={newbranch.branch_name}
         onChange={branchvalue}
         name="branch_name"
         className="p-2.5 rounded-xl placeholder-gray-400  focus:outline-2 focus:outline-blue-600
@@ -98,15 +100,27 @@ const Addbranch = ({ setBg, onSend }) => {
           Cancel
         </button>
 
-        <button
-          type="submit"
-          className={`shadow-md 
+        {branchInputData ? (
+          <button
+            type="submit"
+            className={`shadow-md 
+                ${btnbg ? "bg-linear-to-b from-orange-500 to-orange-700" : "bg-linear-to-b from-orange-400 to-orange-600"}
+                 hover:from-orange-600 hover:to-orange-800
+                text-white font-semibold text-base px-4 py-2 flex justify-center items-center gap-2 cursor-pointer rounded-lg`}
+          >
+            Update Branch
+          </button>
+        ) : (
+          <button
+            type="submit"
+            className={`shadow-md 
                 ${btnbg ? "bg-linear-to-b from-blue-500 to-blue-700" : "bg-linear-to-b from-blue-400 to-blue-600"}
                  hover:from-blue-600 hover:to-blue-800
                 text-white font-semibold text-base px-4 py-2 flex justify-center items-center gap-2 cursor-pointer rounded-lg`}
-        >
-          Add Branch
-        </button>
+          >
+            Add Branch
+          </button>
+        )}
       </div>
     </form>
   );
