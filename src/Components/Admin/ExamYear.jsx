@@ -23,7 +23,11 @@ const ExamYear = () => {
   }, [newsession]);
 
   const receivedSession = (sessionData) => {
-    setNewSession([...newsession, sessionData]);
+    const newData = {
+      ...sessionData,
+      createdOn: new Date().toLocaleDateString("en-IN"),
+    };
+    setNewSession([...newsession, newData]);
   };
 
   const addExamYear = () => {
@@ -120,9 +124,7 @@ const ExamYear = () => {
                       </span>
                     </td>
 
-                    <td className="font-bold ">
-                      {date.toLocaleDateString("en-IN")}
-                    </td>
+                    <td className="font-bold ">{item.createdOn}</td>
                     <td>
                       <span
                         className={`${item.status === "Active" ? "bg-green-200 text-green-700" : "text-red-700 bg-red-200"} px-2.5 py-0.5 rounded-lg  `}
