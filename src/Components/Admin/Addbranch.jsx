@@ -27,7 +27,7 @@ const Addbranch = ({ setBg, onSend, branchInputData, index }) => {
     setBtnBg(!btnbg);
     const MySwal = withReactContent(Swal);
     MySwal.fire({
-      title: "Branch Added",
+      title: `${branchInputData ? "Branch Updated" : "Branch Added"}`,
       icon: "success",
       draggable: true,
       willClose: () => setBg(true),
