@@ -2,19 +2,19 @@ import { use, useState } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
-const Addsemester = ({ setBg, onSend }) => {
+const Addsemester = ({ setBg, onSend, semInputData, index }) => {
   const [btnbg, setBtnBg] = useState(true);
 
   const getcourse = JSON.parse(localStorage.getItem("course")) || [];
   const getbranch = JSON.parse(localStorage.getItem("branch")) || [];
 
-  const semesterfield = {
-    course: "",
-    branch: "",
-    semester: "",
-  };
-
-  const [newsem, SetNewSem] = useState(semesterfield);
+  const [newsem, SetNewSem] = useState(
+    semInputData || {
+      course: "",
+      branch: "",
+      semester: "",
+    },
+  );
 
   const semestervalue = (e) => {
     const value = e.target.value;
@@ -29,12 +29,12 @@ const Addsemester = ({ setBg, onSend }) => {
     setBtnBg(!btnbg);
     const MySwal = withReactContent(Swal);
     MySwal.fire({
-      title: "Semester Added",
+      title: `${semInputData ? "Semester Updated" : "Semester Added"}`,
       icon: "success",
       draggable: true,
       willClose: () => setBg(true),
     });
-    onSend(newsem);
+    onSend(newsem, index);
   };
 
   return (
@@ -55,6 +55,7 @@ const Addsemester = ({ setBg, onSend }) => {
         Course *
       </label>
       <select
+        value={newsem.course}
         onChange={semestervalue}
         name="course"
         className="p-2.5 rounded-xl placeholder-gray-400  focus:outline-2 focus:outline-blue-600
@@ -81,6 +82,7 @@ const Addsemester = ({ setBg, onSend }) => {
         Branch *
       </label>
       <select
+        value={newsem.branch}
         onChange={semestervalue}
         name="branch"
         className="p-2.5 rounded-xl placeholder-gray-400  focus:outline-2 focus:outline-blue-600
@@ -107,6 +109,7 @@ const Addsemester = ({ setBg, onSend }) => {
         Semester *
       </label>
       <input
+        value={newsem.semester}
         onChange={semestervalue}
         name="semester"
         className="p-2.5 rounded-xl placeholder-gray-400  focus:outline-2 focus:outline-blue-600
@@ -128,15 +131,27 @@ const Addsemester = ({ setBg, onSend }) => {
           Cancel
         </button>
 
-        <button
-          type="submit"
-          className={`shadow-md 
+        {semInputData ? (
+          <button
+            type="submit"
+            className={`shadow-md 
+                  ${btnbg ? "bg-linear-to-b from-orange-500 to-orange-700" : "bg-linear-to-b from-orange-400 to-orange-600"}
+                   hover:from-orange-600 hover:to-orange-800
+                  text-white font-semibold text-base px-4 py-2 flex justify-center items-center gap-2 cursor-pointer rounded-lg`}
+          >
+            Update Semester
+          </button>
+        ) : (
+          <button
+            type="submit"
+            className={`shadow-md 
                   ${btnbg ? "bg-linear-to-b from-blue-500 to-blue-700" : "bg-linear-to-b from-blue-400 to-blue-600"}
                    hover:from-blue-600 hover:to-blue-800
                   text-white font-semibold text-base px-4 py-2 flex justify-center items-center gap-2 cursor-pointer rounded-lg`}
-        >
-          Add Semester
-        </button>
+          >
+            Add Semester
+          </button>
+        )}
       </div>
     </form>
   );

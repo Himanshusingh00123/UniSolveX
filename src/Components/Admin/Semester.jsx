@@ -43,6 +43,30 @@ const Semester = () => {
     });
   };
 
+  // ------------------------------------------------------------update semester---------------------------------------------
+  const receivedUpdatedSem = (newdata, index) => {
+    const updatedSem = [...newsem];
+    updatedSem[index] = newdata;
+    setNewSem(updatedSem);
+  };
+
+  const updateSem = (index) => {
+    MySwal.fire({
+      width: "600px",
+      background: "none",
+      html: (
+        <Addsemester
+          setBg={setBg}
+          onSend={receivedUpdatedSem}
+          semInputData={newsem[index]}
+          index={index}
+        />
+      ),
+      showConfirmButton: false,
+      willClose: () => setBg(true),
+    });
+  };
+
   // -----------------------------------------------------------delete Semester---------------------------------------------
   const deleteSemester = (index) => {
     const updateSemester = [...newsem];
@@ -154,6 +178,7 @@ const Semester = () => {
                     <td className="font-bold">0</td>
                     <td className="flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">
                       <div
+                        onClick={() => updateSem(index)}
                         className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
                             shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
                             transition-all duration-300 hover:scale-105"
