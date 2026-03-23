@@ -69,9 +69,26 @@ const Semester = () => {
 
   // -----------------------------------------------------------delete Semester---------------------------------------------
   const deleteSemester = (index) => {
-    const updateSemester = [...newsem];
-    updateSemester.splice(index, 1);
-    setNewSem(updateSemester);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const updateSemester = [...newsem];
+        updateSemester.splice(index, 1);
+        setNewSem(updateSemester);
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your Semester has been deleted.",
+          icon: "success",
+        });
+      }
+    });
   };
 
   return (

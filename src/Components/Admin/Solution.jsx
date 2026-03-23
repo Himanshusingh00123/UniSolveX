@@ -47,9 +47,26 @@ const Solution = () => {
   // -------------------------------------------------delete solution of question paper----------------------
 
   const deleteSolution = (index) => {
-    const updateSolution = [...newsolution];
-    updateSolution.splice(index, 1);
-    setNewSolution(updateSolution);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const updateSolution = [...newsolution];
+        updateSolution.splice(index, 1);
+        setNewSolution(updateSolution);
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your Solution has been deleted.",
+          icon: "success",
+        });
+      }
+    });
   };
 
   return (
