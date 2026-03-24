@@ -41,6 +41,31 @@ const ExamYear = () => {
     });
   };
 
+  // ----------------------------------------------------------------update session-------------------------------------
+
+  const receivedUpdatedSession = (newdata, index) => {
+    const updatedsession = [...newsession];
+    updatedsession[index] = newdata;
+    setNewSession(updatedsession);
+  };
+
+  const UpdateSession = (index) => {
+    MySwal.fire({
+      width: "600px",
+      background: "none",
+      html: (
+        <Addexamyear
+          setBg={setBg}
+          onSend={receivedUpdatedSession}
+          sessionInputData={newsession[index]}
+          index={index}
+        />
+      ),
+      showConfirmButton: false,
+      willClose: () => setBg(true),
+    });
+  };
+
   // ------------------------------------------------------------delete session-------------------------------------------
   const deleteSession = (index) => {
     Swal.fire({
@@ -151,6 +176,7 @@ const ExamYear = () => {
                     </td>
                     <td className="py-3.5 flex justify-center items-center  text-white gap-2 rounded-r-xl">
                       <div
+                        onClick={() => UpdateSession(index)}
                         className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
                             shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer
                             transition-all duration-300 hover:scale-105"

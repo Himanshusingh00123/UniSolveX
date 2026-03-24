@@ -227,6 +227,7 @@ const Solution = () => {
                     <td>{date.toLocaleDateString("en-IN")}</td>
                     <td className=" flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">
                       <div
+                      onClick={()=>UpdateSession(index)}
                         className="bg-linear-to-t from-emerald-600 to-emerald-400 
                                   hover:from-emerald-700 hover:to-emerald-500
                                   text-white py-1 px-3.5 shadow-md rounded-md 

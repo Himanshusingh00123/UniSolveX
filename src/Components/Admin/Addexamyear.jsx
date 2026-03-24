@@ -2,15 +2,15 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
-const Addexamyear = ({ setBg, onSend }) => {
+const Addexamyear = ({ setBg, onSend, sessionInputData, index }) => {
   const [btnbg, setBtnBg] = useState(true);
 
-  const sessionfield = {
-    session: "",
-    status: "Active",
-  };
-
-  const [newsession, setNewSession] = useState(sessionfield);
+  const [newsession, setNewSession] = useState(
+    sessionInputData || {
+      session: "",
+      status: "Active",
+    },
+  );
 
   const sessionValue = (e) => {
     const value = e.target.value;
@@ -25,12 +25,12 @@ const Addexamyear = ({ setBg, onSend }) => {
     setBtnBg(!btnbg);
     const MySwal = withReactContent(Swal);
     MySwal.fire({
-      title: "Session Added",
+      title: `${sessionInputData ? "Session Updated" : "Session Added"}`,
       icon: "success",
       draggable: true,
       willClose: () => setBg(true),
     });
-    onSend(newsession);
+    onSend(newsession, index);
   };
 
   return (
@@ -52,6 +52,7 @@ const Addexamyear = ({ setBg, onSend }) => {
       </label>
       <input
         onChange={sessionValue}
+        value={newsession.session}
         name="session"
         className="p-2.5 rounded-xl placeholder-gray-400  focus:outline-2 focus:outline-blue-600
                  border-gray-300 border-2"
@@ -66,6 +67,7 @@ const Addexamyear = ({ setBg, onSend }) => {
       </label>
       <select
         onChange={sessionValue}
+        value={newsession.status}
         name="status"
         className="p-2.5 rounded-xl placeholder-gray-400  focus:outline-2 focus:outline-blue-600
        border-gray-300 border-2 cursor-pointer"
@@ -94,15 +96,27 @@ const Addexamyear = ({ setBg, onSend }) => {
           Cancel
         </button>
 
-        <button
-          type="submit"
-          className={`shadow-md 
+        {sessionInputData ? (
+          <button
+            type="submit"
+            className={`shadow-md 
+                      ${btnbg ? "bg-linear-to-b from-orange-500 to-orange-700" : "bg-linear-to-b from-orange-400 to-orange-600"}
+                       hover:from-orange-600 hover:to-orange-800
+                      text-white font-semibold text-base px-4 py-2 flex justify-center items-center gap-2 cursor-pointer rounded-lg`}
+          >
+            Update Session
+          </button>
+        ) : (
+          <button
+            type="submit"
+            className={`shadow-md 
                       ${btnbg ? "bg-linear-to-b from-blue-500 to-blue-700" : "bg-linear-to-b from-blue-400 to-blue-600"}
                        hover:from-blue-600 hover:to-blue-800
                       text-white font-semibold text-base px-4 py-2 flex justify-center items-center gap-2 cursor-pointer rounded-lg`}
-        >
-          Add Session
-        </button>
+          >
+            Add Session
+          </button>
+        )}
       </div>
     </form>
   );
