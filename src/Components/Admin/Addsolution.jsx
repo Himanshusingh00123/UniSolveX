@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { IoCloudUploadOutline } from "react-icons/io5";
 
-const Addsolution = ({ setBg, onSend }) => {
+const Addsolution = ({ setBg, onSend, solutionInputData, index }) => {
   const [btnbg, setBtnBg] = useState(true);
   const [fileName, setFileName] = useState(true);
   const fileInputRef = useRef(null);
@@ -13,16 +13,16 @@ const Addsolution = ({ setBg, onSend }) => {
   const getsemester = JSON.parse(localStorage.getItem("semester")) || [];
   const getsession = JSON.parse(localStorage.getItem("Session")) || [];
 
-  const solutionfield = {
-    course: "",
-    branch: "",
-    semester: "",
-    examYear: "",
-    quesPaper: "",
-    file: "",
-  };
-
-  const [newsolution, setNewSolution] = useState(solutionfield);
+  const [newsolution, setNewSolution] = useState(
+    solutionInputData || {
+      course: "",
+      branch: "",
+      semester: "",
+      examYear: "",
+      quesPaper: "",
+      file: "",
+    },
+  );
 
   const solutionValue = (e) => {
     const value = e.target.value;
@@ -37,12 +37,12 @@ const Addsolution = ({ setBg, onSend }) => {
     setBtnBg(!btnbg);
     const MySwal = withReactContent(Swal);
     MySwal.fire({
-      title: "Solution Added",
+      title: `${solutionInputData ? "Solution Updated" : "Solution Added"}`,
       icon: "success",
       draggable: true,
       willClose: () => setBg(true),
     });
-    onSend(newsolution);
+    onSend(newsolution, index);
   };
 
   const file = () => {
@@ -70,6 +70,7 @@ const Addsolution = ({ setBg, onSend }) => {
             Course *
           </label>
           <select
+            value={newsolution.course}
             onChange={solutionValue}
             name="course"
             className="p-2.5 rounded-xl  placeholder-gray-400  focus:outline-2 focus:outline-blue-600
@@ -98,6 +99,7 @@ const Addsolution = ({ setBg, onSend }) => {
             Branch *
           </label>
           <select
+            value={newsolution.branch}
             onChange={solutionValue}
             name="branch"
             className="p-2.5 rounded-xl  placeholder-gray-400  focus:outline-2 focus:outline-blue-600
@@ -126,6 +128,7 @@ const Addsolution = ({ setBg, onSend }) => {
         Semester *
       </label>
       <select
+        value={newsolution.semester}
         onChange={solutionValue}
         name="semester"
         className="p-2.5 rounded-xl placeholder-gray-400  focus:outline-2 focus:outline-blue-600
@@ -155,6 +158,7 @@ const Addsolution = ({ setBg, onSend }) => {
             Exam Year *
           </label>
           <select
+            value={newsolution.examYear}
             onChange={solutionValue}
             name="examYear"
             className="p-2.5 rounded-xl  placeholder-gray-400  focus:outline-2 focus:outline-blue-600
@@ -183,6 +187,7 @@ const Addsolution = ({ setBg, onSend }) => {
             Question Paper *
           </label>
           <input
+            value={newsolution.quesPaper}
             onChange={solutionValue}
             name="quesPaper"
             className="p-2.5 rounded-xl placeholder-gray-400  focus:outline-2 focus:outline-blue-600
@@ -234,15 +239,27 @@ const Addsolution = ({ setBg, onSend }) => {
           Cancel
         </button>
 
-        <button
-          type="submit"
-          className={`shadow-md 
+        {solutionInputData ? (
+          <button
+            type="submit"
+            className={`shadow-md 
+                          ${btnbg ? "bg-linear-to-b from-orange-500 to-orange-700" : "bg-linear-to-b from-orange-400 to-orange-600"}
+                           hover:from-orange-600 hover:to-orange-800
+                          text-white font-semibold text-base px-4 py-2 flex justify-center items-center gap-2 cursor-pointer rounded-lg`}
+          >
+            Update Solution
+          </button>
+        ) : (
+          <button
+            type="submit"
+            className={`shadow-md 
                           ${btnbg ? "bg-linear-to-b from-blue-500 to-blue-700" : "bg-linear-to-b from-blue-400 to-blue-600"}
                            hover:from-blue-600 hover:to-blue-800
                           text-white font-semibold text-base px-4 py-2 flex justify-center items-center gap-2 cursor-pointer rounded-lg`}
-        >
-          Upload Solution
-        </button>
+          >
+            Upload Solution
+          </button>
+        )}
       </div>
     </form>
   );

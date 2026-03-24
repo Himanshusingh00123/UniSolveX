@@ -44,6 +44,30 @@ const Solution = () => {
     });
   };
 
+  // ------------------------------------------------Update Solution of question Paper-----------------------------------
+
+  const receivedUpdatedSolution = (newdata, index) => {
+    const updatedNewsolution = [...newsolution];
+    updatedNewsolution[index] = newdata;
+    setNewSolution(updatedNewsolution);
+  };
+
+  const updatesolution = (index) => {
+    MySwal.fire({
+      width: "600px",
+      background: "none",
+      html: (
+        <Addsolution
+          setBg={setBg}
+          onSend={receivedUpdatedSolution}
+          solutionInputData={newsolution[index]}
+          index={index}
+        />
+      ),
+      showConfirmButton: false,
+      willClose: () => setBg(true),
+    });
+  };
   // -------------------------------------------------delete solution of question paper----------------------
 
   const deleteSolution = (index) => {
@@ -227,7 +251,7 @@ const Solution = () => {
                     <td>{date.toLocaleDateString("en-IN")}</td>
                     <td className=" flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">
                       <div
-                      onClick={()=>UpdateSession(index)}
+                        onClick={() => updatesolution(index)}
                         className="bg-linear-to-t from-emerald-600 to-emerald-400 
                                   hover:from-emerald-700 hover:to-emerald-500
                                   text-white py-1 px-3.5 shadow-md rounded-md 
