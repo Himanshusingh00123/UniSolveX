@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { IoCloudUploadOutline } from "react-icons/io5";
 
-const Addquestion = ({ setBg, onSend }) => {
+const Addquestion = ({ setBg, onSend, quesInputData, index }) => {
   const [btnbg, setBtnBg] = useState(true);
   const [fileName, setFileName] = useState(true);
   const fileInputRef = useRef(null);
@@ -13,16 +13,16 @@ const Addquestion = ({ setBg, onSend }) => {
   const getsem = JSON.parse(localStorage.getItem("semester")) || [];
   const getsession = JSON.parse(localStorage.getItem("Session")) || [];
 
-  const questionfield = {
-    course: "",
-    branch: "",
-    semester: "",
-    examYear: "",
-    subject: "",
-    file: "",
-  };
-
-  const [newquestion, setNewQuestion] = useState(questionfield);
+  const [newquestion, setNewQuestion] = useState(
+    quesInputData || {
+      course: "",
+      branch: "",
+      semester: "",
+      examYear: "",
+      subject: "",
+      file: "",
+    },
+  );
 
   const questionValue = (e) => {
     const value = e.target.value;
@@ -37,12 +37,12 @@ const Addquestion = ({ setBg, onSend }) => {
     setBtnBg(!btnbg);
     const MySwal = withReactContent(Swal);
     MySwal.fire({
-      title: "Question Paper Added",
+      title: `${quesInputData ? "Question Paper Updated" : "Question Paper Added"}`,
       icon: "success",
       draggable: true,
       willClose: () => setBg(true),
     });
-    onSend(newquestion);
+    onSend(newquestion, index);
   };
 
   const file = () => {
@@ -70,6 +70,7 @@ const Addquestion = ({ setBg, onSend }) => {
             Course *
           </label>
           <select
+            value={newquestion.course}
             onChange={questionValue}
             name="course"
             className="p-2.5 rounded-xl  placeholder-gray-400  focus:outline-2 focus:outline-blue-600
@@ -98,6 +99,7 @@ const Addquestion = ({ setBg, onSend }) => {
             Branch *
           </label>
           <select
+            value={newquestion.branch}
             onChange={questionValue}
             name="branch"
             className="p-2.5 rounded-xl  placeholder-gray-400  focus:outline-2 focus:outline-blue-600
@@ -126,6 +128,7 @@ const Addquestion = ({ setBg, onSend }) => {
         Semester *
       </label>
       <select
+        value={newquestion.semester}
         onChange={questionValue}
         name="semester"
         className="p-2.5 rounded-xl placeholder-gray-400  focus:outline-2 focus:outline-blue-600
@@ -155,6 +158,7 @@ const Addquestion = ({ setBg, onSend }) => {
             Exam Year *
           </label>
           <select
+            value={newquestion.examYear}
             onChange={questionValue}
             name="examYear"
             className="p-2.5 rounded-xl  placeholder-gray-400  focus:outline-2 focus:outline-blue-600
@@ -183,6 +187,7 @@ const Addquestion = ({ setBg, onSend }) => {
             Subject Name*
           </label>
           <input
+            value={newquestion.subject}
             onChange={questionValue}
             name="subject"
             className="p-2.5 rounded-xl placeholder-gray-400  focus:outline-2 focus:outline-blue-600
@@ -234,15 +239,27 @@ const Addquestion = ({ setBg, onSend }) => {
           Cancel
         </button>
 
-        <button
-          type="submit"
-          className={`shadow-md 
+        {quesInputData ? (
+          <button
+            type="submit"
+            className={`shadow-md 
+                      ${btnbg ? "bg-linear-to-b from-orange-500 to-orange-700" : "bg-linear-to-b from-orange-400 to-orange-600"}
+                       hover:from-orange-600 hover:to-orange-800
+                      text-white font-semibold text-base px-4 py-2 flex justify-center items-center gap-2 cursor-pointer rounded-lg`}
+          >
+            Update Paper
+          </button>
+        ) : (
+          <button
+            type="submit"
+            className={`shadow-md 
                       ${btnbg ? "bg-linear-to-b from-blue-500 to-blue-700" : "bg-linear-to-b from-blue-400 to-blue-600"}
                        hover:from-blue-600 hover:to-blue-800
                       text-white font-semibold text-base px-4 py-2 flex justify-center items-center gap-2 cursor-pointer rounded-lg`}
-        >
-          Upload Paper
-        </button>
+          >
+            Upload Paper
+          </button>
+        )}
       </div>
     </form>
   );

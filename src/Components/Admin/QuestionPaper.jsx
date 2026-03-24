@@ -39,6 +39,31 @@ const QuestionPaper = () => {
     });
   };
 
+  // --------------------------------------------update question-paper---------------------------------------------------------
+
+  const receivedUpdateQuestion = (newdata, index) => {
+    const UpdatePaper = [...newquestion];
+    UpdatePaper[index] = newdata;
+    setNewQuestion(UpdatePaper);
+  };
+
+  const UpdateQuesPaper = (index) => {
+    MySwal.fire({
+      width: "600px",
+      background: "none",
+      html: (
+        <Addquestion
+          setBg={setBg}
+          onSend={receivedUpdateQuestion}
+          quesInputData={newquestion[index]}
+          index={index}
+        />
+      ),
+      showConfirmButton: false,
+      willClose: () => setBg(true),
+    });
+  };
+
   // --------------------------------------------------delete Question Paper----------------------------------------------
   const deleteQuestionPaper = (index) => {
     Swal.fire({
@@ -221,6 +246,7 @@ const QuestionPaper = () => {
                     <td>No</td>
                     <td className=" flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">
                       <div
+                        onClick={() => UpdateQuesPaper(index)}
                         className="bg-linear-to-t from-emerald-600 to-emerald-400 
                             hover:from-emerald-700 hover:to-emerald-500
                             text-white py-1 px-3.5 shadow-md rounded-md 
