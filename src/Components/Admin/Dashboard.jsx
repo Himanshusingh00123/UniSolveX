@@ -5,8 +5,14 @@ import { BsClipboard2CheckFill } from "react-icons/bs";
 import { FaChartLine, FaEdit } from "react-icons/fa";
 import Chart from "react-apexcharts";
 import { RiDeleteBin5Fill } from "react-icons/ri";
+import { Key } from "lucide-react";
 
 const Dashboard = () => {
+  const getCourse = JSON.parse(localStorage.getItem("course"));
+  const getBranch = JSON.parse(localStorage.getItem("branch"));
+  const getPaper = JSON.parse(localStorage.getItem("question"));
+  const getSolution = JSON.parse(localStorage.getItem("solution"));
+
   const lineChart = {
     series: [
       {
@@ -152,11 +158,13 @@ const Dashboard = () => {
             <IoIosSchool className="text-gray-200 text-4xl" />
             Total Courses
           </h1>
-          <h3 className="text-5xl text-gray-300 font-bold mb-4 md:mb-0">4</h3>
+          <h3 className="text-5xl text-gray-300 font-bold mb-4 md:mb-0">
+            {getCourse.filter((item) => item.status === "Active").length}
+          </h3>
           <div className=" flex justify-between items-center mt-2">
             <h4 className="text-green-500 text-2xl font-semibold flex items-center gap-2">
               <FaChartLine />
-              8%
+              8.3%
             </h4>
             <p className="bg-green-600 text-white font-bold px-3 py-1 text-md rounded-full flex justify-center items-center">
               Active
@@ -168,7 +176,9 @@ const Dashboard = () => {
             <FaCodeBranch className="text-gray-200" />
             Total Branches
           </h1>
-          <h3 className="text-5xl text-gray-300 font-bold">24</h3>
+          <h3 className="text-5xl text-gray-300 font-bold">
+            {getBranch.length}
+          </h3>
           <div className=" flex justify-between items-center mt-2">
             <h4 className="text-green-400 text-2xl font-semibold flex gap-2 items-center">
               <FaChartLine />
@@ -184,7 +194,9 @@ const Dashboard = () => {
             <IoNewspaperSharp className=" text-gray-200" />
             Total Papers
           </h1>
-          <h3 className="text-5xl font-bold text-gray-300">25</h3>
+          <h3 className="text-5xl font-bold text-gray-300">
+            {getPaper.length}
+          </h3>
           <div className=" flex text-xl justify-end items-center mt-2 ">
             <h4 className="text-green-500 text-2xl font-semibold mr-3 flex gap-2 items-center">
               <FaChartLine />
@@ -198,7 +210,9 @@ const Dashboard = () => {
             <BsClipboard2CheckFill className="text-gray-200" />
             Total Solutions
           </h1>
-          <h3 className="text-5xl font-bold text-gray-300 ">22</h3>
+          <h3 className="text-5xl font-bold text-gray-300 ">
+            {getSolution.length}
+          </h3>
           <div className=" flex text-xl justify-end items-center mt-2 ">
             <h4 className="text-green-500 text-2xl font-semibold mr-3 flex gap-2 items-center">
               <FaChartLine />
