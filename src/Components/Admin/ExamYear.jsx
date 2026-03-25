@@ -10,8 +10,6 @@ const ExamYear = () => {
   const [bg, setBg] = useState(true);
   const MySwal = withReactContent(Swal);
 
-  let date = new Date();
-
   const [newsession, setNewSession] = useState(() => {
     const getsession = localStorage.getItem("Session");
     return getsession ? JSON.parse(getsession) : [];

@@ -25,7 +25,11 @@ const QuestionPaper = () => {
   }, [newquestion]);
 
   const receivedQuestion = (questionData) => {
-    setNewQuestion([...newquestion, questionData]);
+    const newQuesData = {
+      ...questionData,
+      uploadedOn: new Date().toLocaleDateString("en-IN"),
+    };
+    setNewQuestion([...newquestion, newQuesData]);
   };
 
   const addQuestion = () => {

@@ -4,14 +4,14 @@ import { IoNewspaperSharp } from "react-icons/io5";
 import { BsClipboard2CheckFill } from "react-icons/bs";
 import { FaChartLine, FaEdit } from "react-icons/fa";
 import Chart from "react-apexcharts";
-import { RiDeleteBin5Fill } from "react-icons/ri";
-import { Key } from "lucide-react";
 
 const Dashboard = () => {
-  const getCourse = JSON.parse(localStorage.getItem("course"));
-  const getBranch = JSON.parse(localStorage.getItem("branch"));
-  const getPaper = JSON.parse(localStorage.getItem("question"));
-  const getSolution = JSON.parse(localStorage.getItem("solution"));
+  const getCourse = JSON.parse(localStorage.getItem("course")) || [];
+  const getBranch = JSON.parse(localStorage.getItem("branch")) || [];
+  const getPaper = JSON.parse(localStorage.getItem("question")) || [];
+  const getSolution = JSON.parse(localStorage.getItem("solution")) || [];
+
+  // --------------------------------------------------------------charts-------------------------------------------------
 
   const lineChart = {
     series: [
@@ -146,6 +146,8 @@ const Dashboard = () => {
     },
   };
 
+  const latestPapers = [...getPaper].reverse().slice(0, 3);
+
   return (
     <div className="md:p-2 ">
       <div
@@ -164,7 +166,7 @@ const Dashboard = () => {
           <div className=" flex justify-between items-center mt-2">
             <h4 className="text-green-500 text-2xl font-semibold flex items-center gap-2">
               <FaChartLine />
-              8.3%
+              8.9%
             </h4>
             <p className="bg-green-600 text-white font-bold px-3 py-1 text-md rounded-full flex justify-center items-center">
               Active
@@ -234,7 +236,7 @@ const Dashboard = () => {
             <div className="h-9/12  grid sm:grid-cols-3 sm:gap-3 gap-2">
               <div className="bg-white  border shadow-sm border-gray-300 rounded-2xl py-3 px-4 flex-cols justify-center items-center">
                 <h1 className="text-3xl font-semibold text-gray-700 flex gap-3 items-center">
-                  8,387
+                  {getPaper.length}
                   <span className="text-sm font-extrabold text-green-600 flex gap-1 justify-center items-center">
                     ^<h3 className="text-md font-bold ">10.6%</h3>
                   </span>
@@ -246,7 +248,7 @@ const Dashboard = () => {
 
               <div className="bg-white  border shadow-sm border-gray-300 rounded-2xl py-3 px-4 flex-cols justify-center items-center">
                 <h1 className="text-3xl font-semibold text-gray-700 flex gap-3 items-center">
-                  4,821
+                  {getPaper.filter((item) => item.course === "B.Tech").length}
                   <span className="text-sm font-extrabold text-green-600 flex gap-1 justify-center items-center">
                     +<h3 className="text-md font-bold ">7.6%</h3>
                   </span>
@@ -256,7 +258,7 @@ const Dashboard = () => {
 
               <div className="bg-white  border shadow-sm border-gray-300 rounded-2xl py-3 px-4 flex-cols justify-center items-center">
                 <h1 className="text-3xl font-semibold text-gray-700 flex gap-3 items-center">
-                  2,264
+                  {getPaper.filter((item) => item.course === "BCA").length}
                   <span className="text-sm font-extrabold text-green-600 flex gap-1 justify-center items-center">
                     +<h3 className="text-md font-bold ">3.9%</h3>
                   </span>
@@ -286,7 +288,7 @@ const Dashboard = () => {
             <div className="h-9/12  grid sm:grid-cols-3 sm:gap-3 gap-2">
               <div className="bg-white  border shadow-sm border-gray-300 rounded-2xl py-3 px-4 flex-cols justify-center items-center">
                 <h1 className="text-3xl font-semibold text-gray-700 flex gap-3 items-center">
-                  4,320
+                  {getSolution.length}
                   <span className="text-sm font-extrabold text-green-600 flex gap-1 justify-center items-center">
                     ^<h3 className="text-md font-bold ">4.9%</h3>
                   </span>
@@ -298,7 +300,10 @@ const Dashboard = () => {
 
               <div className="bg-white  border shadow-sm border-gray-300 rounded-2xl py-3 px-4 flex-cols justify-center items-center">
                 <h1 className="text-3xl font-semibold text-gray-700 flex gap-3 items-center">
-                  2,864
+                  {
+                    getSolution.filter((item) => item.course === "B.Tech")
+                      .length
+                  }
                   <span className="text-sm font-extrabold text-green-600 flex gap-1 justify-center items-center">
                     +<h3 className="text-md font-bold ">3.2%</h3>
                   </span>
@@ -308,7 +313,7 @@ const Dashboard = () => {
 
               <div className="bg-white  border shadow-sm border-gray-300 rounded-2xl py-3 px-4 flex-cols justify-center items-center">
                 <h1 className="text-3xl font-semibold text-gray-700 flex gap-3 items-center">
-                  1,224
+                  {getSolution.filter((item) => item.course === "BCA").length}
                   <span className="text-sm font-extrabold text-green-600 flex gap-1 justify-center items-center">
                     +<h3 className="text-md font-bold ">2.2%</h3>
                   </span>
@@ -336,104 +341,52 @@ const Dashboard = () => {
           Recent Question Paper Uploads
         </h1>
         <div className="border border-gray-300 rounded-xl shadow-sm px-3 overflow-x-auto">
-          <table className="w-full text-center border-separate border-spacing-y-2">
-            <thead className="whitespace-nowrap bg-slate-800 text-white tracking-wide">
-              <th className="p-2 px-3 rounded-l-lg  w-2/12 tracking-wide ">
-                Course
-              </th>
-              <th className="border-l px-3 border-gray-300 tracking-wide">
-                Semester
-              </th>
-              <th className="border-l px-3 border-gray-300 w-3/12 tracking-wide ">
-                Subject
-              </th>
-              <th className="border-l px-3 border-gray-300 tracking-wide ">
-                Uploaded On
-              </th>
-              <th className="border-l border-gray-300 w-4/12 tracking-wide rounded-r-lg">
-                Action
-              </th>
-            </thead>
+          {latestPapers.length > 0 ? (
+            <table className="w-full text-center border-separate border-spacing-y-2">
+              <thead className="whitespace-nowrap bg-slate-800 text-white tracking-wide">
+                <th className="p-2 px-3 rounded-l-lg  w-3/12 tracking-wide ">
+                  Course
+                </th>
+                <th className="border-l px-3 border-gray-300 w-3/12 tracking-wide ">
+                  Branch
+                </th>
+                <th className="border-l px-3 border-gray-300 tracking-wide">
+                  Semester
+                </th>
+                <th className="border-l px-3 border-gray-300 w-3/12 tracking-wide ">
+                  Subject
+                </th>
+                <th className="border-l px-3 border-gray-300 w-2/12 tracking-wide rounded-r-lg">
+                  Uploaded On
+                </th>
+              </thead>
 
-            <tbody className="text-gray-600 text-center text-sm sm:text-base font-semibold whitespace-nowrap">
-              <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white">
-                <td className=" rounded-l-lg">B.Tech</td>
-                <td>5</td>
-                <td className="font-bold">python</td>
-                <td>04-03-2026</td>
-                <td className="flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">
-                  <div
-                    className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
-                  shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer 
-                  transition-all duration-300 hover:scale-105"
+              <tbody className="text-gray-600 text-center text-sm sm:text-base font-semibold whitespace-nowrap">
+                {latestPapers.map((item, index) => (
+                  <tr
+                    key={index}
+                    className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white"
                   >
-                    <FaEdit />
-                    Edit
-                  </div>
-                  <div
-                    className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
-                  shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer 
-                  transition-all duration-300 hover:scale-105 "
-                  >
-                    <RiDeleteBin5Fill />
-                    Delete
-                  </div>
-                </td>
-              </tr>
-              <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white ">
-                <td className=" rounded-l-lg">BCA</td>
-                <td className="">3</td>
-                <td className="font-bold">C++</td>
-                <td className="">02-01-2026</td>
-                <td className="flex justify-center items-center p-1.5 text-white gap-2">
-                  <div
-                    className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
-                  shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer 
-                  transition-all duration-300 hover:scale-105"
-                  >
-                    <FaEdit />
-                    Edit
-                  </div>
-                  <div
-                    className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
-                  shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer 
-                  transition-all duration-300 hover:scale-105"
-                  >
-                    <RiDeleteBin5Fill />
-                    Delete
-                  </div>
-                </td>
-              </tr>
+                    <td className=" rounded-l-lg">
+                      {item.course ? `${item.course}` : "No Course"}
+                    </td>
+                    <td>{item.branch ? `${item.branch}` : "No Branch"}</td>
+                    <td>{item.semester ? `Sem ${item.semester}` : "No Sem"}</td>
+                    <td className="py-2 font-bold">{item.subject}</td>
+                    <td>{item.uploadedOn}</td>
+                  </tr>
+                ))}
 
-              <tr className="odd:bg-linear-to-r odd:from-gray-200 odd:to-white even:bg-white ">
-                <td className=" rounded-l-lg">MBA</td>
-                <td className="">1</td>
-                <td className="font-bold">OOPs with Java</td>
-                <td className="">15-02-2026</td>
-                <td className="flex justify-center items-center p-1.5 text-white gap-2">
-                  <div
-                    className="bg-linear-to-b from-blue-500 to-blue-700 py-1 px-3.5 hover:from-blue-600 hover:to-blue-800
-                  shadow-sm rounded-md flex justify-center items-center gap-2 cursor-pointer 
-                  transition-all duration-300 hover:scale-105"
-                  >
-                    <FaEdit />
-                    Edit
-                  </div>
-                  <div
-                    className="bg-linear-to-b from-red-500 to-red-700 py-1 px-3.5 hover:from-red-600 hover:to-red-800
-                  shadow-sm rounded-md flex justify-center items-center gap-1.5 cursor-pointer 
-                  transition-all duration-300 hover:scale-105"
-                  >
-                    <RiDeleteBin5Fill />
-                    Delete
-                  </div>
-                </td>
-              </tr>
-              <p className="text-xs  text-gray-500 sm:hidden mb-1">
-                ← Scroll horizontally to see more →
-              </p>
-            </tbody>
-          </table>
+                <p className="text-xs  text-gray-500 sm:hidden mb-1">
+                  ← Scroll horizontally to see more →
+                </p>
+              </tbody>
+            </table>
+          ) : (
+            <div className="h-20 flex justify-center items-center text-lg  font-medium text-center text-gray-500 tracking-wide">
+              No Recent Question Paper found. Add your first Question Paper .
+            </div>
+          )}
         </div>
       </div>
     </div>
