@@ -25,6 +25,12 @@ const Layout = () => {
   const [active, setActive] = useState(0);
   const [menu, setMenu] = useState(false);
   const navigate = useNavigate();
+  const [profileSetting, setProfileSetting] = useState(false);
+
+  // -------------------------------------------------admin Setting---------------------------------------------------
+  const adminSetting = () => {
+    setProfileSetting(!profileSetting);
+  };
 
   const logout = () => {
     setActive(8);
@@ -245,10 +251,59 @@ const Layout = () => {
               <IoMdNotificationsOutline className="text-2xl" />
             </button>
             <img
+              onClick={adminSetting}
               src="https://png.pngtree.com/png-vector/20220719/ourmid/pngtree-color-icon---businessman-icon-color-sign-vectorteamwork-account-admin-photo-image_37961448.jpg"
               alt="logo"
-              className="rounded-full border-gray-400 border-2 p-1 hover:scale-105 cursor-pointer hover:border-indigo-400"
+              className="rounded-full relative  border-gray-400 border-2 p-1 hover:scale-105 cursor-pointer hover:border-indigo-400"
             />
+            <div
+              className={` bg-white border border-gray-300 rounded-xl 
+                ${profileSetting ? "sm:h-33 sm:w-44 h-30 w-40 " : "h-0 w-0 hidden"} absolute top-15 sm:top-19`}
+            >
+              <div
+                className="absolute -top-2 sm:left-20 left-15 w-0 h-0 
+                 border-l-8 border-r-8 border-b-8 
+                 border-l-transparent border-r-transparent border-b-white"
+              ></div>
+              <div className="flex flex-col gap-2 justify-center h-full ">
+                <Link
+                  to="/admin/setting"
+                  onClick={() => {
+                    setActive(7);
+                    setProfileSetting(false);
+                    if (window.innerWidth < 768) {
+                      setSidebar(false);
+                    }
+                  }}
+                  className={` 
+                 ${active === 7 ? "bg-gray-200 text-gray-800 shadow-sm" : "hover:bg-gray-200 hover:text-gray-700  "}
+                    cursor-pointer md:h-11 h-9 flex items-center rounded-lg gap-2 px-3 text-gray-600
+                    mx-3 `}
+                >
+                  <IoSettingsSharp className="text-xl shrink-0" />
+                  <h1
+                    className={`md:text-base text-sm font-semibold  overflow-hidden`}
+                  >
+                    Setting
+                  </h1>
+                </Link>
+
+                <div
+                  onClick={logout}
+                  className={`
+          ${active === 8 ? " bg-red-500/30 " : " hover:bg-red-500/25 "}
+              md:h-11 h-9 cursor-pointer  flex items-center 
+              rounded-lg gap-2 px-3  py-2 mx-3 text-red-600`}
+                >
+                  <MdLogout className="text-xl shrink-0" />
+                  <h1
+                    className={`md:text-base text-sm font-semibold  overflow-hidden`}
+                  >
+                    Logout
+                  </h1>
+                </div>
+              </div>
+            </div>
             <div className=" justify-center flex-col items-center ml-1 md:ml-0 ">
               <h2 className="md:text-lg text-md font-semibold text-gray-700">
                 Hi, Admin
