@@ -166,7 +166,15 @@ const Dashboard = () => {
           <div className=" flex justify-between items-center mt-2">
             <h4 className="text-green-500 text-2xl font-semibold flex items-center gap-2">
               <FaChartLine />
-              8.9%
+              {getCourse.filter((item) => item.status === "Active").length > 0
+                ? `${(
+                    (getCourse.filter((item) => item.status === "Active")
+                      .length /
+                      12) *
+                    100
+                  ).toFixed(2)}`
+                : "0"}
+              %
             </h4>
             <p className="bg-green-600 text-white font-bold px-3 py-1 text-md rounded-full flex justify-center items-center">
               Active
@@ -184,7 +192,10 @@ const Dashboard = () => {
           <div className=" flex justify-between items-center mt-2">
             <h4 className="text-green-400 text-2xl font-semibold flex gap-2 items-center">
               <FaChartLine />
-              12%
+              {getBranch.length > 0
+                ? `${((getBranch.length / 12) * 100).toFixed(2)}`
+                : "0"}
+              %
             </h4>
             <p className="bg-green-600 text-white font-bold px-3 py-1 text-md rounded-full flex justify-center items-center">
               Active
@@ -202,7 +213,10 @@ const Dashboard = () => {
           <div className=" flex text-xl justify-end items-center mt-2 ">
             <h4 className="text-green-500 text-2xl font-semibold mr-3 flex gap-2 items-center">
               <FaChartLine />
-              29%
+              {getPaper.length > 0
+                ? `${((getPaper.length / 30) * 100).toFixed(2)}`
+                : "0"}
+              %
             </h4>
             <h3 className=" text-gray-200 font-semibold ">This Month</h3>
           </div>
@@ -218,7 +232,10 @@ const Dashboard = () => {
           <div className=" flex text-xl justify-end items-center mt-2 ">
             <h4 className="text-green-500 text-2xl font-semibold mr-3 flex gap-2 items-center">
               <FaChartLine />
-              19%
+              {getSolution.length > 0
+                ? `${((getSolution.length / 30) * 100).toFixed(2)}`
+                : "0"}
+              %
             </h4>
             <h3 className=" text-gray-200 font-semibold ">This Month</h3>
           </div>
@@ -240,7 +257,10 @@ const Dashboard = () => {
                   <span className="text-sm font-extrabold text-green-600 flex gap-1 justify-center items-center">
                     ^
                     <h3 className="text-md font-bold ">
-                      {getPaper.length > 0 ? "15" : "0"}%
+                      {getPaper.length > 0
+                        ? `${((getPaper.length / 12) * 100).toFixed(2)}`
+                        : "0"}
+                      %
                     </h3>
                   </span>
                 </h1>
@@ -257,7 +277,7 @@ const Dashboard = () => {
                     <h3 className="text-md font-bold ">
                       {getPaper.filter((item) => item.course === "B.Tech")
                         .length > 0
-                        ? "12.5"
+                        ? `${((getPaper.filter((item) => item.course === "B.Tech").length / 12) * 100).toFixed(2)}`
                         : "0"}
                       %
                     </h3>
@@ -274,7 +294,7 @@ const Dashboard = () => {
                     <h3 className="text-md font-bold ">
                       {getPaper.filter((item) => item.course === "BCA").length >
                       0
-                        ? "8.5"
+                        ? `${((getPaper.filter((item) => item.course === "BCA").length / 12) * 100).toFixed(2)}`
                         : "0"}
                       %
                     </h3>
@@ -309,7 +329,10 @@ const Dashboard = () => {
                   <span className="text-sm font-extrabold text-green-600 flex gap-1 justify-center items-center">
                     ^
                     <h3 className="text-md font-bold ">
-                      {getSolution.length > 0 ? "12.5" : "0"}%
+                      {getSolution.length > 0
+                        ? `${((getSolution.length / 12) * 100).toFixed(2)}`
+                        : "0"}
+                      %
                     </h3>
                   </span>
                 </h1>
@@ -329,7 +352,7 @@ const Dashboard = () => {
                     <h3 className="text-md font-bold ">
                       {getSolution.filter((item) => item.course === "B.Tech")
                         .length > 0
-                        ? "18"
+                        ? `${((getSolution.filter((item) => item.course === "B.Tech").length / 12) * 100).toFixed(2)}`
                         : "0"}
                       %
                     </h3>
@@ -346,7 +369,7 @@ const Dashboard = () => {
                     <h3 className="text-md font-bold ">
                       {getSolution.filter((item) => item.course === "BCA")
                         .length > 0
-                        ? "7.6"
+                        ? `${((getSolution.filter((item) => item.course === "BCA").length / 12) * 100).toFixed(2)}`
                         : "0"}
                       %
                     </h3>
