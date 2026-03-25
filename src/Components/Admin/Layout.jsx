@@ -258,14 +258,14 @@ const Layout = () => {
             />
             <div
               className={` bg-white border border-gray-300 rounded-xl 
-                ${profileSetting ? "sm:h-33 sm:w-44 h-30 w-40 " : "h-0 w-0 hidden"} absolute top-15 sm:top-19`}
+                ${profileSetting ? "sm:h-33 sm:w-44 h-25 w-36 " : "h-0 w-0 hidden"} absolute top-15 sm:top-19`}
             >
               <div
                 className="absolute -top-2 sm:left-20 left-15 w-0 h-0 
                  border-l-8 border-r-8 border-b-8 
                  border-l-transparent border-r-transparent border-b-white"
               ></div>
-              <div className="flex flex-col gap-2 justify-center h-full ">
+              <div className="flex flex-col sm:gap-2 gap-1 justify-center h-full ">
                 <Link
                   to="/admin/setting"
                   onClick={() => {

@@ -10,14 +10,16 @@ import QuestionPaper from "./Components/Admin/QuestionPaper";
 import Solution from "./Components/Admin/Solution";
 import Setting from "./Components/Admin/Setting";
 import "remixicon/fonts/remixicon.css";
-import 'animate.css';
-
+import "animate.css";
+import AdminLogin from "./Components/Login/AdminLogin";
+import Notfound from "./Components/NotFound/Notfound";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<AdminLogin />} />
         <Route path="/admin" element={<Layout />}>
           <Route index element={<Dashboard />} />
           <Route path="courses" element={<Courses />} />
@@ -28,6 +30,7 @@ const App = () => {
           <Route path="Solution" element={<Solution />} />
           <Route path="setting" element={<Setting />} />
         </Route>
+        <Route path="*" element={<Notfound />} />
       </Routes>
     </BrowserRouter>
   );
