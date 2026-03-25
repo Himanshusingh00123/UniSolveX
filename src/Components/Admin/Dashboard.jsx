@@ -2,7 +2,8 @@ import { IoIosSchool } from "react-icons/io";
 import { FaCodeBranch } from "react-icons/fa6";
 import { IoNewspaperSharp } from "react-icons/io5";
 import { BsClipboard2CheckFill } from "react-icons/bs";
-import { FaChartLine, FaEdit } from "react-icons/fa";
+import { FaChartLine } from "react-icons/fa";
+import CountUp from "react-countup";
 import Chart from "react-apexcharts";
 
 const Dashboard = () => {
@@ -161,7 +162,10 @@ const Dashboard = () => {
             Total Courses
           </h1>
           <h3 className="text-5xl text-gray-300 font-bold mb-4 md:mb-0">
-            {getCourse.filter((item) => item.status === "Active").length}
+            <CountUp
+              end={getCourse.filter((item) => item.status === "Active").length}
+              duration={1}
+            />
           </h3>
           <div className=" flex justify-between items-center mt-2">
             <h4 className="text-green-500 text-2xl font-semibold flex items-center gap-2">
@@ -187,7 +191,7 @@ const Dashboard = () => {
             Total Branches
           </h1>
           <h3 className="text-5xl text-gray-300 font-bold">
-            {getBranch.length}
+            <CountUp end={getBranch.length} duration={1} />
           </h3>
           <div className=" flex justify-between items-center mt-2">
             <h4 className="text-green-400 text-2xl font-semibold flex gap-2 items-center">
@@ -208,7 +212,7 @@ const Dashboard = () => {
             Total Papers
           </h1>
           <h3 className="text-5xl font-bold text-gray-300">
-            {getPaper.length}
+            <CountUp end={getPaper.length} duration={1} />
           </h3>
           <div className=" flex text-xl justify-end items-center mt-2 ">
             <h4 className="text-green-500 text-2xl font-semibold mr-3 flex gap-2 items-center">
@@ -227,7 +231,7 @@ const Dashboard = () => {
             Total Solutions
           </h1>
           <h3 className="text-5xl font-bold text-gray-300 ">
-            {getSolution.length}
+            <CountUp end={getSolution.length} duration={1} />
           </h3>
           <div className=" flex text-xl justify-end items-center mt-2 ">
             <h4 className="text-green-500 text-2xl font-semibold mr-3 flex gap-2 items-center">
@@ -440,7 +444,7 @@ const Dashboard = () => {
               </tbody>
             </table>
           ) : (
-            <div className="h-20 flex justify-center items-center text-lg  font-medium text-center text-gray-500 tracking-wide">
+            <div className="h-20 flex justify-center items-center sm:text-lg  text-base font-medium text-center text-gray-500 tracking-wide">
               No Recent Question Paper found. Add your first Question Paper .
             </div>
           )}
