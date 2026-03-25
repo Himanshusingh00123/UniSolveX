@@ -176,7 +176,7 @@ const Addsolution = ({ setBg, onSend, solutionInputData, index }) => {
                 className="sm:text-base text-xs text-gray-600 font-medium"
                 value={item.session}
               >
-                {item.session}
+                {item.session} - {parseInt(item.session) + 1}
               </option>
             ))}
           </select>

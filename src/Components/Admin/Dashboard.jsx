@@ -238,7 +238,10 @@ const Dashboard = () => {
                 <h1 className="text-3xl font-semibold text-gray-700 flex gap-3 items-center">
                   {getPaper.length}
                   <span className="text-sm font-extrabold text-green-600 flex gap-1 justify-center items-center">
-                    ^<h3 className="text-md font-bold ">10.6%</h3>
+                    ^
+                    <h3 className="text-md font-bold ">
+                      {getPaper.length > 0 ? "15" : "0"}%
+                    </h3>
                   </span>
                 </h1>
                 <h2 className="text-lg font-medium text-gray-500">
@@ -250,7 +253,14 @@ const Dashboard = () => {
                 <h1 className="text-3xl font-semibold text-gray-700 flex gap-3 items-center">
                   {getPaper.filter((item) => item.course === "B.Tech").length}
                   <span className="text-sm font-extrabold text-green-600 flex gap-1 justify-center items-center">
-                    +<h3 className="text-md font-bold ">7.6%</h3>
+                    +
+                    <h3 className="text-md font-bold ">
+                      {getPaper.filter((item) => item.course === "B.Tech")
+                        .length > 0
+                        ? "12.5"
+                        : "0"}
+                      %
+                    </h3>
                   </span>
                 </h1>
                 <h2 className="text-lg font-medium text-gray-500">B.Tech</h2>
@@ -260,7 +270,14 @@ const Dashboard = () => {
                 <h1 className="text-3xl font-semibold text-gray-700 flex gap-3 items-center">
                   {getPaper.filter((item) => item.course === "BCA").length}
                   <span className="text-sm font-extrabold text-green-600 flex gap-1 justify-center items-center">
-                    +<h3 className="text-md font-bold ">3.9%</h3>
+                    +
+                    <h3 className="text-md font-bold ">
+                      {getPaper.filter((item) => item.course === "BCA").length >
+                      0
+                        ? "8.5"
+                        : "0"}
+                      %
+                    </h3>
                   </span>
                 </h1>
                 <h2 className="text-lg font-medium text-gray-500">BCA</h2>
@@ -290,7 +307,10 @@ const Dashboard = () => {
                 <h1 className="text-3xl font-semibold text-gray-700 flex gap-3 items-center">
                   {getSolution.length}
                   <span className="text-sm font-extrabold text-green-600 flex gap-1 justify-center items-center">
-                    ^<h3 className="text-md font-bold ">4.9%</h3>
+                    ^
+                    <h3 className="text-md font-bold ">
+                      {getSolution.length > 0 ? "12.5" : "0"}%
+                    </h3>
                   </span>
                 </h1>
                 <h2 className="text-lg font-medium text-gray-500">
@@ -305,7 +325,14 @@ const Dashboard = () => {
                       .length
                   }
                   <span className="text-sm font-extrabold text-green-600 flex gap-1 justify-center items-center">
-                    +<h3 className="text-md font-bold ">3.2%</h3>
+                    +
+                    <h3 className="text-md font-bold ">
+                      {getSolution.filter((item) => item.course === "B.Tech")
+                        .length > 0
+                        ? "18"
+                        : "0"}
+                      %
+                    </h3>
                   </span>
                 </h1>
                 <h2 className="text-lg font-medium text-gray-500">B.Tech</h2>
@@ -315,7 +342,14 @@ const Dashboard = () => {
                 <h1 className="text-3xl font-semibold text-gray-700 flex gap-3 items-center">
                   {getSolution.filter((item) => item.course === "BCA").length}
                   <span className="text-sm font-extrabold text-green-600 flex gap-1 justify-center items-center">
-                    +<h3 className="text-md font-bold ">2.2%</h3>
+                    +
+                    <h3 className="text-md font-bold ">
+                      {getSolution.filter((item) => item.course === "BCA")
+                        .length > 0
+                        ? "7.6"
+                        : "0"}
+                      %
+                    </h3>
                   </span>
                 </h1>
                 <h2 className="text-lg font-medium text-gray-500">BCA</h2>
