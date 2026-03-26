@@ -9,7 +9,6 @@ import Addsolution from "./Addsolution";
 const Solution = () => {
   const [bg, setBg] = useState(true);
   const MySwal = withReactContent(Swal);
-  let date = new Date();
 
   const getcourse = JSON.parse(localStorage.getItem("course")) || [];
   const getbranch = JSON.parse(localStorage.getItem("branch")) || [];
@@ -30,7 +29,11 @@ const Solution = () => {
   }, [newsolution]);
 
   const receivedSolution = (solutionData) => {
-    setNewSolution([...newsolution, solutionData]);
+    const newSolutionData = {
+      ...solutionData,
+      UploadedOn: new Date().toLocaleDateString("en-IN"),
+    };
+    setNewSolution([...newsolution, newSolutionData]);
   };
 
   const addSolution = () => {
@@ -248,7 +251,7 @@ const Solution = () => {
                         ? `${item.examYear} - ${parseInt(item.examYear) + 1}`
                         : "No Session"}
                     </td>
-                    <td>{date.toLocaleDateString("en-IN")}</td>
+                    <td>{item.UploadedOn}</td>
                     <td className=" flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">
                       <div
                         onClick={() => updatesolution(index)}
