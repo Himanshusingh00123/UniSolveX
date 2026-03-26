@@ -257,11 +257,11 @@ const Layout = () => {
               className="rounded-full relative  border-gray-400 border-2 p-1 hover:scale-105 cursor-pointer hover:border-indigo-400"
             />
             <div
-              className={` bg-white border border-gray-300 rounded-xl 
-                ${profileSetting ? "sm:h-33 sm:w-44 h-25 w-36 " : "h-0 w-0 hidden"} absolute top-15 sm:top-19`}
+              className={` bg-white shadow-lg shadow-indigo-300 border border-gray-300 rounded-xl 
+                ${profileSetting ? "sm:h-33 sm:w-44 h-25 w-36 " : "h-0 w-0 hidden"} absolute top-15 right-3 sm:top-19 sm:right-2`}
             >
               <div
-                className="absolute -top-2 sm:left-20 left-15 w-0 h-0 
+                className="absolute -top-2 sm:left-10 left-6.5 w-0 h-0 
                  border-l-8 border-r-8 border-b-8 
                  border-l-transparent border-r-transparent border-b-white"
               ></div>
@@ -276,8 +276,8 @@ const Layout = () => {
                     }
                   }}
                   className={` 
-                 ${active === 7 ? "bg-gray-200 text-gray-800 shadow-sm" : "hover:bg-gray-200 hover:text-gray-700  "}
-                    cursor-pointer md:h-11 h-9 flex items-center rounded-lg gap-2 px-3 text-gray-600
+                 ${active === 7 ? "bg-blue-500 text-white shadow-sm" : "hover:bg-blue-500 hover:text-white  "}
+                    cursor-pointer md:h-11 h-9 flex items-center rounded-lg gap-2 px-3 hover:shadow-md text-gray-600 hover:scale-103
                     mx-3 `}
                 >
                   <IoSettingsSharp className="text-xl shrink-0" />
@@ -291,9 +291,9 @@ const Layout = () => {
                 <div
                   onClick={logout}
                   className={`
-          ${active === 8 ? " bg-red-500/30 " : " hover:bg-red-500/25 "}
-              md:h-11 h-9 cursor-pointer  flex items-center 
-              rounded-lg gap-2 px-3  py-2 mx-3 text-red-600`}
+                ${active === 8 ? " bg-red-500/30 " : " hover:bg-red-500/25 "}
+                  md:h-11 h-9 cursor-pointer  flex items-center hover:scale-103
+                  rounded-lg gap-2 px-3  py-2 mx-3 text-red-600 hover:shadow-md`}
                 >
                   <MdLogout className="text-xl shrink-0" />
                   <h1
