@@ -203,7 +203,7 @@ const Home = () => {
         </div>
 
         <Link
-          to="/admin"
+          to="/login"
           className="absolute bottom-6 right-6 px-5 py-2 bg-indigo-600 text-white rounded-full shadow-lg hover:scale-110 hover:shadow-indigo-500/50 transition"
         >
           Admin
