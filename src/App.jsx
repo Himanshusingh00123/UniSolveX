@@ -13,6 +13,7 @@ import "remixicon/fonts/remixicon.css";
 import "animate.css";
 import AdminLogin from "./Components/Login/AdminLogin";
 import Notfound from "./Components/NotFound/Notfound";
+import ResetPassword from "./Components/Login/ResetPassword";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<AdminLogin />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/admin" element={<Layout />}>
           <Route index element={<Dashboard />} />
           <Route path="courses" element={<Courses />} />
