@@ -1,7 +1,40 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/Logo.png";
+import { useState } from "react";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 const AdminLogin = () => {
+  const navigate = useNavigate();
+  const loginField = {
+    email: "",
+    password: "",
+  };
+  const [login, setLogin] = useState(loginField);
+  const loginValue = (e) => {
+    const value = e.target.value;
+    const key = e.target.name;
+    setLogin({
+      ...login,
+      [key]: value,
+    });
+  };
+
+  const checkLogin = (e) => {
+    e.preventDefault();
+    if (login.email === "admin@1248" && login.password === "8421") {
+      navigate("/admin");
+    } else {
+      const MySwal = withReactContent(Swal);
+      MySwal.fire({
+        title: "Oops...",
+        text: "Your email or password is wrong!",
+        icon: "error",
+        draggable: true,
+      });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col sm:gap-2 justify-center items-center">
       <div className="flex justify-center items-center animate__animated animate__pulse">
@@ -11,6 +44,7 @@ const AdminLogin = () => {
         </h1>
       </div>
       <form
+        onSubmit={checkLogin}
         className="bg-white gap-2 sm:p-8 p-6 flex flex-col sm:w-4/12   w-11/12
       rounded-lg border border-gray-200 shadow-sm"
       >
@@ -19,6 +53,8 @@ const AdminLogin = () => {
           Email
         </label>
         <input
+          onChange={loginValue}
+          name="email"
           className="border p-3 rounded-lg  placeholder:tracking-wide border-gray-300
            bg-gray-100 placeholder:text-lg placeholder:text-gray-400 focus:outline-blue-600 focus:outline-2"
           type="email"
@@ -29,6 +65,7 @@ const AdminLogin = () => {
           Password
         </label>
         <input
+          onChange={loginValue}
           className="border p-3 rounded-lg  placeholder:tracking-wide border-gray-300
            bg-gray-100 placeholder:text-lg placeholder:text-gray-400 focus:outline-blue-600 focus:outline-2"
           type="password"
