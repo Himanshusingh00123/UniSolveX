@@ -3,15 +3,15 @@ import logo from "../../assets/images/Logo.png";
 
 const AdminLogin = () => {
   return (
-    <div className="h-screen bg-gray-100 flex flex-col sm:gap-2 justify-center items-center">
-      <div className="flex justify-center items-center">
-        <img src={logo} className="h-17 w-23 -ml-7" />
+    <div className="min-h-screen bg-gray-100 flex flex-col sm:gap-2 justify-center items-center">
+      <div className="flex justify-center items-center animate__animated animate__pulse">
+        <img src={logo} className="h-17 w-auto -ml-7" />
         <h1 className="text-4xl text-blue-600 font-extrabold -ml-3">
           UniSolve<span className="text-amber-500">X</span>
         </h1>
       </div>
       <form
-        className="bg-white gap-2 sm:p-8 p-6 flex flex-col sm:w-4/12 sm:h-7/12  w-11/12
+        className="bg-white gap-2 sm:p-8 p-6 flex flex-col sm:w-4/12   w-11/12
       rounded-lg border border-gray-200 shadow-sm"
       >
         <h2 className="text-2xl font-bold">Login to admin account</h2>
