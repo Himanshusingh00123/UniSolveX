@@ -7,7 +7,7 @@ const Logout = () => {
 
   const loggedout = () => {
     setBtnBg(false);
-    window.location.href = "/login";
+    window.location.href = "/";
   };
 
   return (
