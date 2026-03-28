@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
 import { FaPowerOff } from "react-icons/fa";
 
 const Logout = () => {
@@ -8,6 +7,7 @@ const Logout = () => {
 
   const loggedout = () => {
     setBtnBg(false);
+    window.location.href = "/login";
   };
 
   return (
@@ -30,7 +30,7 @@ const Logout = () => {
 
         <button
           onClick={loggedout}
-          type="submit"
+          type="button"
           className={`shadow-md 
                           ${btnbg ? "bg-linear-to-b from-red-500 to-red-700" : "bg-linear-to-b from-red-400 to-red-600"}
                            hover:from-red-600 hover:to-red-800
