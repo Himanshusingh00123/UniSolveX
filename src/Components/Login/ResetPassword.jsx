@@ -1,7 +1,53 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/Logo.png";
+import { useState } from "react";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 const ResetPassword = () => {
+  const resetfield = {
+    email: "",
+    Newpassword: "",
+  };
+  const [resetpass, setresetPass] = useState(resetfield);
+  const getlogin = JSON.parse(localStorage.getItem("logincheck")) || [];
+
+  const resetvalue = (e) => {
+    const value = e.target.value;
+    const key = e.target.name;
+    setresetPass({
+      ...resetpass,
+      [key]: value,
+    });
+  };
+
+  const changePassword = (e) => {
+    e.preventDefault();
+    const MySwal = withReactContent(Swal);
+
+    if (getlogin.email === resetpass.email) {
+      const updatedPass = {
+        ...getlogin,
+        password: resetpass.Newpassword,
+      };
+      localStorage.setItem("logincheck", JSON.stringify(updatedPass));
+
+      MySwal.fire({
+        title: "Password Reset Successfully",
+        text: "Done",
+        icon: "success",
+        draggable: true,
+      });
+    } else {
+      MySwal.fire({
+        title: "Oops...",
+        text: "Your email is wrong!",
+        icon: "error",
+        draggable: true,
+      });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col sm:gap-2 justify-center items-center">
       <div className="flex justify-center items-center animate__animated animate__pulse">
@@ -11,6 +57,7 @@ const ResetPassword = () => {
         </h1>
       </div>
       <form
+        onSubmit={changePassword}
         className="bg-white gap-2 sm:p-8 p-6 flex flex-col sm:w-4/12  w-11/12
       rounded-lg border border-gray-200 shadow-sm"
       >
@@ -21,6 +68,8 @@ const ResetPassword = () => {
           Email *
         </label>
         <input
+          onChange={resetvalue}
+          name="email"
           className="border p-3 rounded-lg  placeholder:tracking-wide border-gray-300
            bg-gray-100 placeholder:text-lg placeholder:text-gray-400 focus:outline-blue-600 focus:outline-2"
           type="email"
@@ -31,10 +80,11 @@ const ResetPassword = () => {
           Password
         </label>
         <input
+          onChange={resetvalue}
           className="border p-3 rounded-lg  placeholder:tracking-wide border-gray-300
            bg-gray-100 placeholder:text-lg placeholder:text-gray-400 focus:outline-blue-600 focus:outline-2"
           type="password"
-          name="password"
+          name="Newpassword"
           placeholder="Set your new password"
           required
         />

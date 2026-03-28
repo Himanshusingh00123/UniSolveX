@@ -1,6 +1,6 @@
 import { Link, replace, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/Logo.png";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
@@ -20,9 +20,14 @@ const AdminLogin = () => {
     });
   };
 
+  const getloginValue = JSON.parse(localStorage.getItem("logincheck")) || [];
+
   const checkLogin = (e) => {
     e.preventDefault();
-    if (login.email === "admin@1248" && login.password === "8421") {
+    if (
+      login.email === "admin@1248" &&
+      login.password === `${getloginValue?.password || 8421}`
+    ) {
       navigate("/admin", { replace: true });
       localStorage.setItem("logincheck", JSON.stringify(login));
     } else {
