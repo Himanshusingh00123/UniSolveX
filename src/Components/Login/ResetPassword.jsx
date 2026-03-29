@@ -10,7 +10,7 @@ const ResetPassword = () => {
     Newpassword: "",
   };
   const [resetpass, setresetPass] = useState(resetfield);
-  const getlogin = JSON.parse(localStorage.getItem("logincheck")) || [];
+  const getlogin = JSON.parse(localStorage.getItem("logincheck")) || {};
 
   const resetvalue = (e) => {
     const value = e.target.value;
@@ -34,9 +34,12 @@ const ResetPassword = () => {
 
       MySwal.fire({
         title: "Password Reset Successfully",
-        text: "Done",
         icon: "success",
         draggable: true,
+      });
+      setresetPass({
+        email: "",
+        Newpassword: "",
       });
     } else {
       MySwal.fire({
@@ -69,6 +72,7 @@ const ResetPassword = () => {
         </label>
         <input
           onChange={resetvalue}
+          value={resetpass.email}
           name="email"
           className="border p-3 rounded-lg  placeholder:tracking-wide border-gray-300
            bg-gray-100 placeholder:text-lg placeholder:text-gray-400 focus:outline-blue-600 focus:outline-2"
@@ -81,6 +85,7 @@ const ResetPassword = () => {
         </label>
         <input
           onChange={resetvalue}
+          value={resetpass.Newpassword}
           className="border p-3 rounded-lg  placeholder:tracking-wide border-gray-300
            bg-gray-100 placeholder:text-lg placeholder:text-gray-400 focus:outline-blue-600 focus:outline-2"
           type="password"
