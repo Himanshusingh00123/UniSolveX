@@ -9,6 +9,58 @@ const Setting = () => {
   const [bg, setBg] = useState(true);
   const MySwal = withReactContent(Swal);
 
+  // ----------------------------------------------------------Password setting------------------------------------------
+
+  const getPassword = JSON.parse(localStorage.getItem("logincheck")) || {};
+
+  const passfield = {
+    currpass: "",
+    newpassword: "",
+    confirmpass: "",
+  };
+
+  const [newPass, setNewPass] = useState(passfield);
+
+  const passvalue = (e) => {
+    const value = e.target.value;
+    const key = e.target.name;
+    setNewPass({
+      ...newPass,
+      [key]: value,
+    });
+  };
+
+  const changePassword = (e) => {
+    e.preventDefault();
+    setBg(!bg);
+    if (newPass.newpassword === newPass.confirmpass) {
+      const updatedPassword = {
+        ...getPassword,
+        password: newPass.confirmpass,
+      };
+      localStorage.setItem("logincheck", JSON.stringify(updatedPassword));
+
+      MySwal.fire({
+        title: "Password Change Successfully",
+        icon: "success",
+        draggable: true,
+      });
+    } else {
+      MySwal.fire({
+        title: "Oops...",
+        text: "Password not match",
+        icon: "error",
+        draggable: true,
+      });
+    }
+    setNewPass({
+      currpass: "",
+      newpassword: "",
+      confirmpass: "",
+    });
+  };
+  // ---------------------------------------------------------------profile setting---------------------------------------------
+
   const profilefield = {
     fullname: "",
     email: "",
@@ -105,7 +157,7 @@ const Setting = () => {
       {/* ----------------------------------------------------------password section------------------------------------------ */}
 
       <div className="bg-white border border-gray-300 rounded-xl sm:mt-4 mt-2 sm:p-6 p-5 sm:w-7/12 h-114 sm:h-110">
-        <form className="grid gap-1 h-2/12">
+        <form onSubmit={changePassword} className="grid gap-1 h-2/12">
           <h1 className="text-2xl text-gray-700 font-semibold flex items-center gap-2">
             <TbLockPassword className="text-indigo-500" />
             Change Password
@@ -118,8 +170,11 @@ const Setting = () => {
             Current Password
           </label>
           <input
+            onChange={passvalue}
+            value={newPass.currpass}
+            name="currpass"
             className="border border-gray-300 rounded-lg 
-                      p-2 bg-gray-100 focus:outline-blue-500 focus:outline-2"
+                    p-2 bg-gray-100 focus:outline-blue-500 focus:outline-2"
             type="password"
             placeholder="Enter Your Current Password"
             required
@@ -129,6 +184,9 @@ const Setting = () => {
             New Password
           </label>
           <input
+            onChange={passvalue}
+            value={newPass.newpassword}
+            name="newpassword"
             className="border border-gray-300 rounded-lg 
                       p-2 bg-gray-100 focus:outline-blue-500 focus:outline-2"
             type="password"
@@ -140,15 +198,17 @@ const Setting = () => {
             Confirm New Password
           </label>
           <input
+            onChange={passvalue}
+            value={newPass.confirmpass}
+            name="confirmpass"
             className="border border-gray-300 rounded-lg 
-                      p-2 bg-gray-100 focus:outline-blue-500 focus:outline-2"
+                    p-2 bg-gray-100 focus:outline-blue-500 focus:outline-2"
             type="password"
             placeholder="Confirm Your New Password"
             required
           />
 
           <button
-            onClick={() => setBg(!bg)}
             className={`${bg ? "bg-linear-to-b from-blue-500 to-blue-700" : "bg-linear-to-b from-blue-400 to-blue-600"}
              text-white font-semibold sm:w-4/12 hover:from-blue-600 hover:to-blue-800
                px-3.5 py-2.5 flex items-center justify-center gap-2 cursor-pointer rounded-lg mt-4`}
