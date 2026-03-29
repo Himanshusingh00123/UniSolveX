@@ -165,14 +165,18 @@ const Branch = () => {
                     <td className="font-bold">
                       {
                         getqueston.filter(
-                          (ques) => ques.branch === item.branch_name,
+                          (ques) =>
+                            ques.branch === item.branch_name &&
+                            ques.course === item.course,
                         ).length
                       }
                     </td>
                     <td className="font-bold">
                       {
                         getsolution.filter(
-                          (sol) => sol.branch === item.branch_name,
+                          (sol) =>
+                            sol.branch === item.branch_name &&
+                            sol.course === item.course,
                         ).length
                       }
                     </td>
