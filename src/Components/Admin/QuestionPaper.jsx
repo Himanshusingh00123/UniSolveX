@@ -14,6 +14,7 @@ const QuestionPaper = () => {
   const getbranch = JSON.parse(localStorage.getItem("branch")) || [];
   const getsem = JSON.parse(localStorage.getItem("semester")) || [];
   const getsession = JSON.parse(localStorage.getItem("Session")) || [];
+  const getsolution = JSON.parse(localStorage.getItem("solution")) || [];
 
   const [newquestion, setNewQuestion] = useState(() => {
     const getquestion = JSON.parse(localStorage.getItem("question"));
@@ -247,7 +248,16 @@ const QuestionPaper = () => {
                         ? `${item.examYear} - ${parseInt(item.examYear) + 1}`
                         : "No Session"}
                     </td>
-                    <td>No</td>
+                    <td>
+                      {getsolution.some(
+                        (sol) =>
+                          sol.quesPaper === item.subject &&
+                          sol.course === item.course &&
+                          sol.branch === item.branch,
+                      )
+                        ? "Yes"
+                        : "No"}
+                    </td>
                     <td className=" flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">
                       <div
                         onClick={() => UpdateQuesPaper(index)}
