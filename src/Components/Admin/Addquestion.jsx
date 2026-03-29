@@ -57,10 +57,11 @@ const Addquestion = ({ setBg, onSend, quesInputData, index }) => {
     >
       <div>
         <h1 className="text-xl font-semibold text-gray-900 text-start">
-          Upload Question Paper
+          {quesInputData ? "Update" : "Upload"} Question Paper
         </h1>
         <p className="sm:text-base text-sm text-start ">
-          Fill in the details and upload the Question Paper.
+          Fill in the details and {quesInputData ? "update" : "upload"} the
+          question paper.
         </p>
       </div>
 

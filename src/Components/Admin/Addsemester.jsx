@@ -44,10 +44,11 @@ const Addsemester = ({ setBg, onSend, semInputData, index }) => {
     >
       <div>
         <h1 className="text-xl font-semibold text-gray-900 text-start">
-          Add New Semester
+          {semInputData ? "Update Semester" : "Add New Semester"}
         </h1>
         <p className="sm:text-base text-sm text-start ">
-          Fill in the details to create a new Semester.
+          Fill in the details to{" "}
+          {semInputData ? "update a semester." : "create a new semester."}
         </p>
       </div>
 

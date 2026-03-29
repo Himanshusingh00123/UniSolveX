@@ -40,10 +40,13 @@ const Addexamyear = ({ setBg, onSend, sessionInputData, index }) => {
     >
       <div>
         <h1 className="text-xl font-semibold text-gray-900 text-start">
-          Add New Exam Session
+          {sessionInputData ? "Update Exam Session" : "Add New Exam Session"}
         </h1>
         <p className="sm:text-base text-sm text-start ">
-          Fill in the detail to create a new Exam Session.
+          Fill in the detail to{" "}
+          {sessionInputData
+            ? "update a exam session. "
+            : "create a new exam session."}
         </p>
       </div>
 

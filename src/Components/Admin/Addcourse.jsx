@@ -41,10 +41,11 @@ const Addcourse = ({ setBg, onSend, courseInputData, index }) => {
     >
       <div>
         <h1 className="text-xl font-semibold text-gray-900 text-start">
-          Add New Course
+          {courseInputData ? "Update Course" : "Add New Course"}
         </h1>
         <p className="sm:text-base text-sm text-start ">
-          Fill in the details to create a new course.
+          Fill in the details to{" "}
+          {courseInputData ? "update a course." : "create a new course."}
         </p>
       </div>
 

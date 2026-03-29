@@ -42,10 +42,11 @@ const Addbranch = ({ setBg, onSend, branchInputData, index }) => {
     >
       <div>
         <h1 className="text-xl font-semibold text-gray-900 text-start">
-          Add New Branch
+          {branchInputData ? "Update Branch" : "Add New Branch"}
         </h1>
         <p className="sm:text-base text-sm text-start ">
-          Fill in the details to create a new branch.
+          Fill in the details to{" "}
+          {branchInputData ? "update a branch." : "create a new branch."}
         </p>
       </div>
 

@@ -57,10 +57,11 @@ const Addsolution = ({ setBg, onSend, solutionInputData, index }) => {
     >
       <div>
         <h1 className="text-xl font-semibold text-gray-900 text-start">
-          Upload Solution
+          {solutionInputData ? "Update" : "Upload"} Solution
         </h1>
         <p className="sm:text-base text-sm text-start ">
-          Fill in the details and upload the PDF of Solution .
+          Fill in the details and{" "}
+          {solutionInputData ? "update" : "upload the PDF of"} Solution .
         </p>
       </div>
 
