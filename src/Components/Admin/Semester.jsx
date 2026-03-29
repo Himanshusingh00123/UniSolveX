@@ -12,6 +12,8 @@ const Semester = () => {
 
   const getcourse = JSON.parse(localStorage.getItem("course")) || [];
   const getbranch = JSON.parse(localStorage.getItem("branch")) || [];
+  const getquestion = JSON.parse(localStorage.getItem("question")) || [];
+  const getsolution = JSON.parse(localStorage.getItem("solution")) || [];
 
   const [newsem, setNewSem] = useState(() => {
     try {
@@ -191,8 +193,26 @@ const Semester = () => {
                     </td>
                     <td>{item.course ? `${item.course}` : "No Course"}</td>
                     <td>{item.branch ? `${item.branch}` : "No Branch"}</td>
-                    <td className="font-bold">0</td>
-                    <td className="font-bold">0</td>
+                    <td className="font-bold">
+                      {
+                        getquestion.filter(
+                          (ques) =>
+                            ques.semester === item.semester &&
+                            ques.course === item.course &&
+                            ques.branch === item.branch,
+                        ).length
+                      }
+                    </td>
+                    <td className="font-bold">
+                      {
+                        getsolution.filter(
+                          (sol) =>
+                            sol.semester === item.semester &&
+                            sol.course === item.course &&
+                            sol.branch === item.branch,
+                        ).length
+                      }
+                    </td>
                     <td className="flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">
                       <div
                         onClick={() => updateSem(index)}

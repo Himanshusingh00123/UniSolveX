@@ -11,6 +11,8 @@ const Branch = () => {
   const MySwal = withReactContent(Swal);
 
   const getCourse = JSON.parse(localStorage.getItem("course")) || [];
+  const getqueston = JSON.parse(localStorage.getItem("question")) || [];
+  const getsolution = JSON.parse(localStorage.getItem("solution")) || [];
 
   const [newbranch, setNewBranch] = useState(() => {
     const getbranch = localStorage.getItem("branch");
@@ -160,8 +162,20 @@ const Branch = () => {
                       {item.branch_name}
                     </td>
                     <td>{item.course ? `${item.course}` : "No Course"}</td>
-                    <td className="font-bold">0</td>
-                    <td className="font-bold">0</td>
+                    <td className="font-bold">
+                      {
+                        getqueston.filter(
+                          (ques) => ques.branch === item.branch_name,
+                        ).length
+                      }
+                    </td>
+                    <td className="font-bold">
+                      {
+                        getsolution.filter(
+                          (sol) => sol.branch === item.branch_name,
+                        ).length
+                      }
+                    </td>
                     <td className="flex justify-center items-center p-1.5 text-white gap-2 rounded-r-xl">
                       <div
                         onClick={() => updatebranch(index)}
