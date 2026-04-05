@@ -48,7 +48,7 @@ const Faq = () => {
           {faqData.map((faq, index) => (
             <div
               key={index}
-              className={`border rounded-xl p-6 transition-all duration-300
+              className={`border rounded-xl p-6  transition-all duration-300
               ${
                 active === index
                   ? "bg-indigo-50 border-indigo-600"
@@ -57,7 +57,7 @@ const Faq = () => {
             >
               <button
                 onClick={() => toggle(index)}
-                className="w-full flex justify-between items-center text-left"
+                className="w-full cursor-pointer flex justify-between items-center text-left"
               >
                 <h5 className="text-lg font-medium text-gray-900">
                   {faq.question}
