@@ -89,6 +89,18 @@ const AdminLogin = () => {
         >
           <span className="hover:border-b-2 ">Forgot password?</span>
         </Link>
+
+        <div className="mt-4 text-center bg-gray-50 p-3 rounded-lg border border-gray-200">
+          <p className="text-sm sm:text-base text-gray-600 font-medium">
+            Demo Admin Credentials
+          </p>
+          <p className="text-sm sm:text-base text-blue-600 font-semibold break-all">
+            Email: admin@1248
+          </p>
+          <p className="text-sm sm:text-base text-amber-500 font-semibold">
+            Password: 8421
+          </p>
+        </div>
       </form>
     </div>
   );
